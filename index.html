@@ -1,16 +1,422 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="ru">
 <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Сергей Федоров — Архитектура • Информационная безопасность • DevSecOps</title>
+  <meta name="description" content="Эксперт в области архитектуры и информационной безопасности. Международные проекты, корпоративные стандарты, DevSecOps, Kubernetes, SAST/SCA. Кейсы, сертификаты, патенты, публикации, контакты." />
+  <meta name="theme-color" content="#0b0d14" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#0b0d14;--panel:#0f1220;--card:#111427;--text:#e9e9f0;--muted:#9aa0b5;--line:#1c2140;--acc:#66e0ff;--acc2:#8b5cf6;--grad:linear-gradient(135deg,#66e0ff,#8b5cf6);--shadow:0 20px 60px rgba(0,0,0,.35)}
+    .light{--bg:#f6f7fb;--panel:#fff;--card:#fff;--text:#121318;--muted:#5a6075;--line:#e6e8f2;--shadow:0 18px 40px rgba(0,0,0,.08)}
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Noto Sans",Arial,sans-serif}
+    a{color:var(--acc);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:1160px;margin:0 auto;padding:24px}
 
-<meta charset="UTF-8">
+    .nav{position:sticky;top:0;z-index:30;background:rgba(15,18,32,.6);backdrop-filter:saturate(160%) blur(10px);border-bottom:1px solid var(--line)}
+    .nav.light{background:rgba(255,255,255,.85)}
+    .nav-inner{max-width:1160px;margin:0 auto;padding:10px 24px;display:flex;gap:14px;align-items:center}
+    .brand{font-weight:800;letter-spacing:.3px;display:flex;align-items:center;gap:10px} /* NEW: выравниваем с аватаром */
+    .sp{flex:1}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--text);font-weight:600}
+    .btn:hover{background:color-mix(in srgb,var(--card),#fff 6%)}
+    .cta{background:var(--grad);color:#0b0d14;border:0}
+    .cta:hover{filter:saturate(115%)}
 
-<title> Пример простой страницы html</title>
+    .hero{position:relative;border:1px solid var(--line);background:radial-gradient(1100px 520px at 0% -10%,rgba(102,224,255,.14),transparent 60%),radial-gradient(900px 500px at 110% 0%,rgba(139,92,246,.12),transparent 60%),var(--panel);border-radius:22px;box-shadow:var(--shadow);padding:38px;overflow:hidden}
+    .hero h1{font-size:clamp(28px,4.4vw,48px);margin:0 0 10px;font-weight:800;line-height:1.1}
+    .hero p{margin:0 0 18px;color:var(--muted);font-size:clamp(16px,2vw,18px)}
+
+    /* NEW: сетка для широкого места под фото */
+    .hero .layout{display:grid;grid-template-columns:220px 1fr;gap:20px;align-items:center}
+    @media(max-width:760px){.hero .layout{grid-template-columns:1fr;gap:16px}}
+
+    /* Большой аватар в hero */
+    .avatar-lg{width:200px;height:200px;border-radius:18px;border:1px solid var(--line);background:var(--card);object-fit:cover;box-shadow:var(--shadow)}
+    @media(max-width:760px){.avatar-lg{width:116px;height:116px;border-radius:16px}}
+
+    /* Крошечный круглый аватар в шапке, появляется при скролле */
+    .nav-avatar{width:32px;height:32px;border-radius:50%;border:1px solid var(--line);object-fit:cover;box-shadow:var(--shadow);opacity:0;transform:scale(.85);transition:all .22s ease}
+    .nav.show-avatar .nav-avatar{opacity:1;transform:scale(1)} /* NEW: показываем после прокрутки */
+
+    section{margin-top:24px}
+    h2{font-size:20px;margin:0 0 12px}
+    .cards{display:grid;grid-template-columns:1fr;gap:14px}
+    @media(min-width:860px){.cards{grid-template-columns:1fr 1fr}}
+    .card{border:1px solid var(--line);background:var(--card);border-radius:16px;padding:16px;box-shadow:var(--shadow)}
+    .card h3{margin:0 0 8px;font-size:18px}
+    .meta{display:flex;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:13px}
+    .list{margin:8px 0 0 0;padding-left:18px}
+    .tag{display:inline-block;border:1px solid var(--line);padding:4px 8px;border-radius:8px;margin:2px 6px 0 0;background:rgba(102,224,255,.10);font-size:12px}
+    .two{display:grid;grid-template-columns:1fr;gap:14px}
+    @media(min-width:860px){.two{grid-template-columns:1fr 1fr}}
+    .timeline{border-left:2px solid var(--line);padding-left:18px}
+    .titem{position:relative;margin-bottom:12px}
+    .titem:before{content:"";position:absolute;left:-10px;top:8px;width:10px;height:10px;border-radius:50%;background:var(--acc)}
+    .quote{font-style:italic;color:var(--muted);border-left:3px solid var(--acc2);padding-left:12px}
+    .footer{margin:32px 0 12px;color:var(--muted);text-align:center}
+    .center{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+    [data-reveal]{opacity:0;transform:translateY(10px);transition:all .6s ease}
+    .reveal{opacity:1;transform:none}
+
+    /* Research accordion — компактнее */
+    .research-acc details {border: 1px solid var(--line);background: var(--card);border-radius: 10px;margin: 6px 0;box-shadow: var(--shadow)}
+    .research-acc summary {cursor: pointer;padding: 10px 14px;font-weight: 600;font-size: 15px;list-style: none}
+    .research-acc summary::-webkit-details-marker { display: none; }
+    .research-acc summary::before {content:"▸";margin-right:8px;color:var(--muted);transition: transform .2s ease}
+    .research-acc details[open] summary::before {transform: rotate(90deg);color: var(--acc)}
+    .research-acc .meta-line {padding: 8px 16px 14px 28px;font-size: 14px;color: var(--muted);line-height:1.5}
+    .research-acc .meta-line ul.list {margin:0}
+  </style>
 </head>
-
 <body>
+  <div class="nav" id="nav">
+    <div class="nav-inner">
+      <!-- NEW: мини‑аватар + имя -->
+      <div class="brand">
+        <img class="nav-avatar" src="assets/avatar.jpg" alt=""/>
+        <span>Сергей Федоров</span>
+      </div>
+      <a href="#experience">Опыт</a>
+      <a href="#cases">Кейсы</a>
+      <a href="#skills">Навыки</a>
+      <a href="#achievements">Достижения</a>
+      <a href="#research">Исследования</a>
+      <a href="#certs">Сертификаты/Патенты</a>
+      <a href="#education">Образование</a>
+      <div class="sp"></div>
+      <button class="btn" id="theme">🌙 Тема</button>
+      <a class="btn cta" href="#contact">Связаться</a>
+    </div>
+  </div>
 
-Пример простой страницы - для того, чтобы посмотреть код, нажмите ctrl + U
+  <div class="wrap">
+    <!-- HERO / SUMMARY -->
+    <section class="hero" data-reveal>
+      <div class="layout"> <!-- NEW -->
+        <img class="avatar-lg" src="assets/avatar.jpg" alt="Сергей Федоров"/> <!-- NEW -->
+        <div>
+          <h1>Сергей Федоров</h1>
+          <p>Эксперт в области архитектуры и информационной безопасности. Разрабатываю внутренние стандарты, сопровождаю стратегические инициативы и международные ИТ-проекты. Опыт системного проектирования и внедрения высоконагруженных систем, включая проработку, приёмку и контроль качества ПО.</p>
+          <div class="center" style="margin-top:14px">
+            <a class="btn cta" href="assets/CV.pdf" target="_blank" rel="noopener">Скачать CV (PDF)</a>
+            <a class="btn" href="#cases">Смотреть кейсы</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- остальной контент БЕЗ изменений -->
+    <!-- EXPERIENCE -->
+    <section id="experience" data-reveal>
+      <h2>Experience</h2>
+      <div class="card timeline">
+        <div class="titem">
+          <h3>Эксперт информационной безопасности — ПАО Сбербанк</h3>
+          <div class="meta">01.2021 – настоящее время</div>
+          <ul class="list">
+            <li><strong>Международные проекты</strong>
+              <ul class="list">
+                <li>Руководил экспертизой архитектуры и безопасности продуктов при открытии филиалов в КНР и других странах.</li>
+                <li>Выявлял недочёты в решениях, организовывал доработку и улучшение продуктов совместно с иностранными подрядчиками.</li>
+                <li>Формировал требования по ИБ и контролировал их реализацию, снижая эксплуатационные риски международных систем.</li>
+                <li>Вёл переговоры с иностранными подрядчиками и контролировал их доработку до соответствия корпоративным и международным стандартам.</li>
+              </ul>
+            </li>
+            <li><strong>Архитектурная экспертиза и аудит решений</strong>
+              <ul class="list">
+                <li>Провел экспертизу <strong>50+ проектов</strong>: от идеи до приёмки, обеспечив соответствие стандартам ИБ и корпоративной архитектуры.</li>
+                <li>Анализировал архитектурные решения на устойчивость к киберугрозам, выдавал рекомендации и корректировки.</li>
+                <li>Сопровождал команды разработки как <strong>solution-архитектор</strong>, помогая интегрировать требования ИБ в проектные решения.</li>
+                <li>Составил более <strong>2000 экспертных заключений</strong>, по результатам которых были устранены уязвимости и повышена надежность и безопасность внедрённых систем.</li>
+                <li>Разрабатывал <strong>архитектуру высоконагруженных и комплексных продуктов</strong>, включая системный ландшафт, интеграцию сервисов и выбор технологий.</li>
+                <li>Проводил аудит и <strong>перепроектирование архитектуры существующих решений</strong>, устраняя узкие места и повышая масштабируемость и отказоустойчивость.</li>
+                <li>Формировал <strong>целевые архитектурные модели</strong> для крупных продуктов и сопровождал их внедрение на всех этапах жизненного цикла.</li>
+                <li>Участвовал в <strong>модернизации ранее внедрённых решений</strong>, улучшая их безопасность, производительность и совместимость с корпоративными стандартами.</li>
+              </ul>
+            </li>
+            <li><strong>DevSecOps и автоматизация</strong>
+              <ul class="list">
+                <li>Разработал и внедрил методологию <strong>SAST/SCA для проверки RPA-алгоритмов</strong>, что повысило защищённость кода и снизило число уязвимостей на ранних этапах.</li>
+                <li>Создал и внедрил <strong>2 внутренних стандарта безопасности и архитектуры для RPA</strong>, что снизило риски автоматизации и повысило уровень контроля.</li>
+                <li>Разработал «<strong>методологию быстрой автоматизации</strong>», которая сократила сроки внедрения защищённых бизнес-решений.</li>
+                <li>Сопровождал и оптимизировал <strong>100+ бизнес-процессов</strong>, внедряя безопасные практики и координируя работу нескольких команд.</li>
+                <li>Построил полный цикл <strong>безопасной разработки и управления уязвимостями</strong>, обеспечив стабильную эксплуатацию и развитие систем.</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="titem">
+          <h3>Стажёр-исследователь — Научная лаборатория НИУ ВШЭ</h3>
+          <div class="meta">11.2020 – 12.2020</div>
+          <ul class="list">
+            <li>Участвовал в проекте: «Эффективные протоколы защиты данных в киберфизических системах на основе методов постквантовой криптографии и стеганографического сокрытия информации».</li>
+            <li>Выполнял исследование и разработку протоколов, повышающих устойчивость распределённых систем к потенциальным атакам.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CASES / PROJECTS -->
+    <section id="cases" data-reveal>
+      <h2>Кейсы</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Международный запуск (КНР): экспертиза и приёмка</h3>
+          <div class="meta">Аудит архитектуры/ИБ, выявление недочётов, требования, переговоры и контроль доработок</div>
+          <ul class="list">
+            <li>Достижение соответствия локальным и корпоративным стандартам; запуск без критических инцидентов.</li>
+            <li>Снижение эксплуатационных рисков международных систем.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Архитектурная экспертиза 50+ проектов</h3>
+          <div class="meta">От идеи до приёмки: рекомендации, целевые модели, сопровождение команд как solution‑архитектор</div>
+          <ul class="list">
+            <li>2000+ экспертных заключений — устранены уязвимости, повышена надёжность.</li>
+            <li>Аудит и перепроектирование: рост масштабируемости и отказоустойчивости.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>DevSecOps: методологии и стандарты</h3>
+          <div class="meta">SAST/SCA для RPA, 2 внутренних стандарта, «методология быстрой автоматизации»</div>
+          <ul class="list">
+            <li>Сокращение time‑to‑prod со встроенной безопасностью.</li>
+            <li>100+ бизнес‑процессов — сопровождение и оптимизация.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" data-reveal>
+      <h2>Навыки</h2>
+      <div class="cards">
+        <div class="card"><h3>Architecture</h3><div class="meta">Solution/Enterprise · Security Architecture · Microservices · API/Service Mesh (Istio) · Target Operating Model</div></div>
+        <div class="card"><h3>Security</h3><div class="meta">Threat Modeling · SAST/SCA/SBOM · Hardening/Compliance · Vulnerability Mgmt · Security Testing</div></div>
+        <div class="card"><h3>Platform</h3><div class="meta">Kubernetes · Cloud/CI/CD · Monitoring & Alerting · RPA · Git</div></div>
+        <div class="card"><h3>Soft</h3><div class="meta">Negotiation · System/Critical Thinking · Stakeholder Mgmt · Mentoring · International Collaboration</div></div>
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS -->
+    <section id="achievements" data-reveal>
+      <h2>Achievements</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Corporate Recognition</h3>
+          <ul class="list">
+            <li>Благодарность ПАО Сбербанк (2022) за вклад в развитие архитектуры и кибербезопасности.</li>
+            <li>2 место на внутреннем CTF ПАО Сбербанк (2023), подтверждение экспертизы в практической кибербезопасности.</li>
+            <li>Участвовал в создании и сопровождении множества продуктов, поставленных на внешний рынок.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Education & Knowledge Sharing</h3>
+          <ul class="list">
+            <li>Автор онлайн-курса «Операционные системы семейства UNIX. Системное программирование» (НИУ ВШЭ, 2022), размещённого на платформе OpenEdu (<a target="_blank" rel="noopener" href="https://openedu.ru/course/hse/UNIX/">ссылка</a>).</li>
+            <li>Создание и внедрение «Методологии быстрой автоматизации» (2023), применяемой для ускоренного внедрения защищённых бизнес-решений.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Research & Conferences</h3>
+          <ul class="list">
+            <li>Победитель конференции Е.В. Арменского (2023) с исследованием «Анализ аномальных ситуаций сетевого трафика по данным журналов NGINX».</li>
+            <li>Автор ряда внутренних и внешних выступлений по темам DevSecOps и автоматизации.</li>
+            <li>Arctic Code Vault Contributor at GitHub (2020).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESEARCH ACTIVITY -->
+    <section id="research" data-reveal>
+      <h2>Research activity — доклады</h2>
+      <div class="research-acc">
+        <details>
+          <summary>2025 · ICICR 2025 (Далянь, Китай)</summary>
+          <div class="meta-line">
+            <ul class="list">
+              <li><strong>Даты проведения:</strong> 16–18 мая 2025 года</li>
+              <li><strong>Место проведения:</strong> Далянь, Китай</li>
+              <li><strong>Доклад:</strong> «AI-Driven Multi-Agent System for Real-Time Security Analysis of Software Releases»</li>
+              <li><strong>Ссылки:</strong> <a href="http://www.icrconf.com/" target="_blank">сайт конференции</a> · <a href="assets/certs/icicr2025_cert.pdf" target="_blank">сертификат участия (PDF)</a></li>
+            </ul>
+          </div>
+        </details>
+        <details>
+          <summary>2025 · VIII Всероссийская ИТ-конференция (ТГУ, онлайн)</summary>
+          <div class="meta-line">
+            <ul class="list">
+              <li><strong>Даты проведения:</strong> 22–24 апреля 2025 года (выступил 24)</li>
+              <li><strong>Место проведения:</strong> Тольяттинский государственный университет, Тольятти (онлайн)</li>
+              <li><strong>Доклад:</strong> «Сравнение подходов для оценки риска возникновения критичных дефектов в релизах программного обеспечения»</li>
+              <li><strong>Ссылки:</strong> <a href="https://sites.google.com/view/itmutgu/" target="_blank">сайт конференции</a> · <a href="assets/certs/itconf2025_cert.pdf" target="_blank">сертификат участия</a> · <a href="assets/papers/itconf2025_paper.pdf" target="_blank">тезисы</a></li>
+            </ul>
+          </div>
+        </details>
+        <details>
+          <summary>2025 · XXIX Межвузовская НТ-конференция им. Е.В. Арменского (МИЭМ НИУ ВШЭ, Москва)</summary>
+          <div class="meta-line">
+            <ul class="list">
+              <li><strong>Даты проведения:</strong> 22–28 апреля 2025 года (выступил 22)</li>
+              <li><strong>Место проведения:</strong> Московский институт электроники и математики им. А.Н. Тихонова НИУ ВШЭ, Москва</li>
+              <li><strong>Доклад:</strong> «Автоматизация устранения уязвимостей в программном обеспечении с использованием мультиагентной системы и механизма генерации с дополненной выборкой»</li>
+              <li><strong>Ссылки:</strong> <a href="https://miem.hse.ru/armntk/" target="_blank">сайт конференции</a> · <a href="assets/certs/armen2025_cert.pdf" target="_blank">сертификат участия</a> · <a href="assets/papers/armen2025_paper.pdf" target="_blank">тезисы</a></li>
+            </ul>
+          </div>
+        </details>
+        <details>
+          <summary>2023 · Межвузовская НТ-конференция им. Е.В. Арменского</summary>
+          <div class="meta-line">
+            <ul class="list">
+              <li><strong>Даты проведения:</strong> 27 февраля – 7 марта 2023 года (выступил 27)</li>
+              <li><strong>Место проведения:</strong> Российская Федерация, Москва</li>
+              <li><strong>Доклад:</strong> «Исследование аномальных ситуаций сетевого трафика по данным журналов web-сервера nginx»</li>
+              <li><strong>Ссылки:</strong> <a href="https://miem.hse.ru/armntk/" target="_blank">сайт конференции</a> · <a href="https://miem.hse.ru/mirror/pubs/share/direct/876266078.pdf" target="_blank">текст доклада (PDF)</a> · <a href="assets/certs/armen2023_cert.pdf" target="_blank">сертификат участия</a></li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- CERTIFICATES & PATENTS -->
+    <section id="certs" data-reveal>
+      <h2>Certificates</h2>
+      <div class="two">
+        <div class="card">
+          <h3>Сертификаты</h3>
+          <ul class="list">
+            <li>Удостоверение о ПК: «Проектирование и оценка корпоративной архитектуры» — <a href="assets/certs/scan.pdf" target="_blank" rel="noopener">PDF</a></li>
+            <li>Coursera: Version Control with Git (Atlassian) — <a href="assets/certs/Coursera_7PYZA5CTYYRW.pdf" target="_blank" rel="noopener">PDF</a></li>
+            <li>Coursera: Successful Negotiation (U. Michigan) — <a href="assets/certs/Coursera_EVQKZ8WHAYYS.pdf" target="_blank" rel="noopener">PDF</a></li>
+            <li>Sber AppSec: Безопасное использование OSS — <a href="assets/certs/Sber_AppSec_OpenSource.pdf" target="_blank" rel="noopener">PDF</a></li>
+            <li>Полный список курсов: <a target="_blank" rel="noopener" href="https://www.notion.so/2519d2345f3a80758041dfdf05822e5b?pvs=21">смотреть в Notion</a></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Патенты (выборочно)</h3>
+          <ul class="list">
+            <li>Выделение критичных релизов программных роботов… — <a href="assets/patents/2025665620.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
+            <li>Вычисление кратных точек на ЭК (форма Монтгомери) — <a href="assets/patents/2025665848.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
+            <li>Анализ вычислительной производительности микропроцессора — <a href="assets/patents/2025666516.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
+            <li>Ускоренная программная реализация Camellia-128 — <a href="assets/patents/2025667963.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- COURSES -->
+    <section id="courses" data-reveal>
+      <h2>Courses</h2>
+      <p>Тут я выложил сертификаты пройденных курсов: <a target="_blank" rel="noopener" href="https://www.notion.so/2519d2345f3a80758041dfdf05822e5b?pvs=21">Курсы</a></p>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" data-reveal>
+      <h2>Projects</h2>
+      <div class="card">
+        <h3>Мультиагентная система для всех моих домашних задач (на Python)</h3>
+        <ul class="list">
+          <li>Поиск информации</li>
+          <li>Трейдинг</li>
+          <li>Автоматизация умного дома</li>
+          <li>Оповещение в ТГ</li>
+          <li>И многое другое…</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section id="publications" data-reveal>
+      <h2>Publications</h2>
+      <div class="card">
+        <h3>1. TBD сейчас на этапе верификации</h3>
+        <ul class="list">
+          <li>Название статьи</li>
+          <li>Название журнала</li>
+          <li>Год публикации</li>
+          <li>Том, номер выпуска, страницы</li>
+          <li>DOI или ссылка</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- EDUCATION / LANG -->
+    <section id="education" data-reveal>
+      <h2>Education</h2>
+      <div class="two">
+        <div class="card">
+          <ul class="list">
+            <li><strong>HSE in Moscow — PHD: Информационная безопасность</strong> (2023 – 2026) · <a target="_blank" rel="noopener" href="https://st.hse.ru/programmes">сайт программы</a></li>
+            <li><strong>HSE in Moscow — Специалитет: Компьютерная безопасность</strong> (2017 – 2023) · ВКР: <a target="_blank" rel="noopener" href="http://hse.ru/edu/vkr/808862820">Исследование аномальных ситуаций сетевого трафика…</a></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Languages</h3>
+          <div class="meta">Russian — native · English — B2 · Japanese — elementary</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" data-reveal>
+      <h2>About me + Hobbies</h2>
+      <div class="card">
+        <p>Увлекаюсь разработкой, архитектурой, инвестициями (прогнозирование и аналитика), автоматизацией и поиском нестандартных решений.</p>
+        <p>Мне интересно всё, что связано с архитектурой и созданием сложных ИТ-систем. Люблю автоматизировать процессы и находить нестандартные подходы к задачам. Для меня важно не только решать технические проблемы, но и делать системы действительно удобными и безопасными для людей и бизнеса.</p>
+        <p>Инвестиции и аналитика — ещё одна сфера интересов: анализ рынков тренирует способность видеть систему целиком, просчитывать сценарии и находить оптимальные стратегии.</p>
+        <p class="quote">Любимые фразы: “Science is elegant” и “Smooth seas don’t make good sailors”. =D</p>
+        <hr style="border:0;border-top:1px solid var(--line);margin:12px 0"/>
+        <p>Сопровождение и оптимизация более 100 процессов. Проработка безопасных решений для бизнеса. Руководил и координировал работу нескольких команд разработки и сопровождения коммунальных автоматизированных систем. Построил полный цикл безопасной разработки и управления уязвимостями. Обеспечил стабильную эксплуатацию и развитие систем в соответствии с требованиями безопасности и архитектуры.</p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" data-reveal>
+      <h2>Contact</h2>
+      <div class="card">
+        <div class="two">
+          <div>
+            <p><strong>Email:</strong> <a href="mailto:missc0nn3ct@gmail.com">missc0nn3ct@gmail.com</a><br/>
+            <strong>Тел.:</strong> +7 977 873 1024<br/>
+            <strong>Дата рождения:</strong> 26 апреля</p>
+            <p><a target="_blank" rel="noopener" href="https://www.linkedin.com/in/disc0nn3ct/">LinkedIn</a> · <a target="_blank" rel="noopener" href="https://github.com/disc0nn3ct">GitHub</a></p>
+          </div>
+          <div>
+            <p class="quote">«Science is elegant» · «Smooth seas don’t make good sailors»</p>
+            <a class="btn cta" href="assets/CV.pdf" target="_blank" rel="noopener">Скачать CV (PDF)</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">© Сергей Федоров · Готово к публикации на GitHub Pages</div>
+  </div>
+
+  <script>
+    const body=document.body, nav=document.getElementById('nav');
+    const themeBtn=document.getElementById('theme');
+    const setTheme=v=>{const light=v==='light'||v===true;body.classList.toggle('light',light);nav.classList.toggle('light',light);localStorage.setItem('theme',light?'light':'dark');themeBtn.textContent=light?'☀️ Тема':'🌙 Тема'};
+    themeBtn.onclick=()=> setTheme(body.classList.contains('light')? 'dark':'light');
+    setTheme(localStorage.getItem('theme')||'dark');
+
+    const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('reveal');io.unobserve(e.target)}})},{threshold:.1});
+    document.querySelectorAll('[data-reveal]').forEach(el=>io.observe(el));
+
+    /* NEW: показывать мини‑аватар в шапке после прокрутки hero */
+    const showAvatarOnScroll=()=>{
+      const trigger = 180; // порог появления, подгони при желании
+      if(window.scrollY > trigger){ nav.classList.add('show-avatar'); }
+      else{ nav.classList.remove('show-avatar'); }
+    };
+    window.addEventListener('scroll', showAvatarOnScroll, {passive:true});
+    showAvatarOnScroll();
+  </script>
 </body>
-
 </html>
