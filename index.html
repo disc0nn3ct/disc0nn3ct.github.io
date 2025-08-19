@@ -6,6 +6,12 @@
   <title>Сергей Федоров — Архитектура • Информационная безопасность • DevSecOps</title>
   <meta name="description" content="Эксперт в области архитектуры и информационной безопасности. Международные проекты, корпоративные стандарты, DevSecOps, Kubernetes, SAST/SCA. Кейсы, сертификаты, патенты, публикации, контакты." />
   <meta name="theme-color" content="#0b0d14" />
+
+  <!-- hreflang для двух языков -->
+  <link rel="alternate" href="/en.html" hreflang="en">
+  <link rel="alternate" href="/" hreflang="ru">
+  <link rel="alternate" href="/en.html" hreflang="x-default">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -18,32 +24,34 @@
     a:hover{text-decoration:underline}
     .wrap{max-width:1160px;margin:0 auto;padding:24px}
 
+    /* NAV */
     .nav{position:sticky;top:0;z-index:30;background:rgba(15,18,32,.6);backdrop-filter:saturate(160%) blur(10px);border-bottom:1px solid var(--line)}
     .nav.light{background:rgba(255,255,255,.85)}
     .nav-inner{max-width:1160px;margin:0 auto;padding:10px 24px;display:flex;gap:14px;align-items:center}
-    .brand{font-weight:800;letter-spacing:.3px;display:flex;align-items:center;gap:10px} /* NEW: выравниваем с аватаром */
+    .brand{font-weight:800;letter-spacing:.3px;display:flex;align-items:center;gap:10px}
     .sp{flex:1}
     .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--text);font-weight:600}
     .btn:hover{background:color-mix(in srgb,var(--card),#fff 6%)}
     .cta{background:var(--grad);color:#0b0d14;border:0}
     .cta:hover{filter:saturate(115%)}
 
-    .hero{position:relative;border:1px solid var(--line);background:radial-gradient(1100px 520px at 0% -10%,rgba(102,224,255,.14),transparent 60%),radial-gradient(900px 500px at 110% 0%,rgba(139,92,246,.12),transparent 60%),var(--panel);border-radius:22px;box-shadow:var(--shadow);padding:38px;overflow:hidden}
+    /* HERO */
+    .hero{position:relative;border:1px solid var(--line);background:
+      radial-gradient(1100px 520px at 0% -10%,rgba(102,224,255,.14),transparent 60%),
+      radial-gradient(900px 500px at 110% 0%,rgba(139,92,246,.12),transparent 60%),
+      var(--panel);border-radius:22px;box-shadow:var(--shadow);padding:38px;overflow:hidden}
     .hero h1{font-size:clamp(28px,4.4vw,48px);margin:0 0 10px;font-weight:800;line-height:1.1}
     .hero p{margin:0 0 18px;color:var(--muted);font-size:clamp(16px,2vw,18px)}
-
-    /* NEW: сетка для широкого места под фото */
     .hero .layout{display:grid;grid-template-columns:220px 1fr;gap:20px;align-items:center}
     @media(max-width:760px){.hero .layout{grid-template-columns:1fr;gap:16px}}
 
-    /* Большой аватар в hero */
+    /* AVATARS */
     .avatar-lg{width:200px;height:200px;border-radius:18px;border:1px solid var(--line);background:var(--card);object-fit:cover;box-shadow:var(--shadow)}
     @media(max-width:760px){.avatar-lg{width:116px;height:116px;border-radius:16px}}
-
-    /* Крошечный круглый аватар в шапке, появляется при скролле */
     .nav-avatar{width:32px;height:32px;border-radius:50%;border:1px solid var(--line);object-fit:cover;box-shadow:var(--shadow);opacity:0;transform:scale(.85);transition:all .22s ease}
-    .nav.show-avatar .nav-avatar{opacity:1;transform:scale(1)} /* NEW: показываем после прокрутки */
+    .nav.show-avatar .nav-avatar{opacity:1;transform:scale(1)}
 
+    /* Common blocks */
     section{margin-top:24px}
     h2{font-size:20px;margin:0 0 12px}
     .cards{display:grid;grid-template-columns:1fr;gap:14px}
@@ -52,34 +60,45 @@
     .card h3{margin:0 0 8px;font-size:18px}
     .meta{display:flex;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:13px}
     .list{margin:8px 0 0 0;padding-left:18px}
-    .tag{display:inline-block;border:1px solid var(--line);padding:4px 8px;border-radius:8px;margin:2px 6px 0 0;background:rgba(102,224,255,.10);font-size:12px}
     .two{display:grid;grid-template-columns:1fr;gap:14px}
     @media(min-width:860px){.two{grid-template-columns:1fr 1fr}}
-    .timeline{border-left:2px solid var(--line);padding-left:18px}
+    .timeline{border-left:2px solid var(--line);padding-left:22px}
     .titem{position:relative;margin-bottom:12px}
-    .titem:before{content:"";position:absolute;left:-10px;top:8px;width:10px;height:10px;border-radius:50%;background:var(--acc)}
+    .titem:before{content:"";position:absolute;left:-14px;top:5px;width:10px;height:10px;border-radius:50%;background:var(--acc)}
     .quote{font-style:italic;color:var(--muted);border-left:3px solid var(--acc2);padding-left:12px}
     .footer{margin:32px 0 12px;color:var(--muted);text-align:center}
     .center{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
     [data-reveal]{opacity:0;transform:translateY(10px);transition:all .6s ease}
     .reveal{opacity:1;transform:none}
 
-    /* Research accordion — компактнее */
-    .research-acc details {border: 1px solid var(--line);background: var(--card);border-radius: 10px;margin: 6px 0;box-shadow: var(--shadow)}
-    .research-acc summary {cursor: pointer;padding: 10px 14px;font-weight: 600;font-size: 15px;list-style: none}
-    .research-acc summary::-webkit-details-marker { display: none; }
-    .research-acc summary::before {content:"▸";margin-right:8px;color:var(--muted);transition: transform .2s ease}
-    .research-acc details[open] summary::before {transform: rotate(90deg);color: var(--acc)}
-    .research-acc .meta-line {padding: 8px 16px 14px 28px;font-size: 14px;color: var(--muted);line-height:1.5}
-    .research-acc .meta-line ul.list {margin:0}
+    /* Research accordion */
+    .research-acc details{border:1px solid var(--line);background:var(--card);border-radius:10px;margin:6px 0;box-shadow:var(--shadow)}
+    .research-acc summary{cursor:pointer;padding:10px 14px;font-weight:600;font-size:15px;list-style:none}
+    .research-acc summary::-webkit-details-marker{display:none}
+    .research-acc summary::before{content:"▸";margin-right:8px;color:var(--muted);transition:transform .2s ease}
+    .research-acc details[open] summary::before{transform:rotate(90deg);color:var(--acc)}
+    .research-acc .meta-line{padding:8px 16px 14px 28px;font-size:14px;color:var(--muted);line-height:1.5}
+    .research-acc .meta-line ul.list{margin:0}
+    
+
+    
   </style>
+
+<!-- Favicon для вкладок -->
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon.png">
+<link rel="shortcut icon" href="assets/favicon.ico">
+
+<!-- Для iOS / Android -->
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon.png">
+<meta name="theme-color" content="#0b0d14">
+
 </head>
 <body>
   <div class="nav" id="nav">
     <div class="nav-inner">
-      <!-- NEW: мини‑аватар + имя -->
       <div class="brand">
-        <img class="nav-avatar" src="assets/avatar.jpg" alt=""/>
+        <img class="nav-avatar" src="assets/avatar.jpg" alt="">
         <span>Сергей Федоров</span>
       </div>
       <a href="#experience">Опыт</a>
@@ -90,19 +109,22 @@
       <a href="#certs">Сертификаты/Патенты</a>
       <a href="#education">Образование</a>
       <div class="sp"></div>
+      <!-- Переключатель языков — обычная ссылка -->
+      <a class="btn" href="en.html" lang="en" hreflang="en">RU/EN</a>
       <button class="btn" id="theme">🌙 Тема</button>
       <a class="btn cta" href="#contact">Связаться</a>
     </div>
   </div>
 
   <div class="wrap">
-    <!-- HERO / SUMMARY -->
+    <!-- HERO -->
     <section class="hero" data-reveal>
-      <div class="layout"> <!-- NEW -->
-        <img class="avatar-lg" src="assets/avatar.jpg" alt="Сергей Федоров"/> <!-- NEW -->
+      <div class="layout">
+        <img class="avatar-lg" src="assets/avatar.jpg" alt="Сергей Федоров">
         <div>
           <h1>Сергей Федоров</h1>
-          <p>Эксперт в области архитектуры и информационной безопасности. Разрабатываю внутренние стандарты, сопровождаю стратегические инициативы и международные ИТ-проекты. Опыт системного проектирования и внедрения высоконагруженных систем, включая проработку, приёмку и контроль качества ПО.</p>
+          <p>Эксперт в области архитектуры и информационной безопасности. Разрабатываю внутренние стандарты, сопровождаю стратегические инициативы и международные ИТ-проекты. Опыт системного проектирования и внедрения высоконагруженных систем, включая проработку, приёмку и контроль качества ПО.
+Активно занимаюсь научной деятельностью в области информационной безопасности и DevSecOps, исследую применение ИИ-агентов для автоматизации безопасной разработки и анализа уязвимостей.</p>
           <div class="center" style="margin-top:14px">
             <a class="btn cta" href="assets/CV.pdf" target="_blank" rel="noopener">Скачать CV (PDF)</a>
             <a class="btn" href="#cases">Смотреть кейсы</a>
@@ -111,7 +133,7 @@
       </div>
     </section>
 
-    <!-- остальной контент БЕЗ изменений -->
+<!-- остальной контент БЕЗ изменений -->
     <!-- EXPERIENCE -->
     <section id="experience" data-reveal>
       <h2>Experience</h2>
@@ -122,16 +144,18 @@
           <ul class="list">
             <li><strong>Международные проекты</strong>
               <ul class="list">
-                <li>Руководил экспертизой архитектуры и безопасности продуктов при открытии филиалов в КНР и других странах.</li>
-                <li>Выявлял недочёты в решениях, организовывал доработку и улучшение продуктов совместно с иностранными подрядчиками.</li>
-                <li>Формировал требования по ИБ и контролировал их реализацию, снижая эксплуатационные риски международных систем.</li>
-                <li>Вёл переговоры с иностранными подрядчиками и контролировал их доработку до соответствия корпоративным и международным стандартам.</li>
+                <li>Сопровождал проекты от архитектурной проработки до приёмки решений.</li>
+                <li>Проводил аудит архитектуры и безопасности, выявлял уязвимости и недостатки.</li>
+                <li>Участвовал в переговорах с иностранными подрядчиками, формировал требования по архитектуре и безопасности.</li>
+                <li>Снизил эксплуатационные риски за счёт устранения выявленных недочётов.</li>
+                <li>Курировал полный цикл доработок: постановка задач, проектирование, тестирование и приёмка.</li>
               </ul>
             </li>
             <li><strong>Архитектурная экспертиза и аудит решений</strong>
               <ul class="list">
                 <li>Провел экспертизу <strong>50+ проектов</strong>: от идеи до приёмки, обеспечив соответствие стандартам ИБ и корпоративной архитектуры.</li>
                 <li>Анализировал архитектурные решения на устойчивость к киберугрозам, выдавал рекомендации и корректировки.</li>
+                <li>Провожу экспертизу <strong>ИИ-агентских решений</strong> — от концепции до интеграции в бизнес-процессы.</li>
                 <li>Сопровождал команды разработки как <strong>solution-архитектор</strong>, помогая интегрировать требования ИБ в проектные решения.</li>
                 <li>Составил более <strong>2000 экспертных заключений</strong>, по результатам которых были устранены уязвимости и повышена надежность и безопасность внедрённых систем.</li>
                 <li>Разрабатывал <strong>архитектуру высоконагруженных и комплексных продуктов</strong>, включая системный ландшафт, интеграцию сервисов и выбор технологий.</li>
@@ -146,13 +170,12 @@
                 <li>Создал и внедрил <strong>2 внутренних стандарта безопасности и архитектуры для RPA</strong>, что снизило риски автоматизации и повысило уровень контроля.</li>
                 <li>Разработал «<strong>методологию быстрой автоматизации</strong>», которая сократила сроки внедрения защищённых бизнес-решений.</li>
                 <li>Сопровождал и оптимизировал <strong>100+ бизнес-процессов</strong>, внедряя безопасные практики и координируя работу нескольких команд.</li>
-                <li>Построил полный цикл <strong>безопасной разработки и управления уязвимостями</strong>, обеспечив стабильную эксплуатацию и развитие систем.</li>
               </ul>
             </li>
           </ul>
         </div>
         <div class="titem">
-          <h3>Стажёр-исследователь — Научная лаборатория НИУ ВШЭ</h3>
+          <h3>Иследователь — Научная лаборатория НИУ ВШЭ</h3>
           <div class="meta">11.2020 – 12.2020</div>
           <ul class="list">
             <li>Участвовал в проекте: «Эффективные протоколы защиты данных в киберфизических системах на основе методов постквантовой криптографии и стеганографического сокрытия информации».</li>
@@ -162,33 +185,27 @@
       </div>
     </section>
 
-    <!-- CASES / PROJECTS -->
+    <!-- CASES -->
     <section id="cases" data-reveal>
       <h2>Кейсы</h2>
       <div class="cards">
         <div class="card">
-          <h3>Международный запуск (КНР): экспертиза и приёмка</h3>
+          <h3>Международный запуск проектов: экспертиза и приёмка</h3>
           <div class="meta">Аудит архитектуры/ИБ, выявление недочётов, требования, переговоры и контроль доработок</div>
           <ul class="list">
-            <li>Достижение соответствия локальным и корпоративным стандартам; запуск без критических инцидентов.</li>
-            <li>Снижение эксплуатационных рисков международных систем.</li>
+            <li>Соответствие локальным и корпоративным стандартам; запуск без критических инцидентов.</li>
           </ul>
         </div>
         <div class="card">
           <h3>Архитектурная экспертиза 50+ проектов</h3>
-          <div class="meta">От идеи до приёмки: рекомендации, целевые модели, сопровождение команд как solution‑архитектор</div>
+          <div class="meta">От идеи до приёмки; целевые модели; сопровождение как solution‑архитектор</div>
           <ul class="list">
-            <li>2000+ экспертных заключений — устранены уязвимости, повышена надёжность.</li>
-            <li>Аудит и перепроектирование: рост масштабируемости и отказоустойчивости.</li>
+            <li>Устранение уязвимостей, повышение надёжности и масштабируемости.</li>
           </ul>
         </div>
         <div class="card">
           <h3>DevSecOps: методологии и стандарты</h3>
-          <div class="meta">SAST/SCA для RPA, 2 внутренних стандарта, «методология быстрой автоматизации»</div>
-          <ul class="list">
-            <li>Сокращение time‑to‑prod со встроенной безопасностью.</li>
-            <li>100+ бизнес‑процессов — сопровождение и оптимизация.</li>
-          </ul>
+          <div class="meta">SAST/SCA для RPA, 2 стандарта, «методология быстрой автоматизации»</div>
         </div>
       </div>
     </section>
@@ -197,42 +214,83 @@
     <section id="skills" data-reveal>
       <h2>Навыки</h2>
       <div class="cards">
-        <div class="card"><h3>Architecture</h3><div class="meta">Solution/Enterprise · Security Architecture · Microservices · API/Service Mesh (Istio) · Target Operating Model</div></div>
-        <div class="card"><h3>Security</h3><div class="meta">Threat Modeling · SAST/SCA/SBOM · Hardening/Compliance · Vulnerability Mgmt · Security Testing</div></div>
-        <div class="card"><h3>Platform</h3><div class="meta">Kubernetes · Cloud/CI/CD · Monitoring & Alerting · RPA · Git</div></div>
-        <div class="card"><h3>Soft</h3><div class="meta">Negotiation · System/Critical Thinking · Stakeholder Mgmt · Mentoring · International Collaboration</div></div>
+        <div class="card"><h3>Architecture</h3><div class="meta">Solution/Enterprise · Security Architecture · Microservices · API/Service Mesh (Istio)</div></div>
+        <div class="card"><h3>Security</h3><div class="meta">Threat Modeling · SAST/SCA/SBOM · Hardening/Compliance · Vulnerability Mgmt</div></div>
+        <div class="card"><h3>Platform</h3><div class="meta">Kubernetes · Cloud/CI/CD · Monitoring · RPA · Git</div></div>
+        <div class="card"><h3>Soft</h3><div class="meta">Negotiation · System/Critical Thinking · Stakeholder Mgmt</div></div>
       </div>
     </section>
 
     <!-- ACHIEVEMENTS -->
-    <section id="achievements" data-reveal>
+    <!-- <section id="achievements" data-reveal>
       <h2>Achievements</h2>
       <div class="cards">
         <div class="card">
           <h3>Corporate Recognition</h3>
           <ul class="list">
-            <li>Благодарность ПАО Сбербанк (2022) за вклад в развитие архитектуры и кибербезопасности.</li>
-            <li>2 место на внутреннем CTF ПАО Сбербанк (2023), подтверждение экспертизы в практической кибербезопасности.</li>
-            <li>Участвовал в создании и сопровождении множества продуктов, поставленных на внешний рынок.</li>
+            <li>Благодарность ПАО Сбербанк (2022).</li>
+            <li>2 место на внутреннем CTF (2023).</li>
           </ul>
         </div>
         <div class="card">
           <h3>Education & Knowledge Sharing</h3>
           <ul class="list">
-            <li>Автор онлайн-курса «Операционные системы семейства UNIX. Системное программирование» (НИУ ВШЭ, 2022), размещённого на платформе OpenEdu (<a target="_blank" rel="noopener" href="https://openedu.ru/course/hse/UNIX/">ссылка</a>).</li>
-            <li>Создание и внедрение «Методологии быстрой автоматизации» (2023), применяемой для ускоренного внедрения защищённых бизнес-решений.</li>
+            <li>Автор онлайн‑курса «UNIX. Системное программирование» (НИУ ВШЭ, 2022) — <a target="_blank" rel="noopener" href="https://openedu.ru/course/hse/UNIX/">OpenEdu</a>.</li>
+            <li>«Методология быстрой автоматизации» (2023).</li>
           </ul>
         </div>
         <div class="card">
           <h3>Research & Conferences</h3>
           <ul class="list">
-            <li>Победитель конференции Е.В. Арменского (2023) с исследованием «Анализ аномальных ситуаций сетевого трафика по данным журналов NGINX».</li>
-            <li>Автор ряда внутренних и внешних выступлений по темам DevSecOps и автоматизации.</li>
-            <li>Arctic Code Vault Contributor at GitHub (2020).</li>
+            <li>Победитель конференции им. Е.В. Арменского (2023).</li>
           </ul>
         </div>
       </div>
-    </section>
+    </section> -->
+
+  <!-- ACHIEVEMENTS -->
+  <section id="achievements" data-reveal>
+    <h2>Achievements</h2>
+    <div class="cards">
+
+      <div class="card">
+        <h3>Corporate Recognition</h3>
+        <ul class="list">
+          <li>Благодарность ПАО Сбербанк (2022) за вклад в развитие архитектуры и кибербезопасности.</li>
+          <li>2 место на внутреннем CTF ПАО Сбербанк (2023), подтверждение экспертизы в практической кибербезопасности.</li>
+          <li>Участие в создании и сопровождении множества внутренних продуктов и решений, выведенных на внешний рынок.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Education & Knowledge Sharing</h3>
+        <ul class="list">
+          <li>Автор онлайн-курса <em>«Операционные системы семейства UNIX. Системное программирование»</em> (НИУ ВШЭ, 2022) — <a target="_blank" rel="noopener" href="https://openedu.ru/course/hse/UNIX/">OpenEdu</a>.</li>
+          <li>Создание и внедрение <strong>«Методологии быстрой автоматизации»</strong> (2023), применяемой для ускоренного внедрения защищённых бизнес-решений.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Research & Conferences</h3>
+        <ul class="list">
+          <li>Победитель конференции им. Е.В. Арменского (2023) с исследованием <em>«Анализ аномальных ситуаций сетевого трафика по данным журналов NGINX»</em>.</li>
+          <li>Автор докладов и выступлений по DevSecOps и автоматизации (внутренние и внешние мероприятия).</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Product Development</h3>
+        <ul class="list">
+          <li>Разработал и вывел на рынок продукт малой автоматизации (2023).</li>
+          <li><strong>Arctic Code Vault Contributor at GitHub (2020)</strong> — вклад в сохранение мирового open-source кода.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+
+
 
     <!-- RESEARCH ACTIVITY -->
     <section id="research" data-reveal>
@@ -285,27 +343,26 @@
       </div>
     </section>
 
-    <!-- CERTIFICATES & PATENTS -->
+    <!-- CERTS -->
     <section id="certs" data-reveal>
       <h2>Certificates</h2>
       <div class="two">
         <div class="card">
           <h3>Сертификаты</h3>
           <ul class="list">
-            <li>Удостоверение о ПК: «Проектирование и оценка корпоративной архитектуры» — <a href="assets/certs/scan.pdf" target="_blank" rel="noopener">PDF</a></li>
-            <li>Coursera: Version Control with Git (Atlassian) — <a href="assets/certs/Coursera_7PYZA5CTYYRW.pdf" target="_blank" rel="noopener">PDF</a></li>
-            <li>Coursera: Successful Negotiation (U. Michigan) — <a href="assets/certs/Coursera_EVQKZ8WHAYYS.pdf" target="_blank" rel="noopener">PDF</a></li>
-            <li>Sber AppSec: Безопасное использование OSS — <a href="assets/certs/Sber_AppSec_OpenSource.pdf" target="_blank" rel="noopener">PDF</a></li>
-            <li>Полный список курсов: <a target="_blank" rel="noopener" href="https://www.notion.so/2519d2345f3a80758041dfdf05822e5b?pvs=21">смотреть в Notion</a></li>
+            <li>ПК «Проектирование и оценка корпоративной архитектуры» — <a href="assets/certs/scan.pdf" target="_blank" rel="noopener">PDF</a></li>
+            <li>Coursera: Git (Atlassian) — <a href="assets/certs/Coursera_7PYZA5CTYYRW.pdf" target="_blank" rel="noopener">PDF</a></li>
+            <li>Coursera: Successful Negotiation — <a href="assets/certs/Coursera_EVQKZ8WHAYYS.pdf" target="_blank" rel="noopener">PDF</a></li>
+            <li>Sber AppSec: OSS — <a href="assets/certs/Sber_AppSec_OpenSource.pdf" target="_blank" rel="noopener">PDF</a></li>
           </ul>
         </div>
         <div class="card">
           <h3>Патенты (выборочно)</h3>
           <ul class="list">
-            <li>Выделение критичных релизов программных роботов… — <a href="assets/patents/2025665620.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
-            <li>Вычисление кратных точек на ЭК (форма Монтгомери) — <a href="assets/patents/2025665848.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
-            <li>Анализ вычислительной производительности микропроцессора — <a href="assets/patents/2025666516.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
-            <li>Ускоренная программная реализация Camellia-128 — <a href="assets/patents/2025667963.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
+            <li>Критичные релизы ПО роботов — <a href="assets/patents/2025665620.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
+            <li>ЭК (форма Монтгомери) — <a href="assets/patents/2025665848.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
+            <li>Производительность микропроцессора — <a href="assets/patents/2025666516.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
+            <li>Camellia‑128 — <a href="assets/patents/2025667963.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
           </ul>
         </div>
       </div>
@@ -314,36 +371,15 @@
     <!-- COURSES -->
     <section id="courses" data-reveal>
       <h2>Courses</h2>
-      <p>Тут я выложил сертификаты пройденных курсов: <a target="_blank" rel="noopener" href="https://www.notion.so/2519d2345f3a80758041dfdf05822e5b?pvs=21">Курсы</a></p>
+      <p>Все сертификаты курсов: <a target="_blank" rel="noopener" href="https://www.notion.so/2519d2345f3a80758041dfdf05822e5b?pvs=21">страница Notion</a>.</p>
     </section>
 
     <!-- PROJECTS -->
     <section id="projects" data-reveal>
       <h2>Projects</h2>
       <div class="card">
-        <h3>Мультиагентная система для всех моих домашних задач (на Python)</h3>
-        <ul class="list">
-          <li>Поиск информации</li>
-          <li>Трейдинг</li>
-          <li>Автоматизация умного дома</li>
-          <li>Оповещение в ТГ</li>
-          <li>И многое другое…</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- PUBLICATIONS -->
-    <section id="publications" data-reveal>
-      <h2>Publications</h2>
-      <div class="card">
-        <h3>1. TBD сейчас на этапе верификации</h3>
-        <ul class="list">
-          <li>Название статьи</li>
-          <li>Название журнала</li>
-          <li>Год публикации</li>
-          <li>Том, номер выпуска, страницы</li>
-          <li>DOI или ссылка</li>
-        </ul>
+        <h3>Мультиагентная система для домашних задач (Python)</h3>
+        <ul class="list"><li>Поиск, трейдинг, умный дом, оповещения в ТГ и др.</li></ul>
       </div>
     </section>
 
@@ -353,8 +389,8 @@
       <div class="two">
         <div class="card">
           <ul class="list">
-            <li><strong>HSE in Moscow — PHD: Информационная безопасность</strong> (2023 – 2026) · <a target="_blank" rel="noopener" href="https://st.hse.ru/programmes">сайт программы</a></li>
-            <li><strong>HSE in Moscow — Специалитет: Компьютерная безопасность</strong> (2017 – 2023) · ВКР: <a target="_blank" rel="noopener" href="http://hse.ru/edu/vkr/808862820">Исследование аномальных ситуаций сетевого трафика…</a></li>
+            <li><strong>HSE, PhD: Информационная безопасность</strong> (2023–2026) · <a target="_blank" rel="noopener" href="https://st.hse.ru/programmes">сайт программы</a></li>
+            <li><strong>HSE, Специалитет: Компьютерная безопасность</strong> (2017–2023) · ВКР: <a target="_blank" rel="noopener" href="http://hse.ru/edu/vkr/808862820">исследование аномалий сетевого трафика…</a></li>
           </ul>
         </div>
         <div class="card">
@@ -409,10 +445,10 @@
     const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('reveal');io.unobserve(e.target)}})},{threshold:.1});
     document.querySelectorAll('[data-reveal]').forEach(el=>io.observe(el));
 
-    /* NEW: показывать мини‑аватар в шапке после прокрутки hero */
+    // Появление мини‑аватара после прокрутки
     const showAvatarOnScroll=()=>{
-      const trigger = 180; // порог появления, подгони при желании
-      if(window.scrollY > trigger){ nav.classList.add('show-avatar'); }
+      const trigger=180;
+      if(window.scrollY>trigger){ nav.classList.add('show-avatar'); }
       else{ nav.classList.remove('show-avatar'); }
     };
     window.addEventListener('scroll', showAvatarOnScroll, {passive:true});
