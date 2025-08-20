@@ -80,6 +80,67 @@
     .research-acc .meta-line{padding:8px 16px 14px 28px;font-size:14px;color:var(--muted);line-height:1.5}
     .research-acc .meta-line ul.list{margin:0}
     
+/* 📱 Mobile improvements */
+@media (max-width: 600px) {
+  .wrap {
+    padding: 12px; /* меньше отступов */
+  }
+
+  .nav-inner {
+    flex-wrap: wrap;         /* меню переносится */
+    gap: 8px;
+    padding: 8px 12px;
+  }
+
+  .nav-inner a,
+  .nav-inner button {
+    font-size: 14px;
+    padding: 6px 10px;       /* кнопки компактнее */
+    border-radius: 10px;
+  }
+
+  .brand span {
+    font-size: 15px;
+  }
+
+  .hero {
+    padding: 20px; /* компактнее блок с фото */
+  }
+
+  .hero .layout {
+    grid-template-columns: 1fr; /* аватар и текст в колонку */
+    text-align: center;
+  }
+
+  .avatar-lg {
+    margin: 0 auto; /* центрирование */
+  }
+
+  h1 {
+    font-size: 22px; /* уменьшение заголовка */
+  }
+
+  p {
+    font-size: 15px;
+    line-height: 1.4;
+  }
+
+  .cards {
+    grid-template-columns: 1fr; /* все карточки в одну колонку */
+  }
+
+  .two {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline {
+    padding-left: 16px;
+  }
+
+  .titem:before {
+    left: -10px;
+  }
+}
 
     
   </style>
@@ -190,17 +251,17 @@
       <h2>Кейсы</h2>
       <div class="cards">
         <div class="card">
-          <h3>Международный запуск проектов: экспертиза и приёмка</h3>
+          <h3>Запуск международных проектов: экспертиза и приёмка</h3>
           <div class="meta">Аудит архитектуры/ИБ, выявление недочётов, требования, переговоры и контроль доработок</div>
           <ul class="list">
             <li>Соответствие локальным и корпоративным стандартам; запуск без критических инцидентов.</li>
           </ul>
         </div>
         <div class="card">
-          <h3>Архитектурная экспертиза 50+ проектов</h3>
+          <h3> Комплексная экспертиза (архитектура + безопасность) для более чем 50 проектов </h3>
           <div class="meta">От идеи до приёмки; целевые модели; сопровождение как solution‑архитектор</div>
           <ul class="list">
-            <li>Устранение уязвимостей, повышение надёжности и масштабируемости.</li>
+            <li>Выявление уязвимостей, повышение безопасности, надёжности и масштабируемости.</li>
           </ul>
         </div>
         <div class="card">
@@ -256,16 +317,16 @@
       <div class="card">
         <h3>Corporate Recognition</h3>
         <ul class="list">
-          <li>Благодарность ПАО Сбербанк (2022) за вклад в развитие архитектуры и кибербезопасности.</li>
+          <li>Благодарность ПАО Сбербанк (2022).</li>
           <li>2 место на внутреннем CTF ПАО Сбербанк (2023), подтверждение экспертизы в практической кибербезопасности.</li>
-          <li>Участие в создании и сопровождении множества внутренних продуктов и решений, выведенных на внешний рынок.</li>
+          <li>Сопровождение со стороны безопасности множества внутренних продуктов и решений, выведенных на внешний рынок.</li>
         </ul>
       </div>
 
       <div class="card">
         <h3>Education & Knowledge Sharing</h3>
         <ul class="list">
-          <li>Автор онлайн-курса <em>«Операционные системы семейства UNIX. Системное программирование»</em> (НИУ ВШЭ, 2022) — <a target="_blank" rel="noopener" href="https://openedu.ru/course/hse/UNIX/">OpenEdu</a>.</li>
+          <li>Разработчик онлайн-курса <em>«Операционные системы семейства UNIX. Системное программирование»</em> (НИУ ВШЭ, 2022) — <a target="_blank" rel="noopener" href="https://openedu.ru/course/hse/UNIX/">OpenEdu</a>.</li>
           <li>Создание и внедрение <strong>«Методологии быстрой автоматизации»</strong> (2023), применяемой для ускоренного внедрения защищённых бизнес-решений.</li>
         </ul>
       </div>
@@ -303,7 +364,7 @@
               <li><strong>Даты проведения:</strong> 16–18 мая 2025 года</li>
               <li><strong>Место проведения:</strong> Далянь, Китай</li>
               <li><strong>Доклад:</strong> «AI-Driven Multi-Agent System for Real-Time Security Analysis of Software Releases»</li>
-              <li><strong>Ссылки:</strong> <a href="http://www.icrconf.com/" target="_blank">сайт конференции</a> · <a href="assets/certs/icicr2025_cert.pdf" target="_blank">сертификат участия (PDF)</a></li>
+              <li><strong>Ссылки:</strong> <a href="http://www.icrconf.com/" target="_blank">сайт конференции</a> · <a href="assets/Сerts/conf/icicr2025_cert.jpg" target="_blank">сертификат</a></li>
             </ul>
           </div>
         </details>
@@ -314,7 +375,7 @@
               <li><strong>Даты проведения:</strong> 22–24 апреля 2025 года (выступил 24)</li>
               <li><strong>Место проведения:</strong> Тольяттинский государственный университет, Тольятти (онлайн)</li>
               <li><strong>Доклад:</strong> «Сравнение подходов для оценки риска возникновения критичных дефектов в релизах программного обеспечения»</li>
-              <li><strong>Ссылки:</strong> <a href="https://sites.google.com/view/itmutgu/" target="_blank">сайт конференции</a> · <a href="assets/certs/itconf2025_cert.pdf" target="_blank">сертификат участия</a> · <a href="assets/papers/itconf2025_paper.pdf" target="_blank">тезисы</a></li>
+              <li><strong>Ссылки:</strong> <a href="https://sites.google.com/view/itmutgu/" target="_blank">сайт конференции</a> · <a href="assets/Сerts/conf/itconf2025_cert.pdf" target="_blank">сертификат</a>  <!-- · <a href="assets/papers/itconf2025_paper.pdf" target="_blank">тезисы</a> --></li>
             </ul>
           </div>
         </details>
@@ -325,7 +386,7 @@
               <li><strong>Даты проведения:</strong> 22–28 апреля 2025 года (выступил 22)</li>
               <li><strong>Место проведения:</strong> Московский институт электроники и математики им. А.Н. Тихонова НИУ ВШЭ, Москва</li>
               <li><strong>Доклад:</strong> «Автоматизация устранения уязвимостей в программном обеспечении с использованием мультиагентной системы и механизма генерации с дополненной выборкой»</li>
-              <li><strong>Ссылки:</strong> <a href="https://miem.hse.ru/armntk/" target="_blank">сайт конференции</a> · <a href="assets/certs/armen2025_cert.pdf" target="_blank">сертификат участия</a> · <a href="assets/papers/armen2025_paper.pdf" target="_blank">тезисы</a></li>
+              <li><strong>Ссылки:</strong> <a href="https://miem.hse.ru/armntk/" target="_blank">сайт конференции</a> <!--· <a href="assets/Certs/armen2025_cert.pdf" target="_blank">сертификат</a> · <a href="assets/papers/armen2025_paper.pdf" target="_blank">тезисы</a> --> </li>
             </ul>
           </div>
         </details>
@@ -336,7 +397,7 @@
               <li><strong>Даты проведения:</strong> 27 февраля – 7 марта 2023 года (выступил 27)</li>
               <li><strong>Место проведения:</strong> Российская Федерация, Москва</li>
               <li><strong>Доклад:</strong> «Исследование аномальных ситуаций сетевого трафика по данным журналов web-сервера nginx»</li>
-              <li><strong>Ссылки:</strong> <a href="https://miem.hse.ru/armntk/" target="_blank">сайт конференции</a> · <a href="https://miem.hse.ru/mirror/pubs/share/direct/876266078.pdf" target="_blank">текст доклада (PDF)</a> · <a href="assets/certs/armen2023_cert.pdf" target="_blank">сертификат участия</a></li>
+              <li><strong>Ссылки:</strong> <a href="https://miem.hse.ru/armntk/" target="_blank">сайт конференции</a> · <a href="assets/certs/conf/armen2023_cert.pdf" target="_blank">сертификат</a> · <a href="https://miem.hse.ru/mirror/pubs/share/direct/876266078.pdf" target="_blank">текст доклада (PDF)</a></li>
             </ul>
           </div>
         </details>
@@ -359,10 +420,10 @@
         <div class="card">
           <h3>Патенты (выборочно)</h3>
           <ul class="list">
-            <li>Критичные релизы ПО роботов — <a href="assets/patents/2025665620.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
-            <li>ЭК (форма Монтгомери) — <a href="assets/patents/2025665848.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
-            <li>Производительность микропроцессора — <a href="assets/patents/2025666516.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
-            <li>Camellia‑128 — <a href="assets/patents/2025667963.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
+            <li>Выделение критичных релизов программных роботов с предварительным извлечением кода на языках высокого уровня — <a href="assets/patents/2025665620.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
+            <li>Вычисление кратных точек на эллиптической кривой в форме Монтгомери — <a href="assets/patents/2025665848.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
+            <li>Программа для анализа вычислительной производительности микропроцессора на основе замеров латентности и темпа выдачи результатов — <a href="assets/patents/2025666516.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
+            <li>Ускоренная программная реализация криптоалгоритма Camellia-128 для защищённой обработки данных — <a href="assets/patents/2025667963.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
           </ul>
         </div>
       </div>
@@ -389,8 +450,8 @@
       <div class="two">
         <div class="card">
           <ul class="list">
-            <li><strong>HSE, PhD: Информационная безопасность</strong> (2023–2026) · <a target="_blank" rel="noopener" href="https://st.hse.ru/programmes">сайт программы</a></li>
-            <li><strong>HSE, Специалитет: Компьютерная безопасность</strong> (2017–2023) · ВКР: <a target="_blank" rel="noopener" href="http://hse.ru/edu/vkr/808862820">исследование аномалий сетевого трафика…</a></li>
+            <li><strong>HSE, PhD: Информационная безопасность</strong> (2023–2026) · <a target="_blank" rel="noopener" href="https://st.hse.ru/information_security">сайт программы</a></li>
+            <li><strong>HSE, Специалитет: Компьютерная безопасность</strong> (2017–2023) · <a target="_blank" rel="noopener" href="https://www.hse.ru/ba/cosec/">сайт программы</a> · ВКР: <a target="_blank" rel="noopener" href="http://hse.ru/edu/vkr/808862820">Исследование аномальных ситуаций сетевого трафика по данным журналов web-сервера nginx</a></li>
           </ul>
         </div>
         <div class="card">
@@ -407,7 +468,6 @@
         <p>Увлекаюсь разработкой, архитектурой, инвестициями (прогнозирование и аналитика), автоматизацией и поиском нестандартных решений.</p>
         <p>Мне интересно всё, что связано с архитектурой и созданием сложных ИТ-систем. Люблю автоматизировать процессы и находить нестандартные подходы к задачам. Для меня важно не только решать технические проблемы, но и делать системы действительно удобными и безопасными для людей и бизнеса.</p>
         <p>Инвестиции и аналитика — ещё одна сфера интересов: анализ рынков тренирует способность видеть систему целиком, просчитывать сценарии и находить оптимальные стратегии.</p>
-        <p class="quote">Любимые фразы: “Science is elegant” и “Smooth seas don’t make good sailors”. =D</p>
         <hr style="border:0;border-top:1px solid var(--line);margin:12px 0"/>
         <p>Сопровождение и оптимизация более 100 процессов. Проработка безопасных решений для бизнеса. Руководил и координировал работу нескольких команд разработки и сопровождения коммунальных автоматизированных систем. Построил полный цикл безопасной разработки и управления уязвимостями. Обеспечил стабильную эксплуатацию и развитие систем в соответствии с требованиями безопасности и архитектуры.</p>
       </div>
@@ -420,12 +480,12 @@
         <div class="two">
           <div>
             <p><strong>Email:</strong> <a href="mailto:missc0nn3ct@gmail.com">missc0nn3ct@gmail.com</a><br/>
-            <strong>Тел.:</strong> +7 977 873 1024<br/>
+            <!-- <strong>Тел.:</strong> +7 977 873 1024<br/> -->
             <strong>Дата рождения:</strong> 26 апреля</p>
             <p><a target="_blank" rel="noopener" href="https://www.linkedin.com/in/disc0nn3ct/">LinkedIn</a> · <a target="_blank" rel="noopener" href="https://github.com/disc0nn3ct">GitHub</a></p>
           </div>
           <div>
-            <p class="quote">«Science is elegant» · «Smooth seas don’t make good sailors»</p>
+            <p class="quote">Любимые фразы: «Science is elegant» · «Smooth seas don’t make good sailors»</p>
             <a class="btn cta" href="assets/CV.pdf" target="_blank" rel="noopener">Скачать CV (PDF)</a>
           </div>
         </div>
