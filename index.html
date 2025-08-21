@@ -8,14 +8,26 @@
   <meta name="theme-color" content="#0b0d14" />
 
   <!-- hreflang для двух языков -->
-  <link rel="alternate" href="/en.html" hreflang="en">
+  <link rel="alternate" href="/index_en.html" hreflang="en">
   <link rel="alternate" href="/" hreflang="ru">
-  <link rel="alternate" href="/en.html" hreflang="x-default">
+  <link rel="alternate" href="/index_en.html" hreflang="x-default">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
+    :root{
+  --nav-h: 64px;           /* фактическая высота шапки */
+}
+
+/* плавный скролл по якорям */
+html{ scroll-behavior: smooth; }
+
+/* секции «останавливаются» на нужной высоте,
+   чтобы не прятаться под .nav */
+section{ scroll-margin-top: calc(var(--nav-h) + 12px); }
+
+
     :root{--bg:#0b0d14;--panel:#0f1220;--card:#111427;--text:#e9e9f0;--muted:#9aa0b5;--line:#1c2140;--acc:#66e0ff;--acc2:#8b5cf6;--grad:linear-gradient(135deg,#66e0ff,#8b5cf6);--shadow:0 20px 60px rgba(0,0,0,.35)}
     .light{--bg:#f6f7fb;--panel:#fff;--card:#fff;--text:#121318;--muted:#5a6075;--line:#e6e8f2;--shadow:0 18px 40px rgba(0,0,0,.08)}
     *{box-sizing:border-box}
@@ -171,7 +183,7 @@
       <a href="#education">Образование</a>
       <div class="sp"></div>
       <!-- Переключатель языков — обычная ссылка -->
-      <a class="btn" href="en.html" lang="en" hreflang="en">RU/EN</a>
+      <a class="btn" href="index_en.html" lang="en" hreflang="en">RU/EN</a>
       <button class="btn" id="theme">🌙 Тема</button>
       <a class="btn cta" href="#contact">Связаться</a>
     </div>
@@ -404,35 +416,37 @@
       </div>
     </section>
 
-    <!-- CERTS -->
-    <section id="certs" data-reveal>
-      <h2>Certificates</h2>
-      <div class="two">
-        <div class="card">
-          <h3>Сертификаты</h3>
-          <ul class="list">
-            <li>ПК «Проектирование и оценка корпоративной архитектуры» — <a href="assets/certs/scan.pdf" target="_blank" rel="noopener">PDF</a></li>
-            <li>Coursera: Git (Atlassian) — <a href="assets/certs/Coursera_7PYZA5CTYYRW.pdf" target="_blank" rel="noopener">PDF</a></li>
-            <li>Coursera: Successful Negotiation — <a href="assets/certs/Coursera_EVQKZ8WHAYYS.pdf" target="_blank" rel="noopener">PDF</a></li>
-            <li>Sber AppSec: OSS — <a href="assets/certs/Sber_AppSec_OpenSource.pdf" target="_blank" rel="noopener">PDF</a></li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Патенты (выборочно)</h3>
-          <ul class="list">
-            <li>Выделение критичных релизов программных роботов с предварительным извлечением кода на языках высокого уровня — <a href="assets/patents/2025665620.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
-            <li>Вычисление кратных точек на эллиптической кривой в форме Монтгомери — <a href="assets/patents/2025665848.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
-            <li>Программа для анализа вычислительной производительности микропроцессора на основе замеров латентности и темпа выдачи результатов — <a href="assets/patents/2025666516.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
-            <li>Ускоренная программная реализация криптоалгоритма Camellia-128 для защищённой обработки данных — <a href="assets/patents/2025667963.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
-          </ul>
-        </div>
-      </div>
-    </section>
+<!-- CERTS -->
+<section id="certs" data-reveal>
+  <h2>Certificates / Patents</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Сертификаты</h3>
+      <ul class="list">
+        <li>АНО ДПО «Корпоративный университет Сбербанка» (Россия)  
+           профессиональная переподготовка (очное)  
+          <br> <em>«Проектирование и оценка корпоративной архитектуры»</em>  
+          20.09.2024 • диплом № ПП 0017926</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Патенты (выборочно)</h3>
+      <ul class="list">
+        <li>Выделение критичных релизов программных роботов с предварительным извлечением кода на языках высокого уровня — <a href="assets/patents/2025665620.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
+        <li>Вычисление кратных точек на эллиптической кривой в форме Монтгомери — <a href="assets/patents/2025665848.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
+        <li>Программа для анализа вычислительной производительности микропроцессора — <a href="assets/patents/2025666516.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
+        <li>Ускоренная программная реализация криптоалгоритма Camellia-128 — <a href="assets/patents/2025667963.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 
     <!-- COURSES -->
     <section id="courses" data-reveal>
       <h2>Courses</h2>
-      <p>Все сертификаты курсов: <a target="_blank" rel="noopener" href="https://www.notion.so/2519d2345f3a80758041dfdf05822e5b?pvs=21">страница Notion</a>.</p>
+      <!-- <p>Cертификаты курсов: <a target="_blank" rel="noopener" href="ed_cours.html">тут</a>.</p> -->
+      <p>Cертификаты курсов: <a  rel="noopener" href="ed_cours.html">тут</a>.</p>
     </section>
 
     <!-- PROJECTS -->
@@ -468,29 +482,35 @@
         <p>Увлекаюсь разработкой, архитектурой, инвестициями (прогнозирование и аналитика), автоматизацией и поиском нестандартных решений.</p>
         <p>Мне интересно всё, что связано с архитектурой и созданием сложных ИТ-систем. Люблю автоматизировать процессы и находить нестандартные подходы к задачам. Для меня важно не только решать технические проблемы, но и делать системы действительно удобными и безопасными для людей и бизнеса.</p>
         <p>Инвестиции и аналитика — ещё одна сфера интересов: анализ рынков тренирует способность видеть систему целиком, просчитывать сценарии и находить оптимальные стратегии.</p>
-        <hr style="border:0;border-top:1px solid var(--line);margin:12px 0"/>
-        <p>Сопровождение и оптимизация более 100 процессов. Проработка безопасных решений для бизнеса. Руководил и координировал работу нескольких команд разработки и сопровождения коммунальных автоматизированных систем. Построил полный цикл безопасной разработки и управления уязвимостями. Обеспечил стабильную эксплуатацию и развитие систем в соответствии с требованиями безопасности и архитектуры.</p>
+        <!-- <p class="quote">Любимые фразы: “Science is elegant” и “Smooth seas don’t make good sailors”. =D</p>
+        <hr style="border:0;border-top:1px solid var(--line);margin:12px 0"/> -->
+        <!-- <p>Сопровождение и оптимизация более 100 процессов. Проработка безопасных решений для бизнеса. Руководил и координировал работу нескольких команд разработки и сопровождения коммунальных автоматизированных систем. Построил полный цикл безопасной разработки и управления уязвимостями. Обеспечил стабильную эксплуатацию и развитие систем в соответствии с требованиями безопасности и архитектуры.</p> -->
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" data-reveal>
-      <h2>Contact</h2>
-      <div class="card">
-        <div class="two">
-          <div>
-            <p><strong>Email:</strong> <a href="mailto:missc0nn3ct@gmail.com">missc0nn3ct@gmail.com</a><br/>
-            <!-- <strong>Тел.:</strong> +7 977 873 1024<br/> -->
-            <strong>Дата рождения:</strong> 26 апреля</p>
-            <p><a target="_blank" rel="noopener" href="https://www.linkedin.com/in/disc0nn3ct/">LinkedIn</a> · <a target="_blank" rel="noopener" href="https://github.com/disc0nn3ct">GitHub</a></p>
-          </div>
-          <div>
-            <p class="quote">Любимые фразы: «Science is elegant» · «Smooth seas don’t make good sailors»</p>
-            <a class="btn cta" href="assets/CV.pdf" target="_blank" rel="noopener">Скачать CV (PDF)</a>
-          </div>
-        </div>
+<!-- CONTACT -->
+<section id="contact" data-reveal>
+  <h2>Contact</h2>
+  <div class="card">
+    <div class="two">
+      <div>
+        <p><strong>Email:</strong> <a href="mailto:missc0nn3ct@gmail.com">missc0nn3ct@gmail.com</a><br/>
+        <!-- <strong>Тел.:</strong> +7 977 873 1024<br/> -->
+        <strong>Дата рождения:</strong> 26 апреля</p>
+        <p>
+          <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/disc0nn3ct/">LinkedIn</a> · 
+          <a target="_blank" rel="noopener" href="https://github.com/disc0nn3ct">GitHub</a> · 
+          <a target="_blank" rel="noopener" href="https://t.me/kiichiru">Telegram</a>
+        </p>
       </div>
-    </section>
+      <div>
+        <p class="quote">Любимые фразы: «Science is elegant» · «Smooth seas don’t make good sailors»</p>
+        <a class="btn cta" href="assets/CV.pdf" target="_blank" rel="noopener">Скачать CV (PDF)</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 
     <div class="footer">© Сергей Федоров · Готово к публикации на GitHub Pages</div>
   </div>
