@@ -16,12 +16,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    /* copied styles — unchanged */
     :root{
-      --nav-h: 64px;
-    }
-    html{scroll-behavior: smooth;}
-    section{scroll-margin-top: calc(var(--nav-h) + 12px);}
+  --nav-h: 64px;           /* фактическая высота шапки */
+}
+
+/* плавный скролл по якорям */
+html{ scroll-behavior: smooth; }
+
+/* секции «останавливаются» на нужной высоте,
+   чтобы не прятаться под .nav */
+section{ scroll-margin-top: calc(var(--nav-h) + 12px); }
+
+
     :root{--bg:#0b0d14;--panel:#0f1220;--card:#111427;--text:#e9e9f0;--muted:#9aa0b5;--line:#1c2140;--acc:#66e0ff;--acc2:#8b5cf6;--grad:linear-gradient(135deg,#66e0ff,#8b5cf6);--shadow:0 20px 60px rgba(0,0,0,.35)}
     .light{--bg:#f6f7fb;--panel:#fff;--card:#fff;--text:#121318;--muted:#5a6075;--line:#e6e8f2;--shadow:0 18px 40px rgba(0,0,0,.08)}
     *{box-sizing:border-box}
@@ -29,15 +35,19 @@
     a{color:var(--acc);text-decoration:none}
     a:hover{text-decoration:underline}
     .wrap{max-width:1160px;margin:0 auto;padding:24px}
+
+    /* NAV */
     .nav{position:sticky;top:0;z-index:30;background:rgba(15,18,32,.6);backdrop-filter:saturate(160%) blur(10px);border-bottom:1px solid var(--line)}
     .nav.light{background:rgba(255,255,255,.85)}
     .nav-inner{max-width:1160px;margin:0 auto;padding:10px 24px;display:flex;gap:14px;align-items:center}
     .brand{font-weight:800;letter-spacing:.3px;display:flex;align-items:center;gap:10px}
     .sp{flex:1}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--text);font-weight:600;cursor:pointer}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--text);font-weight:600}
     .btn:hover{background:color-mix(in srgb,var(--card),#fff 6%)}
     .cta{background:var(--grad);color:#0b0d14;border:0}
     .cta:hover{filter:saturate(115%)}
+
+    /* HERO */
     .hero{position:relative;border:1px solid var(--line);background:
       radial-gradient(1100px 520px at 0% -10%,rgba(102,224,255,.14),transparent 60%),
       radial-gradient(900px 500px at 110% 0%,rgba(139,92,246,.12),transparent 60%),
@@ -46,10 +56,14 @@
     .hero p{margin:0 0 18px;color:var(--muted);font-size:clamp(16px,2vw,18px)}
     .hero .layout{display:grid;grid-template-columns:220px 1fr;gap:20px;align-items:center}
     @media(max-width:760px){.hero .layout{grid-template-columns:1fr;gap:16px}}
+
+    /* AVATARS */
     .avatar-lg{width:200px;height:200px;border-radius:18px;border:1px solid var(--line);background:var(--card);object-fit:cover;box-shadow:var(--shadow)}
     @media(max-width:760px){.avatar-lg{width:116px;height:116px;border-radius:16px}}
     .nav-avatar{width:32px;height:32px;border-radius:50%;border:1px solid var(--line);object-fit:cover;box-shadow:var(--shadow);opacity:0;transform:scale(.85);transition:all .22s ease}
     .nav.show-avatar .nav-avatar{opacity:1;transform:scale(1)}
+
+    /* Common blocks */
     section{margin-top:24px}
     h2{font-size:20px;margin:0 0 12px}
     .cards{display:grid;grid-template-columns:1fr;gap:14px}
@@ -68,6 +82,8 @@
     .center{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
     [data-reveal]{opacity:0;transform:translateY(10px);transition:all .6s ease}
     .reveal{opacity:1;transform:none}
+
+    /* Research accordion */
     .research-acc details{border:1px solid var(--line);background:var(--card);border-radius:10px;margin:6px 0;box-shadow:var(--shadow)}
     .research-acc summary{cursor:pointer;padding:10px 14px;font-weight:600;font-size:15px;list-style:none}
     .research-acc summary::-webkit-details-marker{display:none}
@@ -75,6 +91,70 @@
     .research-acc details[open] summary::before{transform:rotate(90deg);color:var(--acc)}
     .research-acc .meta-line{padding:8px 16px 14px 28px;font-size:14px;color:var(--muted);line-height:1.5}
     .research-acc .meta-line ul.list{margin:0}
+    
+/* 📱 Mobile improvements */
+@media (max-width: 600px) {
+  .wrap {
+    padding: 12px; /* меньше отступов */
+  }
+
+  .nav-inner {
+    flex-wrap: wrap;         /* меню переносится */
+    gap: 8px;
+    padding: 8px 12px;
+  }
+
+  .nav-inner a,
+  .nav-inner button {
+    font-size: 14px;
+    padding: 6px 10px;       /* кнопки компактнее */
+    border-radius: 10px;
+  }
+
+  .brand span {
+    font-size: 15px;
+  }
+
+  .hero {
+    padding: 20px; /* компактнее блок с фото */
+  }
+
+  .hero .layout {
+    grid-template-columns: 1fr; /* аватар и текст в колонку */
+    text-align: center;
+  }
+
+  .avatar-lg {
+    margin: 0 auto; /* центрирование */
+  }
+
+  h1 {
+    font-size: 22px; /* уменьшение заголовка */
+  }
+
+  p {
+    font-size: 15px;
+    line-height: 1.4;
+  }
+
+  .cards {
+    grid-template-columns: 1fr; /* все карточки в одну колонку */
+  }
+
+  .two {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline {
+    padding-left: 16px;
+  }
+
+  .titem:before {
+    left: -10px;
+  }
+}
+
+    
   </style>
 
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
