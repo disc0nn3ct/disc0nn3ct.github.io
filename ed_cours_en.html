@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sergei Fedorov Courses & Certifications —</title>
+  <title>Sergei Fedorov Courses & Certificates</title>
   <meta name="theme-color" content="#0b0d14" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,11 +17,19 @@
     }
     .light{--bg:#f6f7fb;--panel:#fff;--card:#fff;--text:#121318;--muted:#5a6075;--line:#e6e8f2;--shadow:0 18px 40px rgba(0,0,0,.08)}
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Noto Sans",Arial,sans-serif;scroll-behavior:smooth}
+    html,body{
+      margin:0;padding:0;background:var(--bg);color:var(--text);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Noto Sans",Arial,sans-serif;
+      scroll-behavior:smooth;
+      /* ⛔️ убираем горизонтальную прокрутку на мобилках */
+      overflow-x:hidden;
+    }
     a{color:var(--acc);text-decoration:none}
     a:hover{text-decoration:underline}
     section{scroll-margin-top:calc(var(--nav-h) + 12px);margin-top:24px}
     h2{font-size:20px;margin:0 0 12px}
+    /* длинные заголовки не раздувают ширину */
+    h1,h2,h3{overflow-wrap:anywhere;word-wrap:break-word}
 
     .wrap{max-width:1160px;margin:0 auto;padding:24px}
 
@@ -35,7 +43,7 @@
     .btn:hover{background:color-mix(in srgb,var(--card),#fff 6%)}
     .cta{background:var(--grad);color:#0b0d14;border:0}
     .cta:hover{filter:saturate(115%)}
-    /* mini avatar (same behavior as index.html) */
+    /* мини‑аватар как в index.html */
     .nav-avatar{width:32px;height:32px;border-radius:50%;border:1px solid var(--line);object-fit:cover;box-shadow:var(--shadow);opacity:0;transform:scale(.85);transition:all .22s ease}
     .nav.show-avatar .nav-avatar{opacity:1;transform:scale(1)}
 
@@ -50,12 +58,12 @@
     .avatar-lg{width:148px;height:148px;border-radius:16px;border:1px solid var(--line);object-fit:cover;box-shadow:var(--shadow)}
     @media(max-width:760px){.hero-grid{grid-template-columns:1fr;text-align:center}.avatar-lg{margin:0 auto}}
 
-    /* category pills */
+    /* Pills (категории) */
     .pills{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px}
     .pill{display:inline-block;padding:10px 14px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--text);font-weight:700}
     .pill:hover{background:color-mix(in srgb,var(--card),#fff 6%);text-decoration:none}
 
-    /* grid tiles */
+    /* Grid плиток */
     .grid{display:grid;grid-template-columns:1fr;gap:16px}
     @media(min-width:860px){.grid{grid-template-columns:1fr 1fr}}
     .tile{border:1px solid var(--line);background:var(--card);border-radius:16px;padding:14px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px}
@@ -66,16 +74,61 @@
     .links a{display:inline-flex;align-items:center;gap:6px;padding:6px 8px;border:1px solid var(--line);border-radius:10px;background:rgba(102,224,255,.05)}
     .links a:hover{background:rgba(102,224,255,.1);text-decoration:none}
 
+    /* Низ */
     .footer{margin:32px 0 12px;color:var(--muted);text-align:center}
     .back-home{display:inline-block;margin-top:22px}
 
+    /* страхуем изображения от выхода за контейнер */
+    img{max-width:100%;height:auto}
+
+    /* Mobile */
     @media(max-width:600px){
+      /* фиксируем шапку, чтобы не исчезала */
+      .nav{position:fixed; top:0; left:0; right:0}
+      /* добавляем отступ для контента */
+      body{padding-top:var(--nav-h)}
       .wrap{padding:14px}
-      .nav-inner{gap:8px;padding:8px 12px}
-      .btn{padding:8px 12px;border-radius:12px}
+
+      /* всё помещается в одну линию; имя можно на 1–2 строки */
+      .nav-inner{
+        padding:8px 12px;
+        gap:8px;
+        flex-wrap:nowrap;
+      }
+      .brand span{
+        font-size:16px;
+        line-height:1.2;
+        display:block;
+        white-space:normal;     /* разрешаем перенос на 2 строки */
+        max-width:36vw;         /* не выталкивает кнопки вправо */
+      }
+
+      .btn{padding:9px 12px;border-radius:12px;font-size:14px;line-height:1.2;white-space:nowrap}
       .pill{padding:8px 12px}
       .thumb{width:110px;height:78px}
+      /* если ряд не помещается — переносим элементы внутрь плитки */
+      .tile-row{flex-wrap:wrap;align-items:flex-start}
+      @media(max-width:600px){
+  .nav-inner{
+    padding:8px 10px;
+    gap:6px;
+  }
+  /* убираем flex-grow у .sp, чтобы не раздвигало */
+  .sp{flex:none;width:4px}
+
+  /* RU/EN — тоже поджать и сдвинуть */
+  .nav-inner a.btn[href*="ed_cours_en"]{
+    margin-left:-10px;
+    padding:8px 10px;
+    font-size:13px;
+  }
+
+  /* остальные кнопки компактнее */
+  .btn{padding:8px 10px;font-size:13px;border-radius:10px}
+}
+
     }
+
   </style>
 
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
@@ -91,22 +144,22 @@
         <img class="nav-avatar" src="assets/avatar.jpg" alt="">
         <span>Sergei Fedorov</span>
       </div>
-      <a class="btn" href="index_en.html">← Home</a>
+      <a class="btn" href="index.html">← Home</a>
       <div class="sp"></div>
       <a class="btn" href="ed_cours.html" lang="ru" hreflang="ru">EN/RU</a>
       <button class="btn" id="theme">🌙 Theme</button>
-      <a class="btn cta" href="#arch">To sections</a>
     </div>
   </div>
 
   <div class="wrap">
+
     <!-- HERO -->
     <section class="hero">
       <div class="hero-grid">
         <img class="avatar-lg" src="assets/avatar.jpg" alt="Sergei Fedorov">
         <div>
-          <h1>Courses & Certifications</h1>
-          <p>Complete list of courses and certificates grouped by: architecture, security, cloud, DevOps/VCS, AI and soft skills.</p>
+          <h1>Courses & Certificates</h1>
+          <p>A complete list of courses and certificates with categorization: architecture, security, cloud, DevOps/VCS, AI and soft skills.</p>
           <div class="pills">
             <a class="pill" href="#arch">Architecture</a>
             <a class="pill" href="#sec">Cybersecurity</a>
@@ -119,37 +172,37 @@
       </div>
     </section>
 
-    <!-- ARCHITECTURE -->
+    <!-- Архитектура -->
     <section id="arch">
-      <h2>Architecture & Enterprise Systems</h2>
+      <h2>Architecture and Enterprise Systems</h2>
       <div class="grid">
         <div class="tile">
           <h3>Architecture in Sber Group (Architecture 201)</h3>
           <div class="tile-row">
-            <!-- <img class="thumb" src="assets/Сerts/course/Федоров Сергей Архитектура в Группе Сбер (Architecture 201).png" alt=""> -->
+            <!-- <img class="thumb" src="assets\Сerts\course\Федоров Сергей Архитектура в Группе Сбер (Architecture 201).png" alt=""> -->
             <div class="links">
-              <!-- <a href="assets/Сerts/course/Федоров Сергей Архитектура в Группе Сбер (Architecture 201).png" target="_blank">Image</a> -->
+              <!-- <a href="assets\Сerts\course\Федоров Сергей Архитектура в Группе Сбер (Architecture 201).png" target="_blank">Image</a> -->
             </div>
           </div>
         </div>
 
         <div class="tile">
-          <h3>Design & Evaluation of Corporate Architecture</h3>
+          <h3>Design and Evaluation of Enterprise Architecture</h3>
           <div class="tile-row">
-            <!-- <img class="thumb" src="assets/Сerts/course/Федоров Сергей Проектирование и оценка корпоративной архитектуры.png" alt=""> -->
+            <!-- <img class="thumb" src="assets\Сerts\course\Федоров Сергей Проектирование и оценка корпоративной архитектуры.png" alt=""> -->
             <div class="links">
-              <!-- <a href="assets/Сerts/course/Проектирование и оценка корпоративной архитектуры.pdf" target="_blank">Certificate (PDF)</a> -->
-              <!-- <a href="assets/Сerts/course/Федоров Сергей Проектирование и оценка корпоративной архитектуры.png" target="_blank">Image</a> -->
+              <!-- <a href="assets\Сerts\course\Проектирование и оценка корпоративной архитектуры.pdf" target="_blank">Certificate (PDF)</a> -->
+              <!-- <a href="assets\Сerts\course\Федоров Сергей Проектирование и оценка корпоративной архитектуры.png" target="_blank">Image</a> -->
             </div>
           </div>
         </div>
 
         <div class="tile">
-          <h3>Architectural Decision‑Making (part 2: digital)</h3>
+          <h3>Making Architectural Decisions (Part 2: Digital)</h3>
           <div class="tile-row">
-            <!-- <img class="thumb" src="assets/Сerts/course/Федоров Сергей Принятие архитектурных решений. Часть 2_ Цифровые .png" alt=""> -->
+            <!-- <img class="thumb" src="assets\Сerts\course\Федоров Сергей Принятие архитектурных решений. Часть 2_ Цифровые .png" alt=""> -->
             <div class="links">
-              <!-- <a href="assets/Сerts/course/Федоров Сергей Принятие архитектурных решений. Часть 2_ Цифровые .png" target="_blank">Image</a> -->
+              <!-- <a href="assets\Сerts\course\Федоров Сергей Принятие архитектурных решений. Часть 2_ Цифровые .png" target="_blank">Image</a> -->
             </div>
           </div>
         </div>
@@ -157,9 +210,9 @@
         <div class="tile">
           <h3>Modern Digital Technologies</h3>
           <div class="tile-row">
-            <!-- <img class="thumb" src="assets/Сerts/course/Федоров Сергей Современные цифровые технологии.png" alt=""> -->
+            <!-- <img class="thumb" src="assets\Сerts\course\Федоров Сергей Современные цифровые технологии.png" alt=""> -->
             <div class="links">
-              <!-- <a href="assets/Сerts/course/Федоров Сергей Современные цифровые технологии.png" target="_blank">Image</a> -->
+              <!-- <a href="assets\Сerts\course\Федоров Сергей Современные цифровые технологии.png" target="_blank">Image</a> -->
             </div>
           </div>
         </div>
@@ -167,71 +220,71 @@
         <div class="tile">
           <h3>Automated System Metadata Management</h3>
           <div class="tile-row">
-            <!-- <img class="thumb" src="assets/Сerts/course/Федоров Сергей Управление метаданными автоматизированной системы .png" alt=""> -->
+            <!-- <img class="thumb" src="assets\Сerts\course\Федоров Сергей Управление метаданными автоматизированной системы .png" alt=""> -->
             <div class="links">
-              <!-- <a href="assets/Сerts/course/Федоров Сергей Управление метаданными автоматизированной системы .png" target="_blank">Image</a> -->
+              <!-- <a href="assets\Сerts\course\Федоров Сергей Управление метаданными автоматизированной системы .png" target="_blank">Image</a> -->
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SECURITY -->
+    <!-- Безопасность -->
     <section id="sec">
-      <h2>Cybersecurity & AppSec</h2>
+      <h2>Cybersecurity and AppSec</h2>
       <div class="grid">
         <div class="tile">
-          <h3>Cybersecurity Fundamentals for Sbergile</h3>
+          <h3>Cybersecurity Basics for Sbergile</h3>
           <div class="tile-row">
-            <!-- <img class="thumb" src="assets/Сerts/course/Федоров Сергей Основы кибербезопасности для Sbergile.png" alt=""> -->
+            <!-- <img class="thumb" src="assets\Сerts\course\Федоров Сергей Основы кибербезопасности для Sbergile.png" alt=""> -->
             <div class="links">
-              <!-- <a href="assets/Сerts/course/Федоров Сергей Основы кибербезопасности для Sbergile.png" target="_blank">Image</a> -->
+              <!-- <a href="assets\Сerts\course\Федоров Сергей Основы кибербезопасности для Sbergile.png" target="_blank">Image</a> -->
             </div>
           </div>
         </div>
 
         <div class="tile">
-          <h3>Secure Web‑Application Development Practices</h3>
+          <h3>Practices for Developing Secure Web Applications</h3>
           <div class="tile-row">
-            <!-- <img class="thumb" src="assets/Сerts/course/Федоров Сергей Практики разработки защищенных web-приложений.png" alt=""> -->
+            <!-- <img class="thumb" src="assets\Сerts\course\Федоров Сергей Практики разработки защищенных web-приложений.png" alt=""> -->
             <div class="links">
-              <!-- <a href="assets/Сerts/course/Федоров Сергей Практики разработки защищенных web-приложений.png" target="_blank">Image</a> -->
+              <!-- <a href="assets\Сerts\course\Федоров Сергей Практики разработки защищенных web-приложений.png" target="_blank">Image</a> -->
             </div>
           </div>
         </div>
 
         <div class="tile">
-          <h3>Sber AppSec: Safe Use of Open‑Source Components</h3>
+          <h3>Sber AppSec: Secure Use of OSS Components</h3>
           <div class="tile-row">
-            <!-- <img class="thumb" src="assets/Сerts/course/Sber AppSec Безопасное использование сторонних OpenSource-компонентов.pdf.png" alt="" onerror="this.style.display='none'"> -->
+            <!-- <img class="thumb" src="assets\Сerts\course\Sber AppSec Безопасное использование сторонних OpenSource-компонентов.pdf.png" alt="" onerror="this.style.display='none'"> -->
             <div class="links">
-              <!-- <a href="assets/Сerts/course/Sber AppSec Безопасное использование сторонних OpenSource-компонентов.pdf" target="_blank">Certificate (PDF)</a> -->
+              <!-- <a href="assets\Сerts\course\Sber AppSec Безопасное использование сторонних OpenSource-компонентов.pdf" target="_blank">Certificate (PDF)</a> -->
             </div>
           </div>
         </div>
 
         <div class="tile">
-          <h3>Trade Secrets</h3>
+          <h3>Trade Secret</h3>
           <div class="tile-row">
-            <!-- <img class="thumb" src="assets/Сerts/course/Федоров Сергей Коммерческая тайна.png" alt=""> -->
+            <!-- <img class="thumb" src="assets\Сerts\course\Федоров Сергей Коммерческая тайна.png" alt=""> -->
             <div class="links">
-              <!-- <a href="assets/Сerts/course/Федоров Сергей Коммерческая тайна.png" target="_blank">Image</a> -->
+              <!-- <a href="assets\Сerts\course\Федоров Сергей Коммерческая тайна.png" target="_blank">Image</a> -->
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CLOUD -->
+    <!-- Облака -->
     <section id="cloud">
-      <h2>Cloud & Infrastructure</h2>
+      <h2>Cloud and Infrastructure</h2>
       <div class="grid">
         <div class="tile">
-          <h3>Cloud Technologies for IT‑Architects (Sber Cloud)</h3>
+          <h3>Cloud Technologies for an IT Architect (Sber Cloud)</h3>
           <div class="tile-row">
-            <!-- <img class="thumb" src="assets/Сerts/course/Федоров Сергей Облачные технологии для ИТ-архитектора Sber Cloud.png" alt=""> -->
+            <!-- <img class="thumb" src="assets\Сerts\course\Федоров Сергей Облачные технологии для ИТ-архитектора Sber Cloud.png" alt=""> -->
             <div class="links">
-              <!-- <a href="assets/Сerts/course/Федоров Сергей Облачные технологии для ИТ-архитектора Sber Cloud.png" target="_blank">Image</a> -->
+              <!-- <a href="assets\Сerts\course\Федоров Сергей Облачные технологии для ИТ-архитектора Sber Cloud.png" target="_blank">Image</a> -->
             </div>
           </div>
         </div>
@@ -239,19 +292,19 @@
         <div class="tile">
           <h3>Introduction to Cloud Technologies</h3>
           <div class="tile-row">
-            <!-- <img class="thumb" src="assets/Сerts/course/Федоров Сергей Введение в облачные технологии.png" alt=""> -->
+            <!-- <img class="thumb" src="assets\Сerts\course\Федоров Сергей Введение в облачные технологии.png" alt=""> -->
             <div class="links">
-              <!-- <a href="assets/Сerts/course/Федоров Сергей Введение в облачные технологии.png" target="_blank">Image</a> -->
+              <!-- <a href="assets\Сerts\course\Федоров Сергей Введение в облачные технологии.png" target="_blank">Image</a> -->
             </div>
           </div>
         </div>
 
         <div class="tile">
-          <h3>Kubernetes Fundamentals</h3>
+          <h3>Basics of Kubernetes</h3>
           <div class="tile-row">
-            <!-- <img class="thumb" src="assets/Сerts/course/Федоров Сергей Основы Kubernetes.png" alt=""> -->
+            <!-- <img class="thumb" src="assets\Сerts\course\Федоров Сергей Основы Kubernetes.png" alt=""> -->
             <div class="links">
-              <!-- <a href="assets/Сerts/course/Федоров Сергей Основы Kubernetes.png" target="_blank">Image</a> -->
+              <!-- <a href="assets\Сerts\course\Федоров Сергей Основы Kubernetes.png" target="_blank">Image</a> -->
             </div>
           </div>
         </div>
@@ -259,9 +312,9 @@
         <div class="tile">
           <h3>Introduction to Service Mesh (Istio)</h3>
           <div class="tile-row">
-            <!-- <img class="thumb" src="assets/Сerts/course/Федоров Сергей Введение в Service mesh на основе Istio.png" alt=""> -->
+            <!-- <img class="thumb" src="assets\Сerts\course\Федоров Сергей Введение в Service mesh на основе Istio.png" alt=""> -->
             <div class="links">
-              <!-- <a href="assets/Сerts/course/Федоров Сергей Введение в Service mesh на основе Istio.png" target="_blank">Image</a> -->
+              <!-- <a href="assets\Сerts\course\Федоров Сергей Введение в Service mesh на основе Istio.png" target="_blank">Image</a> -->
             </div>
           </div>
         </div>
@@ -269,35 +322,35 @@
         <div class="tile">
           <h3>Cloud API Integration Technologies</h3>
           <div class="tile-row">
-            <!-- <img class="thumb" src="assets/Сerts/course/Федоров Сергей Технологии интеграции Cloud API.png" alt=""> -->
+            <!-- <img class="thumb" src="assets\Сerts\course\Федоров Сергей Технологии интеграции Cloud API.png" alt=""> -->
             <div class="links">
-              <!-- <a href="assets/Сerts/course/Федоров Сергей Технологии интеграции Cloud API.png" target="_blank">Image</a> -->
+              <!-- <a href="assets\Сerts\course\Федоров Сергей Технологии интеграции Cloud API.png" target="_blank">Image</a> -->
             </div>
           </div>
         </div>
 
         <div class="tile">
-          <h3>Monitoring & Alerting</h3>
+          <h3>Monitoring and Alerting</h3>
           <div class="tile-row">
-            <!-- <img class="thumb" src="assets/Сerts/course/Федоров Сергей Мониторинг и алертинг.png" alt=""> -->
+            <!-- <img class="thumb" src="assets\Сerts\course\Федоров Сергей Мониторинг и алертинг.png" alt=""> -->
             <div class="links">
-              <!-- <a href="assets/Сerts/course/Федоров Сергей Мониторинг и алертинг.png" target="_blank">Image</a> -->
+              <!-- <a href="assets\Сerts\course\Федоров Сергей Мониторинг и алертинг.png" target="_blank">Image</a> -->
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- DEVOPS -->
+    <!-- DevOps -->
     <section id="devops">
       <h2>DevOps / Version Control</h2>
       <div class="grid">
         <div class="tile">
           <h3>DevOps Tools: Git</h3>
           <div class="tile-row">
-            <!-- <img class="thumb" src="assets/Сerts/course/Федоров Сергей Инструменты DevOps_ Git.png" alt=""> -->
+            <!-- <img class="thumb" src="assets\Сerts\course\Федоров Сергей Инструменты DevOps_ Git.png" alt=""> -->
             <div class="links">
-              <!-- <a href="assets/Сerts/course/Федоров Сергей Инструменты DevOps_ Git.png" target="_blank">Image</a> -->
+              <!-- <a href="assets\Сerts\course\Федоров Сергей Инструменты DevOps_ Git.png" target="_blank">Image</a> -->
             </div>
           </div>
         </div>
@@ -305,9 +358,9 @@
         <div class="tile">
           <h3>Version Control with Git (Atlassian, Coursera)</h3>
           <div class="tile-row">
-            <!-- <img class="thumb" src="assets/Сerts/course/Version Control with Git.pdf.png" alt="" onerror="this.style.display='none'"> -->
+            <!-- <img class="thumb" src="assets\Сerts\course\Version Control with Git.pdf.png" alt="" onerror="this.style.display='none'"> -->
             <div class="links">
-              <!-- <a href="assets/Сerts/course/Coursera_7PYZA5CTYYRW.pdf" target="_blank">Certificate (PDF)</a> -->
+              <!-- <a href="assets\Сerts\course\Coursera_7PYZA5CTYYRW.pdf" target="_blank">Certificate (PDF)</a> -->
             </div>
           </div>
         </div>
@@ -316,14 +369,14 @@
 
     <!-- AI -->
     <section id="ai">
-      <h2>Artificial Intelligence & Automation</h2>
+      <h2>Artificial Intelligence and Automation</h2>
       <div class="grid">
         <div class="tile">
           <h3>Working with LLM GigaChat</h3>
           <div class="tile-row">
-            <!-- <img class="thumb" src="assets/Сerts/course/Федоров Сергей Работа с LLM GigaChat.png" alt=""> -->
+            <!-- <img class="thumb" src="assets\Сerts\course\Федоров Сергей Работа с LLM GigaChat.png" alt=""> -->
             <div class="links">
-              <!-- <a href="assets/Сerts/course/Федоров Сергей Работа с LLM GigaChat.png" target="_blank">Image</a> -->
+              <!-- <a href="assets\Сerts\course\Федоров Сергей Работа с LLM GigaChat.png" target="_blank">Image</a> -->
             </div>
           </div>
         </div>
@@ -331,35 +384,35 @@
         <div class="tile">
           <h3>Introduction to AI Agents</h3>
           <div class="tile-row">
-            <!-- <img class="thumb" src="assets/Сerts/course/Федоров Сергей Введение в ИИ-агенты.png" alt=""> -->
+            <!-- <img class="thumb" src="assets\Сerts\course\Федоров Сергей Введение в ИИ-агенты.png" alt=""> -->
             <div class="links">
-              <!-- <a href="assets/Сerts/course/Федоров Сергей Введение в ИИ-агенты.png" target="_blank">Image</a> -->
+              <!-- <a href="assets\Сerts\course\Федоров Сергей Введение в ИИ-агенты.png" target="_blank">Image</a> -->
             </div>
           </div>
         </div>
 
         <div class="tile">
-          <h3>GenAI & Agent Systems Intensive</h3>
+          <h3>Intensive on GenAI and Agent Systems</h3>
           <div class="tile-row">
-            <!-- <img class="thumb" src="assets/Сerts/course/Федоров Сергей Интенсив по GenAI и агентным системам.png" alt=""> -->
+            <!-- <img class="thumb" src="assets\Сerts\course\Федоров Сергей Интенсив по GenAI и агентным системам.png" alt=""> -->
             <div class="links">
-              <!-- <a href="assets/Сerts/course/Федоров Сергей Интенсив по GenAI и агентным системам.png" target="_blank">Image</a> -->
+              <!-- <a href="assets\Сerts\course\Федоров Сергей Интенсив по GenAI и агентным системам.png" target="_blank">Image</a> -->
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SOFT -->
+    <!-- Soft / Business -->
     <section id="soft">
       <h2>Soft skills / Business</h2>
       <div class="grid">
         <div class="tile">
           <h3>Successful Negotiation (University of Michigan, Coursera)</h3>
           <div class="tile-row">
-            <!-- <img class="thumb" src="assets/Сerts/course/Successful Negotiation Essential Strategies and Skills.pdf.png" alt="" onerror="this.style.display='none'"> -->
+            <!-- <img class="thumb" src="assets\Сerts\course\Successful Negotiation Essential Strategies and Skills.pdf.png" alt="" onerror="this.style.display='none'"> -->
             <div class="links">
-              <!-- <a href="assets/Сerts/course/Successful Negotiation Essential Strategies and Skills.pdf" target="_blank">Certificate (PDF)</a> -->
+              <!-- <a href="assets\Сerts\course\Successful Negotiation Essential Strategies and Skills.pdf" target="_blank">Certificate (PDF)</a> -->
             </div>
           </div>
         </div>
@@ -367,9 +420,9 @@
         <div class="tile">
           <h3>Economics for Non‑Economists (HSE University, Coursera)</h3>
           <div class="tile-row">
-            <!-- <img class="thumb" src="assets/Сerts/course/Экономика для неэкономистов (Economics for non-economists).pdf.png" alt="" onerror="this.style.display='none'"> -->
+            <!-- <img class="thumb" src="assets\Сerts\course\Экономика для неэкономистов (Economics for non-economists).pdf.png" alt="" onerror="this.style.display='none'"> -->
             <div class="links">
-              <!-- <a href="assets/Сerts/course/Экономика для неэкономистов (Economics for non-economists).pdf" target="_blank">Certificate (PDF)</a> -->
+              <!-- <a href="assets\Сerts\course\Экономика для неэкономистов (Economics for non-economists).pdf" target="_blank">Certificate (PDF)</a> -->
             </div>
           </div>
         </div>
@@ -377,9 +430,9 @@
         <div class="tile">
           <h3>Critical Thinking</h3>
           <div class="tile-row">
-            <!-- <img class="thumb" src="assets/Сerts/course/Федоров Сергей Критическое мышление.png" alt=""> -->
+            <!-- <img class="thumb" src="assets\Сerts\course\Федоров Сергей Критическое мышление.png" alt=""> -->
             <div class="links">
-              <!-- <a href="assets/Сerts/course/Федоров Сергей Критическое мышление.png" target="_blank">Image</a> -->
+              <!-- <a href="assets\Сerts\course\Федоров Сергей Критическое мышление.png" target="_blank">Image</a> -->
             </div>
           </div>
         </div>
@@ -387,9 +440,9 @@
         <div class="tile">
           <h3>Thinking Traps</h3>
           <div class="tile-row">
-            <!-- <img class="thumb" src="assets/Сerts/course/Федоров Сергей Ловушки мышления.png" alt=""> -->
+            <!-- <img class="thumb" src="assets\Сerts\course\Федоров Сергей Ловушки мышления.png" alt=""> -->
             <div class="links">
-              <!-- <a href="assets/Сerts/course/Федоров Сергей Ловушки мышления.png" target="_blank">Image</a> -->
+              <!-- <a href="assets\Сerts\course\Федоров Сергей Ловушки мышления.png" target="_blank">Image</a> -->
             </div>
           </div>
         </div>
@@ -397,9 +450,9 @@
         <div class="tile">
           <h3>Systems Thinking</h3>
           <div class="tile-row">
-            <!-- <img class="thumb" src="assets/Сerts/course/Федоров Сергей Системное мышление.png" alt=""> -->
+            <!-- <img class="thumb" src="assets\Сerts\course\Федоров Сергей Системное мышление.png" alt=""> -->
             <div class="links">
-              <!-- <a href="assets/Сerts/course/Федоров Сергей Системное мышление.png" target="_blank">Image</a> -->
+              <!-- <a href="assets\Сerts\course\Федоров Сергей Системное мышление.png" target="_blank">Image</a> -->
             </div>
           </div>
         </div>
@@ -409,7 +462,7 @@
     <div class="footer">
       © Sergei Fedorov
       <div>
-        <a class="back-home" href="index_en.html">← Back to resume</a>
+        <a class="back-home" href="index.html">← Back to home (resume)</a>
       </div>
     </div>
   </div>
@@ -417,17 +470,11 @@
   <script>
     const body=document.body, nav=document.getElementById('nav');
     const themeBtn=document.getElementById('theme');
-    const setTheme=v=>{
-      const light=v==='light'||v===true;
-      body.classList.toggle('light',light);
-      nav.classList.toggle('light',light);
-      localStorage.setItem('theme',light?'light':'dark');
-      themeBtn.textContent=light?'☀️ Theme':'🌙 Theme';
-    };
+    const setTheme=v=>{const light=v==='light'||v===true;body.classList.toggle('light',light);nav.classList.toggle('light',light);localStorage.setItem('theme',light?'light':'dark');themeBtn.textContent=light?'☀️ Theme':'🌙 Theme'};
     themeBtn.onclick=()=> setTheme(body.classList.contains('light')?'dark':'light');
     setTheme(localStorage.getItem('theme')||'dark');
 
-    // Mini‑avatar appears after scrolling (same as index.html)
+    // Появление мини‑аватара при прокрутке — как в index.html
     const showAvatarOnScroll=()=>{
       const trigger=180;
       if(window.scrollY>trigger){ nav.classList.add('show-avatar'); }

@@ -6,6 +6,7 @@
   <title>Сергей Федоров — Архитектура • Информационная безопасность • DevSecOps</title>
   <meta name="description" content="Эксперт в области архитектуры и информационной безопасности. Международные проекты, корпоративные стандарты, DevSecOps, Kubernetes, SAST/SCA. Кейсы, сертификаты, патенты, публикации, контакты." />
   <meta name="theme-color" content="#0b0d14" />
+  <meta name="copyright" content="© 2025, Федоров Сергей. Все права защищены.">
 
   <!-- hreflang для двух языков -->
   <link rel="alternate" href="/index_en.html" hreflang="en">
@@ -17,18 +18,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root{
-  --nav-h: 64px;           /* фактическая высота шапки */
-}
+      --nav-h: 64px;           /* фактическая высота шапки */
+    }
 
-/* плавный скролл по якорям */
-html{ scroll-behavior: smooth; }
+    /* плавный скролл по якорям */
+    html{ scroll-behavior: smooth; }
 
-/* секции «останавливаются» на нужной высоте,
-   чтобы не прятаться под .nav */
-section{ scroll-margin-top: calc(var(--nav-h) + 12px); }
+    /* секции «останавливаются» на нужной высоте, чтобы не прятаться под .nav */
+    section{ scroll-margin-top: calc(var(--nav-h) + 12px); }
 
-
-    :root{--bg:#0b0d14;--panel:#0f1220;--card:#111427;--text:#e9e9f0;--muted:#9aa0b5;--line:#1c2140;--acc:#66e0ff;--acc2:#8b5cf6;--grad:linear-gradient(135deg,#66e0ff,#8b5cf6);--shadow:0 20px 60px rgba(0,0,0,.35)}
+    :root{
+      --bg:#0b0d14;--panel:#0f1220;--card:#111427;--text:#e9e9f0;--muted:#9aa0b5;--line:#1c2140;
+      --acc:#66e0ff;--acc2:#8b5cf6;--grad:linear-gradient(135deg,#66e0ff,#8b5cf6);
+      --shadow:0 20px 60px rgba(0,0,0,.35)
+    }
     .light{--bg:#f6f7fb;--panel:#fff;--card:#fff;--text:#121318;--muted:#5a6075;--line:#e6e8f2;--shadow:0 18px 40px rgba(0,0,0,.08)}
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Noto Sans",Arial,sans-serif}
@@ -42,7 +45,7 @@ section{ scroll-margin-top: calc(var(--nav-h) + 12px); }
     .nav-inner{max-width:1160px;margin:0 auto;padding:10px 24px;display:flex;gap:14px;align-items:center}
     .brand{font-weight:800;letter-spacing:.3px;display:flex;align-items:center;gap:10px}
     .sp{flex:1}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--text);font-weight:600}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--text);font-weight:600;cursor:pointer}
     .btn:hover{background:color-mix(in srgb,var(--card),#fff 6%)}
     .cta{background:var(--grad);color:#0b0d14;border:0}
     .cta:hover{filter:saturate(115%)}
@@ -91,81 +94,65 @@ section{ scroll-margin-top: calc(var(--nav-h) + 12px); }
     .research-acc details[open] summary::before{transform:rotate(90deg);color:var(--acc)}
     .research-acc .meta-line{padding:8px 16px 14px 28px;font-size:14px;color:var(--muted);line-height:1.5}
     .research-acc .meta-line ul.list{margin:0}
-    
-/* 📱 Mobile improvements */
-@media (max-width: 600px) {
-  .wrap {
-    padding: 12px; /* меньше отступов */
-  }
 
-  .nav-inner {
-    flex-wrap: wrap;         /* меню переносится */
-    gap: 8px;
-    padding: 8px 12px;
-  }
+    /* 📱 Mobile improvements */
+    @media (max-width: 600px) {
+      .wrap { padding: 12px; }
+      .nav-inner { flex-wrap: wrap; gap: 8px; padding: 8px 12px; }
+      .nav-inner a,.nav-inner button { font-size: 14px; padding: 6px 10px; border-radius: 10px; }
+      .brand span { font-size: 15px; }
+      .hero { padding: 20px; }
+      .hero .layout { grid-template-columns:1fr; text-align:center; }
+      .avatar-lg { margin:0 auto; }
+      h1 { font-size: 22px; }
+      p { font-size: 15px; line-height: 1.4; }
+      .cards{ grid-template-columns:1fr; }
+      .two{ grid-template-columns:1fr; }
+      .timeline{ padding-left:16px; }
+      .titem:before{ left:-10px; }
+    }
 
-  .nav-inner a,
-  .nav-inner button {
-    font-size: 14px;
-    padding: 6px 10px;       /* кнопки компактнее */
-    border-radius: 10px;
-  }
+    /* ======== ПЕЧАТЬ / PDF через системный диалог ======== */
+    /* Класс включается JS перед вызовом window.print() */
+    .print-mode *{transition:none !important}
+    .print-mode{background:#fff !important;color:#000 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .print-mode .nav{display:none !important}
+    .print-mode .wrap{max-width:none;padding:12mm}
+    .print-mode .hero,
+    .print-mode .card,
+    .print-mode .research-acc details{
+      background:#fff !important;border:1px solid #e3e3e3 !important;box-shadow:none !important
+    }
+    .print-mode .hero{border-radius:12px;padding:16px}
+    .print-mode .hero .layout{grid-template-columns:120px 1fr;gap:14px;align-items:start}
+    .print-mode .avatar-lg{width:110px;height:110px;border-radius:12px}
+    .print-mode h1{font-size:22pt;margin:0 0 6px;color:#000}
+    .print-mode h2{font-size:14pt;margin:0 0 8px;color:#000}
+    .print-mode h3{font-size:12.5pt;margin:0 0 6px;color:#000}
+    .print-mode p,.print-mode li,.print-mode .meta{color:#000}
+    .print-mode [data-reveal]{opacity:1 !important;transform:none !important}
 
-  .brand span {
-    font-size: 15px;
-  }
+    /* Разрывы/без разрывов */
+    .avoid-break{break-inside:avoid;page-break-inside:avoid}
+    .page-break{break-before:page;page-break-before:always}
 
-  .hero {
-    padding: 20px; /* компактнее блок с фото */
-  }
-
-  .hero .layout {
-    grid-template-columns: 1fr; /* аватар и текст в колонку */
-    text-align: center;
-  }
-
-  .avatar-lg {
-    margin: 0 auto; /* центрирование */
-  }
-
-  h1 {
-    font-size: 22px; /* уменьшение заголовка */
-  }
-
-  p {
-    font-size: 15px;
-    line-height: 1.4;
-  }
-
-  .cards {
-    grid-template-columns: 1fr; /* все карточки в одну колонку */
-  }
-
-  .two {
-    grid-template-columns: 1fr;
-  }
-
-  .timeline {
-    padding-left: 16px;
-  }
-
-  .titem:before {
-    left: -10px;
-  }
-}
-
-    
+    /* Настройки страницы принтера */
+    @page { size: A4; margin: 12mm; }
+    @media print {
+      body{background:#fff !important}
+      .nav{display:none !important}
+      .wrap{max-width:none;padding:0}
+    }
   </style>
 
-<!-- Favicon для вкладок -->
-<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon.png">
-<link rel="shortcut icon" href="assets/favicon.ico">
+  <!-- Favicon для вкладок -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon.png">
+  <link rel="shortcut icon" href="assets/favicon.ico">
 
-<!-- Для iOS / Android -->
-<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon.png">
-<meta name="theme-color" content="#0b0d14">
-
+  <!-- Для iOS / Android -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon.png">
+  <meta name="theme-color" content="#0b0d14">
 </head>
 <body>
   <div class="nav" id="nav">
@@ -182,16 +169,15 @@ section{ scroll-margin-top: calc(var(--nav-h) + 12px); }
       <a href="#certs">Сертификаты/Патенты</a>
       <a href="#education">Образование</a>
       <div class="sp"></div>
-      <!-- Переключатель языков — обычная ссылка -->
       <a class="btn" href="index_en.html" lang="en" hreflang="en">RU/EN</a>
       <button class="btn" id="theme">🌙 Тема</button>
       <a class="btn cta" href="#contact">Связаться</a>
     </div>
   </div>
 
-  <div class="wrap">
+  <div class="wrap" id="cv-root">
     <!-- HERO -->
-    <section class="hero" data-reveal>
+    <section class="hero avoid-break" data-reveal>
       <div class="layout">
         <img class="avatar-lg" src="assets/avatar.jpg" alt="Сергей Федоров">
         <div>
@@ -199,16 +185,16 @@ section{ scroll-margin-top: calc(var(--nav-h) + 12px); }
           <p>Эксперт в области архитектуры и информационной безопасности. Разрабатываю внутренние стандарты, сопровождаю стратегические инициативы и международные ИТ-проекты. Опыт системного проектирования и внедрения высоконагруженных систем, включая проработку, приёмку и контроль качества ПО.
 Активно занимаюсь научной деятельностью в области информационной безопасности и DevSecOps, исследую применение ИИ-агентов для автоматизации безопасной разработки и анализа уязвимостей.</p>
           <div class="center" style="margin-top:14px">
-            <a class="btn cta" href="assets/CV.pdf" target="_blank" rel="noopener">Скачать CV (PDF)</a>
+            <!-- Кнопка системной печати -->
+            <button class="btn cta" id="print-top">Скачать CV (PDF)</button>
             <a class="btn" href="#cases">Смотреть кейсы</a>
           </div>
         </div>
       </div>
     </section>
 
-<!-- остальной контент БЕЗ изменений -->
     <!-- EXPERIENCE -->
-    <section id="experience" data-reveal>
+    <section id="experience" class="avoid-break" data-reveal>
       <h2>Experience</h2>
       <div class="card timeline">
         <div class="titem">
@@ -259,7 +245,7 @@ section{ scroll-margin-top: calc(var(--nav-h) + 12px); }
     </section>
 
     <!-- CASES -->
-    <section id="cases" data-reveal>
+    <section id="cases" class="avoid-break" data-reveal>
       <h2>Кейсы</h2>
       <div class="cards">
         <div class="card">
@@ -284,7 +270,7 @@ section{ scroll-margin-top: calc(var(--nav-h) + 12px); }
     </section>
 
     <!-- SKILLS -->
-    <section id="skills" data-reveal>
+    <section id="skills" class="avoid-break" data-reveal>
       <h2>Навыки</h2>
       <div class="cards">
         <div class="card"><h3>Architecture</h3><div class="meta">Solution/Enterprise · Security Architecture · Microservices · API/Service Mesh (Istio)</div></div>
@@ -295,78 +281,46 @@ section{ scroll-margin-top: calc(var(--nav-h) + 12px); }
     </section>
 
     <!-- ACHIEVEMENTS -->
-    <!-- <section id="achievements" data-reveal>
+    <section id="achievements" class="avoid-break" data-reveal>
       <h2>Achievements</h2>
       <div class="cards">
         <div class="card">
           <h3>Corporate Recognition</h3>
           <ul class="list">
             <li>Благодарность ПАО Сбербанк (2022).</li>
-            <li>2 место на внутреннем CTF (2023).</li>
+            <li>2 место на внутреннем CTF ПАО Сбербанк (2023), подтверждение экспертизы в практической кибербезопасности.</li>
+            <li>Сопровождение со стороны безопасности множества внутренних продуктов и решений, выведенных на внешний рынок.</li>
           </ul>
         </div>
+
         <div class="card">
           <h3>Education & Knowledge Sharing</h3>
           <ul class="list">
-            <li>Автор онлайн‑курса «UNIX. Системное программирование» (НИУ ВШЭ, 2022) — <a target="_blank" rel="noopener" href="https://openedu.ru/course/hse/UNIX/">OpenEdu</a>.</li>
-            <li>«Методология быстрой автоматизации» (2023).</li>
+            <li>Разработчик онлайн-курса <em>«Операционные системы семейства UNIX. Системное программирование»</em> (НИУ ВШЭ, 2022) — <a target="_blank" rel="noopener" href="https://openedu.ru/course/hse/UNIX/">OpenEdu</a>.</li>
+            <li>Создание и внедрение <strong>«Методологии быстрой автоматизации»</strong> (2023), применяемой для ускоренного внедрения защищённых бизнес-решений.</li>
           </ul>
         </div>
+
         <div class="card">
           <h3>Research & Conferences</h3>
           <ul class="list">
-            <li>Победитель конференции им. Е.В. Арменского (2023).</li>
+            <li>Победитель конференции им. Е.В. Арменского (2023) с исследованием <em>«Анализ аномальных ситуаций сетевого трафика по данным журналов NGINX»</em>.</li>
+            <li>Автор докладов и выступлений по DevSecOps и автоматизации (внутренние и внешние мероприятия).</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Product Development</h3>
+          <ul class="list">
+            <li>Разработал и вывел на рынок продукт малой автоматизации (2023).</li>
+            <li><strong>Arctic Code Vault Contributor at GitHub (2020)</strong> — вклад в сохранение мирового open-source кода.</li>
           </ul>
         </div>
       </div>
-    </section> -->
-
-  <!-- ACHIEVEMENTS -->
-  <section id="achievements" data-reveal>
-    <h2>Achievements</h2>
-    <div class="cards">
-
-      <div class="card">
-        <h3>Corporate Recognition</h3>
-        <ul class="list">
-          <li>Благодарность ПАО Сбербанк (2022).</li>
-          <li>2 место на внутреннем CTF ПАО Сбербанк (2023), подтверждение экспертизы в практической кибербезопасности.</li>
-          <li>Сопровождение со стороны безопасности множества внутренних продуктов и решений, выведенных на внешний рынок.</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Education & Knowledge Sharing</h3>
-        <ul class="list">
-          <li>Разработчик онлайн-курса <em>«Операционные системы семейства UNIX. Системное программирование»</em> (НИУ ВШЭ, 2022) — <a target="_blank" rel="noopener" href="https://openedu.ru/course/hse/UNIX/">OpenEdu</a>.</li>
-          <li>Создание и внедрение <strong>«Методологии быстрой автоматизации»</strong> (2023), применяемой для ускоренного внедрения защищённых бизнес-решений.</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Research & Conferences</h3>
-        <ul class="list">
-          <li>Победитель конференции им. Е.В. Арменского (2023) с исследованием <em>«Анализ аномальных ситуаций сетевого трафика по данным журналов NGINX»</em>.</li>
-          <li>Автор докладов и выступлений по DevSecOps и автоматизации (внутренние и внешние мероприятия).</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Product Development</h3>
-        <ul class="list">
-          <li>Разработал и вывел на рынок продукт малой автоматизации (2023).</li>
-          <li><strong>Arctic Code Vault Contributor at GitHub (2020)</strong> — вклад в сохранение мирового open-source кода.</li>
-        </ul>
-      </div>
-
-    </div>
-  </section>
-
-
-
+    </section>
 
     <!-- RESEARCH ACTIVITY -->
-    <section id="research" data-reveal>
+    <section id="research" class="avoid-break" data-reveal>
       <h2>Research activity — доклады</h2>
       <div class="research-acc">
         <details>
@@ -387,7 +341,7 @@ section{ scroll-margin-top: calc(var(--nav-h) + 12px); }
               <li><strong>Даты проведения:</strong> 22–24 апреля 2025 года (выступил 24)</li>
               <li><strong>Место проведения:</strong> Тольяттинский государственный университет, Тольятти (онлайн)</li>
               <li><strong>Доклад:</strong> «Сравнение подходов для оценки риска возникновения критичных дефектов в релизах программного обеспечения»</li>
-              <li><strong>Ссылки:</strong> <a href="https://sites.google.com/view/itmutgu/" target="_blank">сайт конференции</a> · <a href="assets/Сerts/conf/itconf2025_cert.pdf" target="_blank">сертификат</a>  <!-- · <a href="assets/papers/itconf2025_paper.pdf" target="_blank">тезисы</a> --></li>
+              <li><strong>Ссылки:</strong> <a href="https://sites.google.com/view/itmutgu/" target="_blank">сайт конференции</a> · <a href="assets/Сerts/conf/itconf2025_cert.pdf" target="_blank">сертификат</a></li>
             </ul>
           </div>
         </details>
@@ -398,7 +352,7 @@ section{ scroll-margin-top: calc(var(--nav-h) + 12px); }
               <li><strong>Даты проведения:</strong> 22–28 апреля 2025 года (выступил 22)</li>
               <li><strong>Место проведения:</strong> Московский институт электроники и математики им. А.Н. Тихонова НИУ ВШЭ, Москва</li>
               <li><strong>Доклад:</strong> «Автоматизация устранения уязвимостей в программном обеспечении с использованием мультиагентной системы и механизма генерации с дополненной выборкой»</li>
-              <li><strong>Ссылки:</strong> <a href="https://miem.hse.ru/armntk/" target="_blank">сайт конференции</a> <!--· <a href="assets/Certs/armen2025_cert.pdf" target="_blank">сертификат</a> · <a href="assets/papers/armen2025_paper.pdf" target="_blank">тезисы</a> --> </li>
+              <li><strong>Ссылки:</strong> <a href="https://miem.hse.ru/armntk/" target="_blank">сайт конференции</a></li>
             </ul>
           </div>
         </details>
@@ -416,41 +370,39 @@ section{ scroll-margin-top: calc(var(--nav-h) + 12px); }
       </div>
     </section>
 
-<!-- CERTS -->
-<section id="certs" data-reveal>
-  <h2>Certificates / Patents</h2>
-  <div class="two">
-    <div class="card">
-      <h3>Сертификаты</h3>
-      <ul class="list">
-        <li>АНО ДПО «Корпоративный университет Сбербанка» (Россия)  
-           профессиональная переподготовка (очное)  
-          <br> <em>«Проектирование и оценка корпоративной архитектуры»</em>  
-          20.09.2024 • диплом № ПП 0017926</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>Патенты (выборочно)</h3>
-      <ul class="list">
-        <li>Выделение критичных релизов программных роботов с предварительным извлечением кода на языках высокого уровня — <a href="assets/patents/2025665620.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
-        <li>Вычисление кратных точек на эллиптической кривой в форме Монтгомери — <a href="assets/patents/2025665848.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
-        <li>Программа для анализа вычислительной производительности микропроцессора — <a href="assets/patents/2025666516.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
-        <li>Ускоренная программная реализация криптоалгоритма Camellia-128 — <a href="assets/patents/2025667963.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
-      </ul>
-    </div>
-  </div>
-</section>
-
+    <!-- CERTS -->
+    <section id="certs" class="avoid-break" data-reveal>
+      <h2>Certificates / Patents</h2>
+      <div class="two">
+        <div class="card">
+          <h3>Сертификаты</h3>
+          <ul class="list">
+            <li>АНО ДПО «Корпоративный университет Сбербанка» (Россия)
+               профессиональная переподготовка (очное)
+              <br> <em>«Проектирование и оценка корпоративной архитектуры»</em>
+              20.09.2024 • диплом № ПП 0017926</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Патенты (выборочно)</h3>
+          <ul class="list">
+            <li>Выделение критичных релизов программных роботов с предварительным извлечением кода на языках высокого уровня — <a href="assets/patents/2025665620.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
+            <li>Вычисление кратных точек на эллиптической кривой в форме Монтгомери — <a href="assets/patents/2025665848.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
+            <li>Программа для анализа вычислительной производительности микропроцессора — <a href="assets/patents/2025666516.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
+            <li>Ускоренная программная реализация криптоалгоритма Camellia-128 — <a href="assets/patents/2025667963.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
     <!-- COURSES -->
-    <section id="courses" data-reveal>
+    <section id="courses" class="avoid-break" data-reveal>
       <h2>Courses</h2>
-      <!-- <p>Cертификаты курсов: <a target="_blank" rel="noopener" href="ed_cours.html">тут</a>.</p> -->
-      <p>Cертификаты курсов: <a  rel="noopener" href="ed_cours.html">тут</a>.</p>
+      <p>Cертификаты курсов: <a rel="noopener" href="ed_cours.html">тут</a>.</p>
     </section>
 
     <!-- PROJECTS -->
-    <section id="projects" data-reveal>
+    <section id="projects" class="avoid-break" data-reveal>
       <h2>Projects</h2>
       <div class="card">
         <h3>Мультиагентная система для домашних задач (Python)</h3>
@@ -459,7 +411,7 @@ section{ scroll-margin-top: calc(var(--nav-h) + 12px); }
     </section>
 
     <!-- EDUCATION / LANG -->
-    <section id="education" data-reveal>
+    <section id="education" class="avoid-break" data-reveal>
       <h2>Education</h2>
       <div class="two">
         <div class="card">
@@ -476,56 +428,65 @@ section{ scroll-margin-top: calc(var(--nav-h) + 12px); }
     </section>
 
     <!-- ABOUT -->
-    <section id="about" data-reveal>
+    <section id="about" class="avoid-break" data-reveal>
       <h2>About me + Hobbies</h2>
       <div class="card">
         <p>Увлекаюсь разработкой, архитектурой, инвестициями (прогнозирование и аналитика), автоматизацией и поиском нестандартных решений.</p>
-        <p>Мне интересно всё, что связано с архитектурой и созданием сложных ИТ-систем. Люблю автоматизировать процессы и находить нестандартные подходы к задачам. Для меня важно не только решать технические проблемы, но и делать системы действительно удобными и безопасными для людей и бизнеса.</p>
+        <p>Активное путешествие по Азии, исследование местности и тд.</p>
         <p>Инвестиции и аналитика — ещё одна сфера интересов: анализ рынков тренирует способность видеть систему целиком, просчитывать сценарии и находить оптимальные стратегии.</p>
-        <!-- <p class="quote">Любимые фразы: “Science is elegant” и “Smooth seas don’t make good sailors”. =D</p>
-        <hr style="border:0;border-top:1px solid var(--line);margin:12px 0"/> -->
-        <!-- <p>Сопровождение и оптимизация более 100 процессов. Проработка безопасных решений для бизнеса. Руководил и координировал работу нескольких команд разработки и сопровождения коммунальных автоматизированных систем. Построил полный цикл безопасной разработки и управления уязвимостями. Обеспечил стабильную эксплуатацию и развитие систем в соответствии с требованиями безопасности и архитектуры.</p> -->
       </div>
     </section>
 
-<!-- CONTACT -->
-<section id="contact" data-reveal>
-  <h2>Contact</h2>
-  <div class="card">
-    <div class="two">
-      <div>
-        <p><strong>Email:</strong> <a href="mailto:missc0nn3ct@gmail.com">missc0nn3ct@gmail.com</a><br/>
-        <!-- <strong>Тел.:</strong> +7 977 873 1024<br/> -->
-        <strong>Дата рождения:</strong> 26 апреля</p>
-        <p>
-          <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/disc0nn3ct/">LinkedIn</a> · 
-          <a target="_blank" rel="noopener" href="https://github.com/disc0nn3ct">GitHub</a> · 
-          <a target="_blank" rel="noopener" href="https://t.me/kiichiru">Telegram</a>
-        </p>
+    <!-- CONTACT -->
+    <section id="contact" class="avoid-break" data-reveal>
+      <h2>Contact</h2>
+      <div class="card">
+        <div class="two">
+          <div>
+            <p><strong>Email:</strong> <a href="mailto:missc0nn3ct@gmail.com">missc0nn3ct@gmail.com</a><br/>
+            <!-- <strong>Тел.:</strong> +7 977 873 1024<br/> -->
+            <strong>Дата рождения:</strong> 26 апреля</p>
+            <p>
+              <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/disc0nn3ct/">LinkedIn</a> ·
+              <a target="_blank" rel="noopener" href="https://github.com/disc0nn3ct">GitHub</a> ·
+              <a target="_blank" rel="noopener" href="https://t.me/kiichiru">Telegram</a>
+            </p>
+          </div>
+          <div>
+            <p class="quote">Любимые фразы: «Science is elegant» · «Smooth seas don’t make good sailors»</p>
+            <button class="btn cta" id="print-bottom">Скачать CV (PDF)</button>
+          </div>
+        </div>
       </div>
-      <div>
-        <p class="quote">Любимые фразы: «Science is elegant» · «Smooth seas don’t make good sailors»</p>
-        <a class="btn cta" href="assets/CV.pdf" target="_blank" rel="noopener">Скачать CV (PDF)</a>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-
-    <div class="footer">© Сергей Федоров ·</div>
+    <!-- <div class="footer">© Сергей Федоров ·</div> -->
+<div class="footer">
+  &copy; 2025&nbsp;Сергей Федоров. Все права защищены. 
+</div>
   </div>
 
   <script>
+    // ===== Тема =====
     const body=document.body, nav=document.getElementById('nav');
     const themeBtn=document.getElementById('theme');
-    const setTheme=v=>{const light=v==='light'||v===true;body.classList.toggle('light',light);nav.classList.toggle('light',light);localStorage.setItem('theme',light?'light':'dark');themeBtn.textContent=light?'☀️ Тема':'🌙 Тема'};
+    const setTheme=v=>{
+      const light=v==='light'||v===true;
+      body.classList.toggle('light',light);
+      nav.classList.toggle('light',light);
+      localStorage.setItem('theme',light?'light':'dark');
+      themeBtn.textContent=light?'☀️ Тема':'🌙 Тема'
+    };
     themeBtn.onclick=()=> setTheme(body.classList.contains('light')? 'dark':'light');
     setTheme(localStorage.getItem('theme')||'dark');
 
-    const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('reveal');io.unobserve(e.target)}})},{threshold:.1});
+    // ===== Анимации появления =====
+    const io=new IntersectionObserver(es=>{
+      es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('reveal');io.unobserve(e.target)}})
+    },{threshold:.1});
     document.querySelectorAll('[data-reveal]').forEach(el=>io.observe(el));
 
-    // Появление мини‑аватара после прокрутки
+    // Мини‑аватар при прокрутке
     const showAvatarOnScroll=()=>{
       const trigger=180;
       if(window.scrollY>trigger){ nav.classList.add('show-avatar'); }
@@ -533,6 +494,41 @@ section{ scroll-margin-top: calc(var(--nav-h) + 12px); }
     };
     window.addEventListener('scroll', showAvatarOnScroll, {passive:true});
     showAvatarOnScroll();
+
+    // ===== Печать (системный диалог) =====
+    function printCV(){
+      // запоминаем тему
+      const saved = localStorage.getItem('theme') || 'dark';
+      body.dataset.savedTheme = saved;
+
+      // включаем "режим для печати" и светлую тему
+      body.classList.add('print-mode','light');
+      nav.classList.add('light');
+
+      const before = ()=>{ body.classList.add('print-mode'); };
+      const after = ()=>{
+        // снимаем спецкласс
+        body.classList.remove('print-mode');
+        // восстанавливаем тему
+        const t = body.dataset.savedTheme;
+        body.classList.toggle('light', t==='light');
+        nav.classList.toggle('light', t==='light');
+
+        // чистим обработчики
+        window.removeEventListener('beforeprint', before);
+        window.removeEventListener('afterprint', after);
+      };
+
+      window.addEventListener('beforeprint', before);
+      window.addEventListener('afterprint', after);
+
+      // небольшая задержка, чтобы применились стили и подгрузились шрифты
+      setTimeout(()=>window.print(), 60);
+    }
+
+    // навешиваем на обе кнопки
+    document.getElementById('print-top').addEventListener('click', printCV);
+    document.getElementById('print-bottom').addEventListener('click', printCV);
   </script>
 </body>
 </html>

@@ -3,11 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sergey Fedorov</title>
+  <title>Sergei Fedorov — Architecture • Information Security • DevSecOps</title>
   <meta name="description" content="Expert in architecture and information security. International projects, corporate standards, DevSecOps, Kubernetes, SAST/SCA. Cases, certificates, patents, publications, contacts." />
   <meta name="theme-color" content="#0b0d14" />
+  <meta name="copyright" content="© 2025, Sergei Fedorov. All rights reserved.">
 
-  <!-- hreflang for two languages -->
+  <!-- hreflang для двух языков -->
   <link rel="alternate" href="/index_en.html" hreflang="en">
   <link rel="alternate" href="/" hreflang="ru">
   <link rel="alternate" href="/index_en.html" hreflang="x-default">
@@ -17,18 +18,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root{
-  --nav-h: 64px;           /* фактическая высота шапки */
-}
+      --nav-h: 64px;           /* фактическая высота шапки */
+    }
 
-/* плавный скролл по якорям */
-html{ scroll-behavior: smooth; }
+    /* плавный скролл по якорям */
+    html{ scroll-behavior: smooth; }
 
-/* секции «останавливаются» на нужной высоте,
-   чтобы не прятаться под .nav */
-section{ scroll-margin-top: calc(var(--nav-h) + 12px); }
+    /* секции «останавливаются» на нужной высоте, чтобы не прятаться под .nav */
+    section{ scroll-margin-top: calc(var(--nav-h) + 12px); }
 
-
-    :root{--bg:#0b0d14;--panel:#0f1220;--card:#111427;--text:#e9e9f0;--muted:#9aa0b5;--line:#1c2140;--acc:#66e0ff;--acc2:#8b5cf6;--grad:linear-gradient(135deg,#66e0ff,#8b5cf6);--shadow:0 20px 60px rgba(0,0,0,.35)}
+    :root{
+      --bg:#0b0d14;--panel:#0f1220;--card:#111427;--text:#e9e9f0;--muted:#9aa0b5;--line:#1c2140;
+      --acc:#66e0ff;--acc2:#8b5cf6;--grad:linear-gradient(135deg,#66e0ff,#8b5cf6);
+      --shadow:0 20px 60px rgba(0,0,0,.35)
+    }
     .light{--bg:#f6f7fb;--panel:#fff;--card:#fff;--text:#121318;--muted:#5a6075;--line:#e6e8f2;--shadow:0 18px 40px rgba(0,0,0,.08)}
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Noto Sans",Arial,sans-serif}
@@ -42,7 +45,7 @@ section{ scroll-margin-top: calc(var(--nav-h) + 12px); }
     .nav-inner{max-width:1160px;margin:0 auto;padding:10px 24px;display:flex;gap:14px;align-items:center}
     .brand{font-weight:800;letter-spacing:.3px;display:flex;align-items:center;gap:10px}
     .sp{flex:1}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--text);font-weight:600}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--text);font-weight:600;cursor:pointer}
     .btn:hover{background:color-mix(in srgb,var(--card),#fff 6%)}
     .cta{background:var(--grad);color:#0b0d14;border:0}
     .cta:hover{filter:saturate(115%)}
@@ -91,81 +94,72 @@ section{ scroll-margin-top: calc(var(--nav-h) + 12px); }
     .research-acc details[open] summary::before{transform:rotate(90deg);color:var(--acc)}
     .research-acc .meta-line{padding:8px 16px 14px 28px;font-size:14px;color:var(--muted);line-height:1.5}
     .research-acc .meta-line ul.list{margin:0}
-    
-/* 📱 Mobile improvements */
-@media (max-width: 600px) {
-  .wrap {
-    padding: 12px; /* меньше отступов */
-  }
 
-  .nav-inner {
-    flex-wrap: wrap;         /* меню переносится */
-    gap: 8px;
-    padding: 8px 12px;
-  }
+    /* 📱 Mobile improvements */
+    @media (max-width: 600px) {
+      .wrap { padding: 12px; }
+      .nav-inner { flex-wrap: wrap; gap: 8px; padding: 8px 12px; }
+      .nav-inner a,.nav-inner button { font-size: 14px; padding: 6px 10px; border-radius: 10px; }
+      .brand span { font-size: 15px; }
+      .hero { padding: 20px; }
+      .hero .layout { grid-template-columns:1fr; text-align:center; }
+      .avatar-lg { margin:0 auto; }
+      h1 { font-size: 22px; }
+      p { font-size: 15px; line-height: 1.4; }
+      .cards{ grid-template-columns:1fr; }
+      .two{ grid-template-columns:1fr; }
+      .timeline{ padding-left:16px; }
+      .titem:before{ left:-10px; }
+    }
 
-  .nav-inner a,
-  .nav-inner button {
-    font-size: 14px;
-    padding: 6px 10px;       /* кнопки компактнее */
-    border-radius: 10px;
-  }
+    /* ======== ПЕЧАТЬ / PDF через системный диалог ======== */
+    /* Класс включается JS перед вызовом window.print() */
+    .print-mode *{transition:none !important}
+    .print-mode{background:#fff !important;color:#000 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .print-mode .nav{display:none !important}
+    .print-mode .wrap{max-width:none;padding:12mm}
+    .print-mode .hero,
+    .print-mode .card,
+    .print-mode .research-acc details{
+      background:#fff !important;border:1px solid #e3e3e3 !important;box-shadow:none !important
+    }
+    .print-mode .hero{border-radius:12px;padding:16px}
+    .print-mode .hero .layout{grid-template-columns:120px 1fr;gap:14px;align-items:start}
+    .print-mode .avatar-lg{width:110px;height:110px;border-radius:12px}
+    .print-mode h1{font-size:22pt;margin:0 0 6px;color:#000}
+    .print-mode h2{font-size:14pt;margin:0 0 8px;color:#000}
+    .print-mode h3{font-size:12.5pt;margin:0 0 6px;color:#000}
+    .print-mode p,.print-mode li,.print-mode .meta{color:#000}
+    .print-mode [data-reveal]{opacity:1 !important;transform:none !important}
 
-  .brand span {
-    font-size: 15px;
-  }
+    /* Разрывы/без разрывов */
+    .avoid-break{break-inside:avoid;page-break-inside:avoid}
+    .page-break{break-before:page;page-break-before:always}
 
-  .hero {
-    padding: 20px; /* компактнее блок с фото */
-  }
-
-  .hero .layout {
-    grid-template-columns: 1fr; /* аватар и текст в колонку */
-    text-align: center;
-  }
-
-  .avatar-lg {
-    margin: 0 auto; /* центрирование */
-  }
-
-  h1 {
-    font-size: 22px; /* уменьшение заголовка */
-  }
-
-  p {
-    font-size: 15px;
-    line-height: 1.4;
-  }
-
-  .cards {
-    grid-template-columns: 1fr; /* все карточки в одну колонку */
-  }
-
-  .two {
-    grid-template-columns: 1fr;
-  }
-
-  .timeline {
-    padding-left: 16px;
-  }
-
-  .titem:before {
-    left: -10px;
-  }
-}
-
-    
+    /* Настройки страницы принтера */
+    @page { size: A4; margin: 12mm; }
+    @media print {
+      body{background:#fff !important}
+      .nav{display:none !important}
+      .wrap{max-width:none;padding:0}
+    }
   </style>
 
+  <!-- Favicon для вкладок -->
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon.png">
   <link rel="shortcut icon" href="assets/favicon.ico">
+
+  <!-- Для iOS / Android -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon.png">
+  <meta name="theme-color" content="#0b0d14">
 </head>
 <body>
   <div class="nav" id="nav">
     <div class="nav-inner">
       <div class="brand">
         <img class="nav-avatar" src="assets/avatar.jpg" alt="">
-        <span>Sergey Fedorov</span>
+        <span>Sergei Fedorov</span>
       </div>
       <a href="#experience">Experience</a>
       <a href="#cases">Cases</a>
@@ -175,31 +169,32 @@ section{ scroll-margin-top: calc(var(--nav-h) + 12px); }
       <a href="#certs">Certificates/Patents</a>
       <a href="#education">Education</a>
       <div class="sp"></div>
-      <a class="btn" href="index.html" lang="ru">EN/RU</a>
+      <a class="btn" href="index.html" lang="ru" hreflang="ru">EN/RU</a>
       <button class="btn" id="theme">🌙 Theme</button>
       <a class="btn cta" href="#contact">Contact</a>
     </div>
   </div>
 
-  <div class="wrap">
+  <div class="wrap" id="cv-root">
     <!-- HERO -->
-    <section class="hero" data-reveal>
+    <section class="hero avoid-break" data-reveal>
       <div class="layout">
-        <img class="avatar-lg" src="assets/avatar.jpg" alt="Sergey Fedorov">
+        <img class="avatar-lg" src="assets/avatar.jpg" alt="Sergei Fedorov">
         <div>
-          <h1>Sergey Fedorov</h1>
-          <p>Expert in architecture and information security. I develop internal standards, support strategic initiatives and international IT projects. Experience in system design and implementation of high-load systems, including design, acceptance and quality control of software.  
-Actively engaged in scientific work in the field of information security and DevSecOps, researching the use of AI agents for automation of secure development and vulnerability analysis.</p>
+          <h1>Sergei Fedorov</h1>
+          <p>Expert in architecture and information security. I develop internal standards, support strategic initiatives and international IT projects. Experience in system design and implementation of high‑load systems, including elaboration, acceptance and software quality control.
+I am actively engaged in research in information security and DevSecOps, exploring the use of AI agents to automate secure development and vulnerability analysis.</p>
           <div class="center" style="margin-top:14px">
-            <a class="btn cta" href="assets/CV.pdf" download rel="noopener">Download CV (PDF)</a>
-            <a class="btn" href="#cases">View Cases</a>
+            <!-- Кнопка системной печати -->
+            <button class="btn cta" id="print-top">Download CV (PDF)</button>
+            <a class="btn" href="#cases">View cases</a>
           </div>
         </div>
       </div>
     </section>
 
     <!-- EXPERIENCE -->
-    <section id="experience" data-reveal>
+    <section id="experience" class="avoid-break" data-reveal>
       <h2>Experience</h2>
       <div class="card timeline">
         <div class="titem">
@@ -208,49 +203,49 @@ Actively engaged in scientific work in the field of information security and Dev
           <ul class="list">
             <li><strong>International projects</strong>
               <ul class="list">
-                <li>Supported projects from architectural design to acceptance of solutions.</li>
-                <li>Conducted architecture and security audits, identified vulnerabilities and deficiencies.</li>
+                <li>Supported projects from architectural elaboration to acceptance of solutions.</li>
+                <li>Conducted architecture and security audits, identified vulnerabilities and shortcomings.</li>
                 <li>Participated in negotiations with foreign contractors, formed requirements for architecture and security.</li>
                 <li>Reduced operational risks by eliminating identified shortcomings.</li>
-                <li>Supervised the full cycle of improvements: task setting, design, testing, acceptance.</li>
+                <li>Oversaw the full cycle of improvements: task setting, design, testing and acceptance.</li>
               </ul>
             </li>
-            <li><strong>Architectural expertise and solution audit</strong>
+            <li><strong>Architecture expertise and solution audits</strong>
               <ul class="list">
-                <li>Reviewed <strong>50+ projects</strong>: from idea to acceptance, ensuring compliance with IS and corporate architecture standards.</li>
-                <li>Analyzed architectural solutions for resilience to cyber threats, provided recommendations and adjustments.</li>
-                <li>Conduct expertise of <strong>AI-agent solutions</strong> — from concept to integration into business processes.</li>
-                <li>Supported development teams as a <strong>solution architect</strong>, integrating IS requirements into design solutions.</li>
-                <li>Prepared over <strong>2000 expert opinions</strong>, as a result vulnerabilities were eliminated and reliability and security of systems increased.</li>
-                <li>Developed <strong>architecture of high-load and complex products</strong>, including system landscape, service integration, technology selection.</li>
-                <li>Conducted audits and <strong>re-designed architecture of existing solutions</strong>, eliminating bottlenecks and improving scalability and fault tolerance.</li>
-                <li>Developed <strong>target architectural models</strong> for large products and supported their implementation at all lifecycle stages.</li>
-                <li>Participated in <strong>modernization of existing solutions</strong>, improving their security, performance and compliance with corporate standards.</li>
+                <li>Provided expertise for <strong>50+ projects</strong>: from idea to acceptance, ensuring compliance with information security and corporate architecture standards.</li>
+                <li>Analyzed architectural solutions for resilience to cyber threats; issued recommendations and adjustments.</li>
+                <li>Conducted expertise of <strong>AI‑agent solutions</strong> — from concept to integration into business processes.</li>
+                <li>Supported development teams as a <strong>solution architect</strong>, helping to integrate IS requirements into project solutions.</li>
+                <li>Prepared over <strong>2000 expert reports</strong>, as a result of which vulnerabilities were eliminated and the reliability and security of implemented systems increased.</li>
+                <li>Developed <strong>architectures of high‑load and complex products</strong>, including system landscape, service integration and technology selection.</li>
+                <li>Audited and <strong>redesigned the architecture of existing solutions</strong>, removing bottlenecks and improving scalability and fault tolerance.</li>
+                <li>Formed <strong>target architecture models</strong> for large products and supported their implementation throughout the life cycle.</li>
+                <li>Participated in <strong>modernization of previously implemented solutions</strong>, improving their security, performance and compliance with corporate standards.</li>
               </ul>
             </li>
             <li><strong>DevSecOps and automation</strong>
               <ul class="list">
-                <li>Developed and implemented a methodology for <strong>SAST/SCA checks for RPA algorithms</strong>, increasing code security and reducing vulnerabilities at early stages.</li>
-                <li>Created and implemented <strong>2 internal security and architecture standards for RPA</strong>, reducing automation risks and improving control.</li>
-                <li>Developed a “<strong>rapid automation methodology</strong>” that reduced time to implement secure business solutions.</li>
-                <li>Supported and optimized <strong>100+ business processes</strong>, embedding secure practices and coordinating work of multiple teams.</li>
+                <li>Developed and implemented a <strong>SAST/SCA methodology for checking RPA algorithms</strong>, which improved code security and reduced vulnerabilities at early stages.</li>
+                <li>Created and implemented <strong>two internal security and architecture standards for RPA</strong>, which reduced automation risks and increased the level of control.</li>
+                <li>Developed a “<strong>fast automation methodology</strong>” that reduced the timelines for implementing secure business solutions.</li>
+                <li>Supported and optimized <strong>100+ business processes</strong>, introducing secure practices and coordinating the work of several teams.</li>
               </ul>
             </li>
           </ul>
         </div>
         <div class="titem">
-          <h3>Researcher — HSE University Scientific Lab</h3>
+          <h3>Researcher — HSE Scientific Laboratory</h3>
           <div class="meta">11.2020 – 12.2020</div>
           <ul class="list">
-            <li>Participated in project: “Efficient data protection protocols in cyber-physical systems based on post-quantum cryptography and steganography.”</li>
-            <li>Researched and developed protocols improving distributed systems’ resilience to potential attacks.</li>
+            <li>Participated in the project: “Efficient data protection protocols in cyber‑physical systems based on post‑quantum cryptography and steganographic information hiding.”</li>
+            <li>Conducted research and development of protocols that increase the resilience of distributed systems to potential attacks.</li>
           </ul>
         </div>
       </div>
     </section>
 
     <!-- CASES -->
-    <section id="cases" data-reveal>
+    <section id="cases" class="avoid-break" data-reveal>
       <h2>Cases</h2>
       <div class="cards">
         <div class="card">
@@ -261,21 +256,21 @@ Actively engaged in scientific work in the field of information security and Dev
           </ul>
         </div>
         <div class="card">
-          <h3>Comprehensive expertise (architecture + security) for 50+ projects</h3>
-          <div class="meta">From idea to acceptance; target models; support as solution architect</div>
+          <h3>Comprehensive expertise (architecture + security) for more than 50 projects</h3>
+          <div class="meta">From idea to acceptance; target models; support as a solution architect</div>
           <ul class="list">
-            <li>Identified vulnerabilities, improved security, reliability and scalability.</li>
+            <li>Identification of vulnerabilities, increased security, reliability and scalability.</li>
           </ul>
         </div>
         <div class="card">
           <h3>DevSecOps: methodologies and standards</h3>
-          <div class="meta">SAST/SCA for RPA, 2 standards, “rapid automation methodology”</div>
+          <div class="meta">SAST/SCA for RPA, 2 standards, “fast automation methodology”</div>
         </div>
       </div>
     </section>
 
     <!-- SKILLS -->
-    <section id="skills" data-reveal>
+    <section id="skills" class="avoid-break" data-reveal>
       <h2>Skills</h2>
       <div class="cards">
         <div class="card"><h3>Architecture</h3><div class="meta">Solution/Enterprise · Security Architecture · Microservices · API/Service Mesh (Istio)</div></div>
@@ -286,90 +281,88 @@ Actively engaged in scientific work in the field of information security and Dev
     </section>
 
     <!-- ACHIEVEMENTS -->
-    <section id="achievements" data-reveal>
+    <section id="achievements" class="avoid-break" data-reveal>
       <h2>Achievements</h2>
       <div class="cards">
-
         <div class="card">
           <h3>Corporate Recognition</h3>
           <ul class="list">
             <li>Letter of appreciation from Sberbank PJSC (2022).</li>
-            <li>2nd place at internal CTF Sberbank (2023), proof of expertise in practical cybersecurity.</li>
-            <li>Support of numerous internal products and solutions released to external market.</li>
+            <li>2nd place at Sberbank PJSC internal CTF (2023), confirming expertise in practical cybersecurity.</li>
+            <li>Security support for many internal products and solutions released to the external market.</li>
           </ul>
         </div>
 
         <div class="card">
           <h3>Education & Knowledge Sharing</h3>
           <ul class="list">
-            <li>Developer of online course <em>“UNIX-family Operating Systems. System Programming”</em> (HSE, 2022) — <a target="_blank" rel="noopener" href="https://openedu.ru/course/hse/UNIX/">OpenEdu</a>.</li>
-            <li>Created and implemented <strong>“rapid automation methodology”</strong> (2023), applied for fast deployment of secure business solutions.</li>
+            <li>Developer of the online course <em>“UNIX Family Operating Systems. System Programming”</em> (HSE, 2022) — <a target="_blank" rel="noopener" href="https://openedu.ru/course/hse/UNIX/">OpenEdu</a>.</li>
+            <li>Creation and implementation of the <strong>“Fast Automation Methodology”</strong> (2023), applied for accelerated implementation of secure business solutions.</li>
           </ul>
         </div>
 
         <div class="card">
           <h3>Research & Conferences</h3>
           <ul class="list">
-            <li>Winner of Armenky Conference (2023) with research <em>“Analysis of abnormal situations in network traffic using NGINX logs.”</em></li>
-            <li>Author of talks and presentations on DevSecOps and automation (internal & external events).</li>
+            <li>Winner of the Armen conference (2023) with the study <em>“Analysis of abnormal network traffic situations based on NGINX logs.”</em></li>
+            <li>Author of talks and presentations on DevSecOps and automation (internal and external events).</li>
           </ul>
         </div>
 
         <div class="card">
           <h3>Product Development</h3>
           <ul class="list">
-            <li>Developed and launched small automation product (2023).</li>
-            <li><strong>Arctic Code Vault Contributor at GitHub (2020)</strong> — contribution to preservation of open-source code.</li>
+            <li>Developed and launched a small automation product (2023).</li>
+            <li><strong>Arctic Code Vault Contributor at GitHub (2020)</strong> — contribution to the preservation of world open‑source code.</li>
           </ul>
         </div>
-
       </div>
     </section>
 
     <!-- RESEARCH ACTIVITY -->
-    <section id="research" data-reveal>
-      <h2>Research activity — reports</h2>
+    <section id="research" class="avoid-break" data-reveal>
+      <h2>Research activity — talks</h2>
       <div class="research-acc">
         <details>
           <summary>2025 · ICICR 2025 (Dalian, China)</summary>
           <div class="meta-line">
             <ul class="list">
-              <li><strong>Dates:</strong> May 16–18, 2025</li>
+              <li><strong>Dates:</strong> 16–18 May 2025</li>
               <li><strong>Location:</strong> Dalian, China</li>
-              <li><strong>Talk:</strong> “AI-Driven Multi-Agent System for Real-Time Security Analysis of Software Releases”</li>
+              <li><strong>Talk:</strong> “AI‑Driven Multi‑Agent System for Real‑Time Security Analysis of Software Releases”</li>
               <li><strong>Links:</strong> <a href="http://www.icrconf.com/" target="_blank">conference website</a> · <a href="assets/Сerts/conf/icicr2025_cert.jpg" target="_blank">certificate</a></li>
             </ul>
           </div>
         </details>
         <details>
-          <summary>2025 · VIII All-Russian IT Conference (TSU, online)</summary>
+          <summary>2025 · VIII All‑Russian IT Conference (TSU, online)</summary>
           <div class="meta-line">
             <ul class="list">
-              <li><strong>Dates:</strong> April 22–24, 2025 (talk on 24)</li>
-              <li><strong>Location:</strong> Togliatti State University, Russia (online)</li>
-              <li><strong>Talk:</strong> “Comparison of approaches to assessing risk of critical defects in software releases”</li>
+              <li><strong>Dates:</strong> 22–24 April 2025 (spoke on the 24th)</li>
+              <li><strong>Location:</strong> Togliatti State University, Togliatti (online)</li>
+              <li><strong>Talk:</strong> “Comparison of approaches to assessing the risk of critical defects in software releases”</li>
               <li><strong>Links:</strong> <a href="https://sites.google.com/view/itmutgu/" target="_blank">conference website</a> · <a href="assets/Сerts/conf/itconf2025_cert.pdf" target="_blank">certificate</a></li>
             </ul>
           </div>
         </details>
         <details>
-          <summary>2025 · XXIX Interuniversity Scientific Conference named after E.V. Armensky (HSE MIEM, Moscow)</summary>
+          <summary>2025 · XXIX Inter‑University Sci‑Tech Conference named after E.V. Armensky (MIEM HSE, Moscow)</summary>
           <div class="meta-line">
             <ul class="list">
-              <li><strong>Dates:</strong> April 22–28, 2025 (talk on 22)</li>
-              <li><strong>Location:</strong> Moscow Institute of Electronics and Mathematics (MIEM) HSE, Moscow</li>
-              <li><strong>Talk:</strong> “Automation of vulnerability remediation in software using multi-agent system and augmented generation mechanism.”</li>
+              <li><strong>Dates:</strong> 22–28 April 2025 (spoke on the 22nd)</li>
+              <li><strong>Location:</strong> Moscow Institute of Electronics and Mathematics named after A.N. Tikhonov, HSE University, Moscow</li>
+              <li><strong>Talk:</strong> “Automating vulnerability remediation in software using a multi‑agent system and retrieval‑augmented generation”</li>
               <li><strong>Links:</strong> <a href="https://miem.hse.ru/armntk/" target="_blank">conference website</a></li>
             </ul>
           </div>
         </details>
         <details>
-          <summary>2023 · Interuniversity Scientific Conference named after E.V. Armensky</summary>
+          <summary>2023 · Inter‑University Sci‑Tech Conference named after E.V. Armensky</summary>
           <div class="meta-line">
             <ul class="list">
-              <li><strong>Dates:</strong> Feb 27 – Mar 7, 2023 (talk on 27)</li>
-              <li><strong>Location:</strong> Moscow, Russia</li>
-              <li><strong>Talk:</strong> “Research of abnormal network traffic situations using NGINX logs.”</li>
+              <li><strong>Dates:</strong> 27 February – 7 March 2023 (spoke on the 27th)</li>
+              <li><strong>Location:</strong> Russian Federation, Moscow</li>
+              <li><strong>Talk:</strong> “Study of abnormal network traffic situations based on nginx web server logs”</li>
               <li><strong>Links:</strong> <a href="https://miem.hse.ru/armntk/" target="_blank">conference website</a> · <a href="assets/certs/conf/armen2023_cert.pdf" target="_blank">certificate</a> · <a href="https://miem.hse.ru/mirror/pubs/share/direct/876266078.pdf" target="_blank">paper (PDF)</a></li>
             </ul>
           </div>
@@ -378,53 +371,53 @@ Actively engaged in scientific work in the field of information security and Dev
     </section>
 
     <!-- CERTS -->
-    <section id="certs" data-reveal>
+    <section id="certs" class="avoid-break" data-reveal>
       <h2>Certificates / Patents</h2>
       <div class="two">
         <div class="card">
           <h3>Certificates</h3>
           <ul class="list">
-            <li>Corporate University of Sberbank (Russia)  
-               professional retraining (offline)  
-              <br> <em>“Design and evaluation of corporate architecture”</em>  
-              Sep 20, 2024 • diploma № ПП 0017926</li>
+            <li>ANO CPE “Sberbank Corporate University” (Russia)
+               professional retraining (full‑time)
+              <br> <em>“Design and Evaluation of Corporate Architecture”</em>
+              20.09.2024 • diploma № ПП 0017926</li>
           </ul>
         </div>
         <div class="card">
           <h3>Patents (selected)</h3>
           <ul class="list">
-            <li>Identification of critical software robot releases with prior extraction of high-level code — <a href="assets/patents/2025665620.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
-            <li>Computation of multiple points on an elliptic curve in Montgomery form — <a href="assets/patents/2025665848.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
-            <li>Program for analyzing CPU performance — <a href="assets/patents/2025666516.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
-            <li>Accelerated software implementation of Camellia-128 cryptoalgorithm — <a href="assets/patents/2025667963.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
+            <li>Highlighting critical releases of software robots with preliminary extraction of high‑level code — <a href="assets/patents/2025665620.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
+            <li>Computing multiple points on an elliptic curve in Montgomery form — <a href="assets/patents/2025665848.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
+            <li>Program for analyzing computational performance of a microprocessor — <a href="assets/patents/2025666516.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
+            <li>Accelerated software implementation of the Camellia‑128 cryptographic algorithm — <a href="assets/patents/2025667963.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
           </ul>
         </div>
       </div>
     </section>
 
     <!-- COURSES -->
-    <section id="courses" data-reveal>
+    <section id="courses" class="avoid-break" data-reveal>
       <h2>Courses</h2>
       <p>Course certificates: <a rel="noopener" href="ed_cours_en.html">here</a>.</p>
     </section>
 
     <!-- PROJECTS -->
-    <section id="projects" data-reveal>
+    <section id="projects" class="avoid-break" data-reveal>
       <h2>Projects</h2>
       <div class="card">
-        <h3>Multi-agent system for home tasks (Python)</h3>
-        <ul class="list"><li>Search, trading, smart home, Telegram alerts, etc.</li></ul>
+        <h3>Multi‑agent system for home tasks (Python)</h3>
+        <ul class="list"><li>Search, trading, smart home, Telegram notifications, etc.</li></ul>
       </div>
     </section>
 
     <!-- EDUCATION / LANG -->
-    <section id="education" data-reveal>
+    <section id="education" class="avoid-break" data-reveal>
       <h2>Education</h2>
       <div class="two">
         <div class="card">
           <ul class="list">
-            <li><strong>HSE, PhD: Information Security</strong> (2023–2026) · <a target="_blank" rel="noopener" href="https://st.hse.ru/information_security">program page</a></li>
-            <li><strong>HSE, Specialist: Computer Security</strong> (2017–2023) · <a target="_blank" rel="noopener" href="https://www.hse.ru/ba/cosec/">program page</a> · Thesis: <a target="_blank" rel="noopener" href="http://hse.ru/edu/vkr/808862820">Analysis of abnormal network traffic situations using NGINX logs</a></li>
+            <li><strong>HSE, PhD: Information Security</strong> (2023–2026) · <a target="_blank" rel="noopener" href="https://st.hse.ru/information_security">program website</a></li>
+            <li><strong>HSE, Specialist: Computer Security</strong> (2017–2023) · <a target="_blank" rel="noopener" href="https://www.hse.ru/ba/cosec/">program website</a> · Thesis: <a target="_blank" rel="noopener" href="http://hse.ru/edu/vkr/808862820">Study of abnormal network traffic situations based on nginx web server logs</a></li>
           </ul>
         </div>
         <div class="card">
@@ -435,65 +428,65 @@ Actively engaged in scientific work in the field of information security and Dev
     </section>
 
     <!-- ABOUT -->
-    <section id="about" data-reveal>
+    <section id="about" class="avoid-break" data-reveal>
       <h2>About me + Hobbies</h2>
       <div class="card">
-        <p>I am passionate about development, architecture, investments (forecasting and analytics), automation and finding non-standard solutions.</p>
-        <p>I am interested in everything related to architecture and creation of complex IT systems. I love to automate processes and find unconventional approaches to tasks. For me, it is important not only to solve technical problems, but also to make systems truly convenient and secure for people and business.</p>
+        <p>I am passionate about development, architecture, investments (forecasting and analytics), automation, and finding non‑standard solutions.</p>
+        <p>Active travel across Asia, exploration of local areas, etc.</p>
         <p>Investments and analytics are another area of interest: market analysis trains the ability to see the system as a whole, calculate scenarios and find optimal strategies.</p>
-        <p class="quote">Favorite phrases: “Science is elegant” and “Smooth seas don’t make good sailors”. =D</p>
       </div>
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" data-reveal>
+    <section id="contact" class="avoid-break" data-reveal>
       <h2>Contact</h2>
       <div class="card">
         <div class="two">
           <div>
             <p><strong>Email:</strong> <a href="mailto:missc0nn3ct@gmail.com">missc0nn3ct@gmail.com</a><br/>
+            <!-- <strong>Тел.:</strong> +7 977 873 1024<br/> -->
             <strong>Date of birth:</strong> April 26</p>
             <p>
-              <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/disc0nn3ct/">LinkedIn</a> · 
-              <a target="_blank" rel="noopener" href="https://github.com/disc0nn3ct">GitHub</a> · 
+              <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/disc0nn3ct/">LinkedIn</a> ·
+              <a target="_blank" rel="noopener" href="https://github.com/disc0nn3ct">GitHub</a> ·
               <a target="_blank" rel="noopener" href="https://t.me/kiichiru">Telegram</a>
             </p>
           </div>
           <div>
-            <p class="quote">Favorite phrases: “Science is elegant” · “Smooth seas don’t make good sailors”</p>
-            <a class="btn cta" href="assets/CV.pdf" download rel="noopener">Download CV (PDF)</a>
+            <p class="quote">Favorite quotes: “Science is elegant” · “Smooth seas don’t make good sailors”</p>
+            <button class="btn cta" id="print-bottom">Download CV (PDF)</button>
           </div>
         </div>
       </div>
     </section>
 
-    <div class="footer">© Sergey Fedorov · </div>
+    <!-- <div class="footer">© Сергей Федоров ·</div> -->
+<div class="footer">
+  &copy; 2025&nbsp;Sergei Fedorov. All rights reserved. 
+</div>
   </div>
 
   <script>
-    const body = document.body, nav = document.getElementById('nav');
-    const themeBtn = document.getElementById('theme');
-    const THEME_KEY = 'cv_theme_v2';
+    // ===== Тема =====
+    const body=document.body, nav=document.getElementById('nav');
+    const themeBtn=document.getElementById('theme');
+    const setTheme=v=>{
+      const light=v==='light'||v===true;
+      body.classList.toggle('light',light);
+      nav.classList.toggle('light',light);
+      localStorage.setItem('theme',light?'light':'dark');
+      themeBtn.textContent=light?'☀️ Theme':'🌙 Theme'
+    };
+    themeBtn.onclick=()=> setTheme(body.classList.contains('light')? 'dark':'light');
+    setTheme(localStorage.getItem('theme')||'dark');
 
-    function applyTheme(mode){
-      const light = mode === 'light';
-      body.classList.toggle('light', light);
-      nav.classList.toggle('light', light);
-      if (themeBtn) themeBtn.textContent = light ? '☀️ Theme' : '🌙 Theme';
-    }
-    function setTheme(mode){
-      const val = (mode === 'light') ? 'light' : 'dark';
-      localStorage.setItem(THEME_KEY, val);
-      applyTheme(val);
-    }
-    applyTheme(localStorage.getItem(THEME_KEY) === 'light' ? 'light' : 'dark');
-    if (themeBtn) themeBtn.onclick = () => setTheme(body.classList.contains('light') ? 'dark' : 'light');
-
-    const io = new IntersectionObserver(es=>{
-      es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('reveal'); io.unobserve(e.target); } })
+    // ===== Анимации появления =====
+    const io=new IntersectionObserver(es=>{
+      es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('reveal');io.unobserve(e.target)}})
     },{threshold:.1});
     document.querySelectorAll('[data-reveal]').forEach(el=>io.observe(el));
 
+    // Мини‑аватар при прокрутке
     const showAvatarOnScroll=()=>{
       const trigger=180;
       if(window.scrollY>trigger){ nav.classList.add('show-avatar'); }
@@ -501,6 +494,41 @@ Actively engaged in scientific work in the field of information security and Dev
     };
     window.addEventListener('scroll', showAvatarOnScroll, {passive:true});
     showAvatarOnScroll();
+
+    // ===== Печать (системный диалог) =====
+    function printCV(){
+      // запоминаем тему
+      const saved = localStorage.getItem('theme') || 'dark';
+      body.dataset.savedTheme = saved;
+
+      // включаем "режим для печати" и светлую тему
+      body.classList.add('print-mode','light');
+      nav.classList.add('light');
+
+      const before = ()=>{ body.classList.add('print-mode'); };
+      const after = ()=>{
+        // снимаем спецкласс
+        body.classList.remove('print-mode');
+        // восстанавливаем тему
+        const t = body.dataset.savedTheme;
+        body.classList.toggle('light', t==='light');
+        nav.classList.toggle('light', t==='light');
+
+        // чистим обработчики
+        window.removeEventListener('beforeprint', before);
+        window.removeEventListener('afterprint', after);
+      };
+
+      window.addEventListener('beforeprint', before);
+      window.addEventListener('afterprint', after);
+
+      // небольшая задержка, чтобы применились стили и подгрузились шрифты
+      setTimeout(()=>window.print(), 60);
+    }
+
+    // навешиваем на обе кнопки
+    document.getElementById('print-top').addEventListener('click', printCV);
+    document.getElementById('print-bottom').addEventListener('click', printCV);
   </script>
 </body>
 </html>
