@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sergei Fedorov — Architecture • Information Security • DevSecOps</title>
+  <title>Sergei Fedorov - Architecture • Information Security • DevSecOps</title>
   <meta name="description" content="Expert in architecture and information security. International projects, corporate standards, DevSecOps, Kubernetes, SAST/SCA. Cases, certificates, patents, publications, contacts." />
   <meta name="theme-color" content="#0b0d14" />
-  <meta name="copyright" content="© 2025, Sergei Fedorov. All rights reserved.">
+  <meta name="copyright" content="© 2025–2026, Sergei Fedorov. All rights reserved.">
 
   <!-- hreflang для двух языков -->
   <link rel="alternate" href="/index_en.html" hreflang="en">
@@ -142,13 +142,18 @@
       body{background:#fff !important}
       .nav{display:none !important}
       .wrap{max-width:none;padding:0}
+      .print-mode .wrap{padding:0}
+      /* Allow large CV sections to flow across pages instead of leaving gaps. */
+      .avoid-break{break-inside:auto !important;page-break-inside:auto !important}
+      .btn,.cta,.hero .center{display:none !important}
+      .research-acc details{break-inside:avoid;page-break-inside:avoid}
     }
   </style>
 
   <!-- Favicon для вкладок -->
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon.png">
-  <link rel="shortcut icon" href="assets/favicon.ico">
+  <link rel="shortcut icon" type="image/png" href="assets/favicon.png">
 
   <!-- Для iOS / Android -->
   <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon.png">
@@ -166,7 +171,7 @@
       <a href="#skills">Skills</a>
       <a href="#achievements">Achievements</a>
       <a href="#research">Research</a>
-      <a href="#certs">Certificates/Patents</a>
+      <a href="#certs">Publications & IP</a>
       <a href="#education">Education</a>
       <div class="sp"></div>
       <a class="btn" href="index.html" lang="ru" hreflang="ru">EN/RU</a>
@@ -186,7 +191,7 @@
 I am actively engaged in research in information security and DevSecOps, exploring the use of AI agents to automate secure development and vulnerability analysis.</p>
           <div class="center" style="margin-top:14px">
             <!-- Кнопка системной печати -->
-            <button class="btn cta" id="print-top">Download CV (PDF)</button>
+            <button class="btn cta" id="print-top" type="button">Download CV (PDF)</button>
             <a class="btn" href="#cases">View cases</a>
           </div>
         </div>
@@ -198,7 +203,7 @@ I am actively engaged in research in information security and DevSecOps, explori
       <h2>Experience</h2>
       <div class="card timeline">
         <div class="titem">
-          <h3>Information Security Expert — Sberbank PJSC</h3>
+          <h3>Information Security Expert - Sberbank PJSC</h3>
           <div class="meta">01.2021 – present</div>
           <ul class="list">
             <li><strong>International projects</strong>
@@ -214,7 +219,7 @@ I am actively engaged in research in information security and DevSecOps, explori
               <ul class="list">
                 <li>Provided expertise for <strong>50+ projects</strong>: from idea to acceptance, ensuring compliance with information security and corporate architecture standards.</li>
                 <li>Analyzed architectural solutions for resilience to cyber threats; issued recommendations and adjustments.</li>
-                <li>Conducted expertise of <strong>AI‑agent solutions</strong> — from concept to integration into business processes.</li>
+                <li>Conducted expertise of <strong>AI‑agent solutions</strong> - from concept to integration into business processes.</li>
                 <li>Supported development teams as a <strong>solution architect</strong>, helping to integrate IS requirements into project solutions.</li>
                 <li>Prepared over <strong>2000 expert reports</strong>, as a result of which vulnerabilities were eliminated and the reliability and security of implemented systems increased.</li>
                 <li>Developed <strong>architectures of high‑load and complex products</strong>, including system landscape, service integration and technology selection.</li>
@@ -234,7 +239,7 @@ I am actively engaged in research in information security and DevSecOps, explori
           </ul>
         </div>
         <div class="titem">
-          <h3>Researcher — HSE Scientific Laboratory</h3>
+          <h3>Researcher - HSE Scientific Laboratory</h3>
           <div class="meta">11.2020 – 12.2020</div>
           <ul class="list">
             <li>Participated in the project: “Efficient data protection protocols in cyber‑physical systems based on post‑quantum cryptography and steganographic information hiding.”</li>
@@ -296,7 +301,7 @@ I am actively engaged in research in information security and DevSecOps, explori
         <div class="card">
           <h3>Education & Knowledge Sharing</h3>
           <ul class="list">
-            <li>Developer of the online course <em>“UNIX Family Operating Systems. System Programming”</em> (HSE, 2022) — <a target="_blank" rel="noopener" href="https://openedu.ru/course/hse/UNIX/">OpenEdu</a>.</li>
+            <li>Developer of the online course <em>“UNIX Family Operating Systems. System Programming”</em> (HSE, 2022) - <a target="_blank" rel="noopener" href="https://openedu.ru/course/hse/UNIX/">OpenEdu</a>.</li>
             <li>Creation and implementation of the <strong>“Fast Automation Methodology”</strong> (2023), applied for accelerated implementation of secure business solutions.</li>
           </ul>
         </div>
@@ -313,7 +318,7 @@ I am actively engaged in research in information security and DevSecOps, explori
           <h3>Product Development</h3>
           <ul class="list">
             <li>Product launched on the market (2023).</li>
-            <li><strong>Arctic Code Vault Contributor at GitHub (2020)</strong> — contribution to the preservation of world open‑source code.</li>
+            <li><strong>Arctic Code Vault Contributor at GitHub (2020)</strong> - contribution to the preservation of world open‑source code.</li>
           </ul>
         </div>
       </div>
@@ -321,8 +326,20 @@ I am actively engaged in research in information security and DevSecOps, explori
 
     <!-- RESEARCH ACTIVITY -->
     <section id="research" class="avoid-break" data-reveal>
-      <h2>Research activity — talks</h2>
+      <h2>Research activity - talks</h2>
       <div class="research-acc">
+        <details>
+          <summary>2026 · ICAIBD 2026 (Chengdu, China)</summary>
+          <div class="meta-line">
+            <ul class="list">
+              <li><strong>Dates:</strong> 29–31 May 2026</li>
+              <li><strong>Location:</strong> Chengdu, China</li>
+              <li><strong>Talk:</strong> “AI-Based Validation of Software Releases”</li>
+              <li><strong>Recognition:</strong> paper IB-5022 is listed in the <em>Best Presentation Awards</em> programme section.</li>
+              <li><strong>Links:</strong> <a href="https://www.icaibd.org/2026.html" target="_blank" rel="noopener">ICAIBD 2026 programme</a> · <a href="https://ieeexplore.ieee.org/abstract/document/11637277" target="_blank" rel="noopener">IEEE Xplore paper</a></li>
+            </ul>
+          </div>
+        </details>
         <details>
           <summary>2025 · ICICR 2025 (Dalian, China)</summary>
           <div class="meta-line">
@@ -330,7 +347,7 @@ I am actively engaged in research in information security and DevSecOps, explori
               <li><strong>Dates:</strong> 16–18 May 2025</li>
               <li><strong>Location:</strong> Dalian, China</li>
               <li><strong>Talk:</strong> “AI‑Driven Multi‑Agent System for Real‑Time Security Analysis of Software Releases”</li>
-              <li><strong>Links:</strong> <a href="http://www.icrconf.com/" target="_blank">conference website</a> · <a href="assets/Сerts/conf/icicr2025_cert.jpg" target="_blank">certificate</a></li>
+              <li><strong>Links:</strong> <a href="http://www.icrconf.com/" target="_blank" rel="noopener">conference website</a> · <a href="https://ieeexplore.ieee.org/document/11172929/references#references" target="_blank" rel="noopener">IEEE Xplore paper</a></li>
             </ul>
           </div>
         </details>
@@ -341,7 +358,7 @@ I am actively engaged in research in information security and DevSecOps, explori
               <li><strong>Dates:</strong> 22–24 April 2025 (spoke on the 24th)</li>
               <li><strong>Location:</strong> Togliatti State University, Togliatti (online)</li>
               <li><strong>Talk:</strong> “Comparison of approaches to assessing the risk of critical defects in software releases”</li>
-              <li><strong>Links:</strong> <a href="https://sites.google.com/view/itmutgu/" target="_blank">conference website</a> · <a href="assets/Сerts/conf/itconf2025_cert.pdf" target="_blank">certificate</a></li>
+              <li><strong>Links:</strong> <a href="https://sites.google.com/view/itmutgu/%D1%81%D0%B1%D0%BE%D1%80%D0%BD%D0%B8%D0%BA" target="_blank" rel="noopener">proceedings</a> · <a href="https://elibrary.ru/item.asp?id=83259553" target="_blank" rel="noopener">eLIBRARY</a></li>
             </ul>
           </div>
         </details>
@@ -352,7 +369,7 @@ I am actively engaged in research in information security and DevSecOps, explori
               <li><strong>Dates:</strong> 22–28 April 2025 (spoke on the 22nd)</li>
               <li><strong>Location:</strong> Moscow Institute of Electronics and Mathematics named after A.N. Tikhonov, HSE University, Moscow</li>
               <li><strong>Talk:</strong> “Automating vulnerability remediation in software using a multi‑agent system and retrieval‑augmented generation”</li>
-              <li><strong>Links:</strong> <a href="https://miem.hse.ru/armntk/" target="_blank">conference website</a></li>
+              <li><strong>Links:</strong> <a href="https://miem.hse.ru/data/2025/10/06/144043398/MIEM-HSE-2025-final%20(1).pdf" target="_blank" rel="noopener">proceedings (PDF)</a> · <a href="https://elibrary.ru/item.asp?id=83179216&pff=1" target="_blank" rel="noopener">eLIBRARY</a></li>
             </ul>
           </div>
         </details>
@@ -363,42 +380,46 @@ I am actively engaged in research in information security and DevSecOps, explori
               <li><strong>Dates:</strong> 27 February – 7 March 2023 (spoke on the 27th)</li>
               <li><strong>Location:</strong> Russian Federation, Moscow</li>
               <li><strong>Talk:</strong> “Study of abnormal network traffic situations based on nginx web server logs”</li>
-              <li><strong>Links:</strong> <a href="https://miem.hse.ru/armntk/" target="_blank">conference website</a> · <a href="assets/certs/conf/armen2023_cert.pdf" target="_blank">certificate</a> · <a href="https://miem.hse.ru/mirror/pubs/share/direct/876266078.pdf" target="_blank">paper (PDF)</a></li>
+              <li><strong>Links:</strong> <a href="https://miem.hse.ru/mirror/pubs/share/direct/876266078.pdf" target="_blank" rel="noopener">proceedings (PDF)</a> · <a href="https://elibrary.ru/item.asp?id=59722528&pff=1" target="_blank" rel="noopener">eLIBRARY</a> · <a href="https://miem.hse.ru/armntk/winners_2023" target="_blank" rel="noopener">third-degree diploma</a></li>
             </ul>
           </div>
         </details>
       </div>
     </section>
 
-    <!-- CERTS -->
+    <!-- PUBLICATIONS AND INTELLECTUAL PROPERTY -->
     <section id="certs" class="avoid-break" data-reveal>
-      <h2>Certificates / Patents</h2>
+      <h2>Publications and intellectual property</h2>
       <div class="two">
         <div class="card">
-          <h3>Certificates</h3>
-          <ul class="list">
-            <li>ANO CPE “Sberbank Corporate University” (Russia)
-               professional retraining (full‑time)
-              <br> <em>“Design and Evaluation of Corporate Architecture”</em>
-              20.09.2024 • diploma № ПП 0017926</li>
-          </ul>
+          <h3>Research publications</h3>
+          <div class="research-acc">
+            <details><summary>2026 · Standardisation of an integrated security assessment</summary><div class="meta-line"><strong>0.29 printed sheets</strong> · HSE journal list D · 100% author contribution.<br>Fedorov S. A. <em>Standardisation of an integrated security assessment for automated-system updates</em> // Standards and Quality. Accepted for publication.</div></details>
+            <details><summary>2026 · AI-Based Validation of Software Releases</summary><div class="meta-line"><strong>1.02 printed sheets</strong> · Scopus · 100% author contribution.<br>Fedorov S. <em>AI-Based Validation of Software Releases</em> // ICAIBD 2026. IEEE. DOI: <a href="https://doi.org/10.1109/ICAIBD69640.2026.11637277" target="_blank" rel="noopener">10.1109/ICAIBD69640.2026.11637277</a>.</div></details>
+            <details><summary>2025 · AI-Driven Multi-Agent System for Real-Time Security Analysis</summary><div class="meta-line"><strong>0.65 printed sheets</strong> · Scopus · 100% author contribution.<br>Fedorov S. <em>AI-Driven Multi-Agent System for Real-Time Security Analysis of Software Releases</em> // ICICR 2025. IEEE. P. 1195–1199. DOI: <a href="https://doi.org/10.1109/ICICR65456.2025.00212" target="_blank" rel="noopener">10.1109/ICICR65456.2025.00212</a>.</div></details>
+            <details><summary>2025 · Comparison of approaches to assessing defect risk</summary><div class="meta-line"><strong>0.37 printed sheets</strong> · 100% author contribution.<br>Fedorov S. A. <em>Comparison of approaches to assessing the risk of critical defects in software releases</em>. P. 141–148. <a href="https://elibrary.ru/item.asp?id=83259553" target="_blank" rel="noopener">eLIBRARY</a>.</div></details>
+            <details><summary>2025 · Automating vulnerability remediation</summary><div class="meta-line"><strong>0.32 printed sheets</strong> · 100% author contribution.<br>Fedorov S. A. <em>Automating vulnerability remediation in software using a multi-agent system and retrieval-augmented generation</em>. P. 117–120. <a href="https://miem.hse.ru/data/2025/10/06/144043398/MIEM-HSE-2025-final%20(1).pdf" target="_blank" rel="noopener">Proceedings</a> · <a href="https://elibrary.ru/item.asp?id=83179216&pff=1" target="_blank" rel="noopener">eLIBRARY</a>.</div></details>
+            <details><summary>2023 · Study of abnormal nginx network traffic</summary><div class="meta-line"><strong>0.22 printed sheets</strong> · 100% author contribution.<br>Fedorov S. A. <em>Study of abnormal network traffic situations based on nginx web-server logs</em>. P. 297–299. <a href="https://miem.hse.ru/mirror/pubs/share/direct/876266078.pdf" target="_blank" rel="noopener">Proceedings</a> · <a href="https://elibrary.ru/item.asp?id=59722528&pff=1" target="_blank" rel="noopener">eLIBRARY</a>.</div></details>
+          </div>
         </div>
         <div class="card">
-          <h3>Patents (selected)</h3>
-          <ul class="list">
-            <li>Highlighting critical releases of software robots with preliminary extraction of high‑level code — <a href="assets/patents/2025665620.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
-            <li>Computing multiple points on an elliptic curve in Montgomery form — <a href="assets/patents/2025665848.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
-            <li>Program for analyzing computational performance of a microprocessor — <a href="assets/patents/2025666516.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
-            <li>Accelerated software implementation of the Camellia‑128 cryptographic algorithm — <a href="assets/patents/2025667963.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
-          </ul>
+          <h3>Computer programs</h3>
+          <div class="research-acc">
+            <details><summary>2026 · RU 2026615991</summary><div class="meta-line">Automated control of correspondence between source-code changes and enhancement descriptions. 3 March 2026 · <a href="https://www.elibrary.ru/item.asp?id=89126534" target="_blank" rel="noopener">eLIBRARY</a>.</div></details>
+            <details><summary>2025 · RU 2025667963</summary><div class="meta-line">Accelerated software implementation of the Camellia-128 cryptographic algorithm for secure data processing. 9 July 2025 · <a href="https://elibrary.ru/item.asp?id=82657873" target="_blank" rel="noopener">eLIBRARY</a>.</div></details>
+            <details><summary>2025 · RU 2025666516</summary><div class="meta-line">Analysis of microprocessor computational performance based on latency and result-throughput measurements. 26 June 2025 · <a href="https://elibrary.ru/item.asp?id=82656395" target="_blank" rel="noopener">eLIBRARY</a>.</div></details>
+            <details><summary>2025 · RU 2025665848</summary><div class="meta-line">Computing multiple points on an elliptic curve in Montgomery form. 19 June 2025 · <a href="https://elibrary.ru/item.asp?id=82529114" target="_blank" rel="noopener">eLIBRARY</a>.</div></details>
+            <details><summary>2025 · RU 2025665620</summary><div class="meta-line">Highlighting critical releases of software robots with preliminary extraction of high-level code. 18 June 2025 · <a href="https://www.elibrary.ru/item.asp?id=82528888" target="_blank" rel="noopener">eLIBRARY</a>.</div></details>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- COURSES -->
     <section id="courses" class="avoid-break" data-reveal>
-      <h2>Courses</h2>
+      <h2>Courses and professional achievements</h2>
       <p>Course certificates: <a rel="noopener" href="ed_cours_en.html">here</a>.</p>
+      <p>Professional badges and achievements: <a href="https://awardme.ru/en/users/sergei-fedorov-4a8b82f0" target="_blank" rel="noopener">AwardMe profile</a>.</p>
     </section>
 
     <!-- PROJECTS -->
@@ -422,7 +443,7 @@ I am actively engaged in research in information security and DevSecOps, explori
         </div>
         <div class="card">
           <h3>Languages</h3>
-          <div class="meta">Russian — native · English — B2 · Japanese — elementary</div>
+          <div class="meta">Russian - native · English - B2 · Japanese - elementary</div>
         </div>
       </div>
     </section>
@@ -454,7 +475,7 @@ I am actively engaged in research in information security and DevSecOps, explori
           </div>
           <div>
             <p class="quote">Favorite quotes: “Science is elegant” · “Smooth seas don’t make good sailors”</p>
-            <button class="btn cta" id="print-bottom">Download CV (PDF)</button>
+            <button class="btn cta" id="print-bottom" type="button">Download CV (PDF)</button>
           </div>
         </div>
       </div>
@@ -462,7 +483,7 @@ I am actively engaged in research in information security and DevSecOps, explori
 
     <!-- <div class="footer">© Сергей Федоров ·</div> -->
 <div class="footer">
-  &copy; 2025&nbsp;Sergei Fedorov. All rights reserved. 
+  &copy; 2025–2026&nbsp;Sergei Fedorov. All rights reserved. 
 </div>
   </div>
 
@@ -500,6 +521,12 @@ I am actively engaged in research in information security and DevSecOps, explori
       // запоминаем тему
       const saved = localStorage.getItem('theme') || 'dark';
       body.dataset.savedTheme = saved;
+      // Expand all details for the printout only.
+      const detailsStates = Array.from(document.querySelectorAll('details')).map((item) => ({
+        item,
+        open: item.open
+      }));
+      detailsStates.forEach(({ item }) => { item.open = true; });
 
       // включаем "режим для печати" и светлую тему
       body.classList.add('print-mode','light');
@@ -513,6 +540,8 @@ I am actively engaged in research in information security and DevSecOps, explori
         const t = body.dataset.savedTheme;
         body.classList.toggle('light', t==='light');
         nav.classList.toggle('light', t==='light');
+        // Restore the on-screen state from before printing.
+        detailsStates.forEach(({ item, open }) => { item.open = open; });
 
         // чистим обработчики
         window.removeEventListener('beforeprint', before);

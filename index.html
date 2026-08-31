@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Сергей Федоров — Архитектура • Информационная безопасность • DevSecOps</title>
+  <title>Сергей Федоров - Архитектура • Информационная безопасность • DevSecOps</title>
   <meta name="description" content="Эксперт в области архитектуры и информационной безопасности. Международные проекты, корпоративные стандарты, DevSecOps, Kubernetes, SAST/SCA. Кейсы, сертификаты, патенты, публикации, контакты." />
   <meta name="theme-color" content="#0b0d14" />
-  <meta name="copyright" content="© 2025, Федоров Сергей. Все права защищены.">
+  <meta name="copyright" content="© 2025–2026, Федоров Сергей. Все права защищены.">
 
   <!-- hreflang для двух языков -->
   <link rel="alternate" href="/index_en.html" hreflang="en">
@@ -142,13 +142,18 @@
       body{background:#fff !important}
       .nav{display:none !important}
       .wrap{max-width:none;padding:0}
+      .print-mode .wrap{padding:0}
+      /* На CV разрешаем делить большие разделы между страницами. */
+      .avoid-break{break-inside:auto !important;page-break-inside:auto !important}
+      .btn,.cta,.hero .center{display:none !important}
+      .research-acc details{break-inside:avoid;page-break-inside:avoid}
     }
   </style>
 
   <!-- Favicon для вкладок -->
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon.png">
-  <link rel="shortcut icon" href="assets/favicon.ico">
+  <link rel="shortcut icon" type="image/png" href="assets/favicon.png">
 
   <!-- Для iOS / Android -->
   <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon.png">
@@ -166,7 +171,7 @@
       <a href="#skills">Навыки</a>
       <a href="#achievements">Достижения</a>
       <a href="#research">Исследования</a>
-      <a href="#certs">Сертификаты/Патенты</a>
+      <a href="#certs">Публикации и разработки</a>
       <a href="#education">Образование</a>
       <div class="sp"></div>
       <a class="btn" href="index_en.html" lang="en" hreflang="en">RU/EN</a>
@@ -186,7 +191,7 @@
 Активно занимаюсь научной деятельностью в области информационной безопасности и DevSecOps, исследую применение ИИ-агентов для автоматизации безопасной разработки и анализа уязвимостей.</p>
           <div class="center" style="margin-top:14px">
             <!-- Кнопка системной печати -->
-            <button class="btn cta" id="print-top">Скачать CV (PDF)</button>
+            <button class="btn cta" id="print-top" type="button">Скачать CV (PDF)</button>
             <a class="btn" href="#cases">Смотреть кейсы</a>
           </div>
         </div>
@@ -198,7 +203,7 @@
       <h2>Experience</h2>
       <div class="card timeline">
         <div class="titem">
-          <h3>Эксперт информационной безопасности — ПАО Сбербанк</h3>
+          <h3>Эксперт информационной безопасности - ПАО Сбербанк</h3>
           <div class="meta">01.2021 – настоящее время</div>
           <ul class="list">
             <li><strong>Международные проекты</strong>
@@ -214,7 +219,7 @@
               <ul class="list">
                 <li>Провел экспертизу <strong>50+ проектов</strong>: от идеи до приёмки, обеспечив соответствие стандартам ИБ и корпоративной архитектуры.</li>
                 <li>Анализировал архитектурные решения на устойчивость к киберугрозам, выдавал рекомендации и корректировки.</li>
-                <li>Провожу экспертизу <strong>ИИ-агентских решений</strong> — от концепции до интеграции в бизнес-процессы.</li>
+                <li>Провожу экспертизу <strong>ИИ-агентских решений</strong> - от концепции до интеграции в бизнес-процессы.</li>
                 <li>Сопровождал команды разработки как <strong>solution-архитектор</strong>, помогая интегрировать требования ИБ в проектные решения.</li>
                 <li>Составил более <strong>2000 экспертных заключений</strong>, по результатам которых были устранены уязвимости и повышена надежность и безопасность внедрённых систем.</li>
                 <li>Разрабатывал <strong>архитектуру высоконагруженных и комплексных продуктов</strong>, включая системный ландшафт, интеграцию сервисов и выбор технологий.</li>
@@ -234,7 +239,7 @@
           </ul>
         </div>
         <div class="titem">
-          <h3>Иследователь — Научная лаборатория НИУ ВШЭ</h3>
+          <h3>Исследователь - Научная лаборатория НИУ ВШЭ</h3>
           <div class="meta">11.2020 – 12.2020</div>
           <ul class="list">
             <li>Участвовал в проекте: «Эффективные протоколы защиты данных в киберфизических системах на основе методов постквантовой криптографии и стеганографического сокрытия информации».</li>
@@ -296,7 +301,7 @@
         <div class="card">
           <h3>Education & Knowledge Sharing</h3>
           <ul class="list">
-            <li>Разработчик онлайн-курса <em>«Операционные системы семейства UNIX. Системное программирование»</em> (НИУ ВШЭ, 2022) — <a target="_blank" rel="noopener" href="https://openedu.ru/course/hse/UNIX/">OpenEdu</a>.</li>
+            <li>Разработчик онлайн-курса <em>«Операционные системы семейства UNIX. Системное программирование»</em> (НИУ ВШЭ, 2022) - <a target="_blank" rel="noopener" href="https://openedu.ru/course/hse/UNIX/">OpenEdu</a>.</li>
             <li>Создание и внедрение <strong>«Методологии быстрой автоматизации»</strong> (2023), применяемой для ускоренного внедрения защищённых бизнес-решений.</li>
           </ul>
         </div>
@@ -313,7 +318,7 @@
           <h3>Product Development</h3>
           <ul class="list">
             <li>Вывод продукта на рынок (2023).</li>
-            <li><strong>Arctic Code Vault Contributor at GitHub (2020)</strong> — вклад в сохранение мирового open-source кода.</li>
+            <li><strong>Arctic Code Vault Contributor at GitHub (2020)</strong> - вклад в сохранение мирового open-source кода.</li>
           </ul>
         </div>
       </div>
@@ -321,8 +326,20 @@
 
     <!-- RESEARCH ACTIVITY -->
     <section id="research" class="avoid-break" data-reveal>
-      <h2>Research activity — доклады</h2>
+      <h2>Research activity - доклады</h2>
       <div class="research-acc">
+        <details>
+          <summary>2026 · ICAIBD 2026 (Чэнду, Китай)</summary>
+          <div class="meta-line">
+            <ul class="list">
+              <li><strong>Даты проведения:</strong> 29–31 мая 2026 года</li>
+              <li><strong>Место проведения:</strong> Чэнду, Китай</li>
+              <li><strong>Доклад:</strong> «AI-Based Validation of Software Releases»</li>
+              <li><strong>Признание:</strong> доклад IB-5022 включён в перечень <em>Best Presentation Awards</em>.</li>
+              <li><strong>Ссылки:</strong> <a href="https://www.icaibd.org/2026.html" target="_blank" rel="noopener">программа ICAIBD 2026</a> · <a href="https://ieeexplore.ieee.org/abstract/document/11637277" target="_blank" rel="noopener">публикация в IEEE Xplore</a></li>
+            </ul>
+          </div>
+        </details>
         <details>
           <summary>2025 · ICICR 2025 (Далянь, Китай)</summary>
           <div class="meta-line">
@@ -330,7 +347,7 @@
               <li><strong>Даты проведения:</strong> 16–18 мая 2025 года</li>
               <li><strong>Место проведения:</strong> Далянь, Китай</li>
               <li><strong>Доклад:</strong> «AI-Driven Multi-Agent System for Real-Time Security Analysis of Software Releases»</li>
-              <li><strong>Ссылки:</strong> <a href="http://www.icrconf.com/" target="_blank">сайт конференции</a> · <a href="assets/Сerts/conf/icicr2025_cert.jpg" target="_blank">сертификат</a></li>
+              <li><strong>Ссылки:</strong> <a href="http://www.icrconf.com/" target="_blank" rel="noopener">сайт конференции</a> · <a href="https://ieeexplore.ieee.org/document/11172929/references#references" target="_blank" rel="noopener">публикация в IEEE Xplore</a></li>
             </ul>
           </div>
         </details>
@@ -341,7 +358,7 @@
               <li><strong>Даты проведения:</strong> 22–24 апреля 2025 года (выступил 24)</li>
               <li><strong>Место проведения:</strong> Тольяттинский государственный университет, Тольятти (онлайн)</li>
               <li><strong>Доклад:</strong> «Сравнение подходов для оценки риска возникновения критичных дефектов в релизах программного обеспечения»</li>
-              <li><strong>Ссылки:</strong> <a href="https://sites.google.com/view/itmutgu/" target="_blank">сайт конференции</a> · <a href="assets/Сerts/conf/itconf2025_cert.pdf" target="_blank">сертификат</a></li>
+              <li><strong>Ссылки:</strong> <a href="https://sites.google.com/view/itmutgu/%D1%81%D0%B1%D0%BE%D1%80%D0%BD%D0%B8%D0%BA" target="_blank" rel="noopener">сборник материалов</a> · <a href="https://elibrary.ru/item.asp?id=83259553" target="_blank" rel="noopener">eLIBRARY</a></li>
             </ul>
           </div>
         </details>
@@ -352,7 +369,7 @@
               <li><strong>Даты проведения:</strong> 22–28 апреля 2025 года (выступил 22)</li>
               <li><strong>Место проведения:</strong> Московский институт электроники и математики им. А.Н. Тихонова НИУ ВШЭ, Москва</li>
               <li><strong>Доклад:</strong> «Автоматизация устранения уязвимостей в программном обеспечении с использованием мультиагентной системы и механизма генерации с дополненной выборкой»</li>
-              <li><strong>Ссылки:</strong> <a href="https://miem.hse.ru/armntk/" target="_blank">сайт конференции</a></li>
+              <li><strong>Ссылки:</strong> <a href="https://miem.hse.ru/data/2025/10/06/144043398/MIEM-HSE-2025-final%20(1).pdf" target="_blank" rel="noopener">сборник материалов (PDF)</a> · <a href="https://elibrary.ru/item.asp?id=83179216&pff=1" target="_blank" rel="noopener">eLIBRARY</a></li>
             </ul>
           </div>
         </details>
@@ -363,42 +380,46 @@
               <li><strong>Даты проведения:</strong> 27 февраля – 7 марта 2023 года (выступил 27)</li>
               <li><strong>Место проведения:</strong> Российская Федерация, Москва</li>
               <li><strong>Доклад:</strong> «Исследование аномальных ситуаций сетевого трафика по данным журналов web-сервера nginx»</li>
-              <li><strong>Ссылки:</strong> <a href="https://miem.hse.ru/armntk/" target="_blank">сайт конференции</a> · <a href="assets/certs/conf/armen2023_cert.pdf" target="_blank">сертификат</a> · <a href="https://miem.hse.ru/mirror/pubs/share/direct/876266078.pdf" target="_blank">текст доклада (PDF)</a></li>
+              <li><strong>Ссылки:</strong> <a href="https://miem.hse.ru/mirror/pubs/share/direct/876266078.pdf" target="_blank" rel="noopener">сборник материалов (PDF)</a> · <a href="https://elibrary.ru/item.asp?id=59722528&pff=1" target="_blank" rel="noopener">eLIBRARY</a> · <a href="https://miem.hse.ru/armntk/winners_2023" target="_blank" rel="noopener">диплом III степени</a></li>
             </ul>
           </div>
         </details>
       </div>
     </section>
 
-    <!-- CERTS -->
+    <!-- PUBLICATIONS AND INTELLECTUAL PROPERTY -->
     <section id="certs" class="avoid-break" data-reveal>
-      <h2>Certificates / Patents</h2>
+      <h2>Публикации и результаты интеллектуальной деятельности</h2>
       <div class="two">
         <div class="card">
-          <h3>Сертификаты</h3>
-          <ul class="list">
-            <li>АНО ДПО «Корпоративный университет Сбербанка» (Россия)
-               профессиональная переподготовка (очное)
-              <br> <em>«Проектирование и оценка корпоративной архитектуры»</em>
-              20.09.2024 • диплом № ПП 0017926</li>
-          </ul>
+          <h3>Научные публикации</h3>
+          <div class="research-acc">
+            <details><summary>2026 · Стандартизация комплексной оценки безопасности обновлений</summary><div class="meta-line"><strong>0,29 п. л.</strong> · список НИУ ВШЭ D · авторский вклад — 100%.<br>Федоров С. А. <em>Стандартизация комплексной оценки безопасности обновлений автоматизированных систем</em> // «Стандарты и качество». Принято к публикации.</div></details>
+            <details><summary>2026 · AI-Based Validation of Software Releases</summary><div class="meta-line"><strong>1,02 п. л.</strong> · Scopus · авторский вклад — 100%.<br>Fedorov S. <em>AI-Based Validation of Software Releases</em> // ICAIBD 2026. IEEE. DOI: <a href="https://doi.org/10.1109/ICAIBD69640.2026.11637277" target="_blank" rel="noopener">10.1109/ICAIBD69640.2026.11637277</a>.</div></details>
+            <details><summary>2025 · AI-Driven Multi-Agent System for Real-Time Security Analysis</summary><div class="meta-line"><strong>0,65 п. л.</strong> · Scopus · авторский вклад - 100%.<br>Fedorov S. <em>AI-Driven Multi-Agent System for Real-Time Security Analysis of Software Releases</em> // ICICR 2025. IEEE. P. 1195–1199. DOI: <a href="https://doi.org/10.1109/ICICR65456.2025.00212" target="_blank" rel="noopener">10.1109/ICICR65456.2025.00212</a>.</div></details>
+            <details><summary>2025 · Сравнение подходов для оценки риска дефектов</summary><div class="meta-line"><strong>0,37 п. л.</strong> · авторский вклад - 100%.<br>Федоров С. А. <em>Сравнение подходов для оценки риска возникновения критичных дефектов в релизах программного обеспечения</em>. С. 141–148. <a href="https://elibrary.ru/item.asp?id=83259553" target="_blank" rel="noopener">eLIBRARY</a>.</div></details>
+            <details><summary>2025 · Автоматизация устранения уязвимостей</summary><div class="meta-line"><strong>0,32 п. л.</strong> · авторский вклад - 100%.<br>Федоров С. А. <em>Автоматизация устранения уязвимостей в программном обеспечении с использованием мультиагентной системы и механизма генерации с дополненной выборкой</em>. С. 117–120. <a href="https://miem.hse.ru/data/2025/10/06/144043398/MIEM-HSE-2025-final%20(1).pdf" target="_blank" rel="noopener">Сборник</a> · <a href="https://elibrary.ru/item.asp?id=83179216&pff=1" target="_blank" rel="noopener">eLIBRARY</a>.</div></details>
+            <details><summary>2023 · Исследование аномалий сетевого трафика nginx</summary><div class="meta-line"><strong>0,22 п. л.</strong> · авторский вклад - 100%.<br>Федоров С. А. <em>Исследование аномальных ситуаций сетевого трафика по данным журналов web-сервера nginx</em>. С. 297–299. <a href="https://miem.hse.ru/mirror/pubs/share/direct/876266078.pdf" target="_blank" rel="noopener">Сборник</a> · <a href="https://elibrary.ru/item.asp?id=59722528&pff=1" target="_blank" rel="noopener">eLIBRARY</a>.</div></details>
+          </div>
         </div>
         <div class="card">
-          <h3>Патенты (выборочно)</h3>
-          <ul class="list">
-            <li>Выделение критичных релизов программных роботов с предварительным извлечением кода на языках высокого уровня — <a href="assets/patents/2025665620.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
-            <li>Вычисление кратных точек на эллиптической кривой в форме Монтгомери — <a href="assets/patents/2025665848.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
-            <li>Программа для анализа вычислительной производительности микропроцессора — <a href="assets/patents/2025666516.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
-            <li>Ускоренная программная реализация криптоалгоритма Camellia-128 — <a href="assets/patents/2025667963.eod.pdf" target="_blank" rel="noopener">PDF</a></li>
-          </ul>
+          <h3>Программы для ЭВМ</h3>
+          <div class="research-acc">
+            <details><summary>2026 · RU 2026615991</summary><div class="meta-line">«Программа автоматизированного контроля соответствия изменений программного кода и описаний доработок». 03.03.2026 · <a href="https://www.elibrary.ru/item.asp?id=89126534" target="_blank" rel="noopener">eLIBRARY</a>.</div></details>
+            <details><summary>2025 · RU 2025667963</summary><div class="meta-line">«Ускоренная программная реализация криптоалгоритма Camellia-128 для защищённой обработки данных». 09.07.2025 · <a href="https://elibrary.ru/item.asp?id=82657873" target="_blank" rel="noopener">eLIBRARY</a>.</div></details>
+            <details><summary>2025 · RU 2025666516</summary><div class="meta-line">«Программа для анализа вычислительной производительности микропроцессора на основе замеров латентности и темпа выдачи результатов». 26.06.2025 · <a href="https://elibrary.ru/item.asp?id=82656395" target="_blank" rel="noopener">eLIBRARY</a>.</div></details>
+            <details><summary>2025 · RU 2025665848</summary><div class="meta-line">«Вычисление кратных точек на эллиптической кривой в форме Монтгомери». 19.06.2025 · <a href="https://elibrary.ru/item.asp?id=82529114" target="_blank" rel="noopener">eLIBRARY</a>.</div></details>
+            <details><summary>2025 · RU 2025665620</summary><div class="meta-line">«Выделение критичных релизов программных роботов с предварительным извлечением кода на языках высокого уровня». 18.06.2025 · <a href="https://www.elibrary.ru/item.asp?id=82528888" target="_blank" rel="noopener">eLIBRARY</a>.</div></details>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- COURSES -->
     <section id="courses" class="avoid-break" data-reveal>
-      <h2>Courses</h2>
-      <p>Cертификаты курсов: <a rel="noopener" href="ed_cours.html">тут</a>.</p>
+      <h2>Курсы и профессиональные достижения</h2>
+      <p>Сертификаты курсов: <a rel="noopener" href="ed_cours.html">тут</a>.</p>
+      <p>Профессиональные бейджи и достижения: <a href="https://awardme.ru/ru/users/sergei-fedorov-4a8b82f0" target="_blank" rel="noopener">профиль AwardMe</a>.</p>
     </section>
 
     <!-- PROJECTS -->
@@ -422,7 +443,7 @@
         </div>
         <div class="card">
           <h3>Languages</h3>
-          <div class="meta">Russian — native · English — B2 · Japanese — elementary</div>
+          <div class="meta">Russian - native · English - B2 · Japanese - elementary</div>
         </div>
       </div>
     </section>
@@ -433,7 +454,7 @@
       <div class="card">
         <p>Увлекаюсь разработкой, архитектурой, инвестициями (прогнозирование и аналитика), автоматизацией и поиском нестандартных решений.</p>
         <p>Активное путешествие по Азии, исследование местности и тд.</p>
-        <p>Инвестиции и аналитика — ещё одна сфера интересов: анализ рынков тренирует способность видеть систему целиком, просчитывать сценарии и находить оптимальные стратегии.</p>
+        <p>Инвестиции и аналитика - ещё одна сфера интересов: анализ рынков тренирует способность видеть систему целиком, просчитывать сценарии и находить оптимальные стратегии.</p>
       </div>
     </section>
 
@@ -454,7 +475,7 @@
           </div>
           <div>
             <p class="quote">Любимые фразы: «Science is elegant» · «Smooth seas don’t make good sailors»</p>
-            <button class="btn cta" id="print-bottom">Скачать CV (PDF)</button>
+            <button class="btn cta" id="print-bottom" type="button">Скачать CV (PDF)</button>
           </div>
         </div>
       </div>
@@ -462,7 +483,7 @@
 
     <!-- <div class="footer">© Сергей Федоров ·</div> -->
 <div class="footer">
-  &copy; 2025&nbsp;Сергей Федоров. Все права защищены. 
+  &copy; 2025–2026&nbsp;Сергей Федоров. Все права защищены. 
 </div>
   </div>
 
@@ -500,6 +521,12 @@
       // запоминаем тему
       const saved = localStorage.getItem('theme') || 'dark';
       body.dataset.savedTheme = saved;
+      // Раскрываем все детали только для печатной версии.
+      const detailsStates = Array.from(document.querySelectorAll('details')).map((item) => ({
+        item,
+        open: item.open
+      }));
+      detailsStates.forEach(({ item }) => { item.open = true; });
 
       // включаем "режим для печати" и светлую тему
       body.classList.add('print-mode','light');
@@ -513,6 +540,8 @@
         const t = body.dataset.savedTheme;
         body.classList.toggle('light', t==='light');
         nav.classList.toggle('light', t==='light');
+        // Возвращаем раскрытые блоки в состояние до печати.
+        detailsStates.forEach(({ item, open }) => { item.open = open; });
 
         // чистим обработчики
         window.removeEventListener('beforeprint', before);
